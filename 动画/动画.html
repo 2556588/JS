@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>addEventListener() 方法来向按钮添加点击事件</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: absolute;
+            z-index: -1;
+            /* top:100px; */
+            /* left:200px; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="btn1">上</button>
+    <button id="btn2">下</button>
+    <button id="btn3">左</button>
+    <button id="btn4">右</button>
+    <div id="div0"></div>
+    <!-- <div id="div0"></div> -->
+    <button id="btn">点击</button>
+    <p id="bt"></p>
+    <script>
+        //     var div0=document.getElementById("div0");  //设置监听事件
+        // setInterval(animation,500);  //(,) 前面的是调用的函数名，后面是间隔时间
+        // div0.addEventListener("click",clickHandle);
+        // var bool=true;  //bool开关设置
+        // var time=0;
+        // var left=0;
+        // function clickHandle(){
+        //     bool=!bool;
+        // }
+        // function animation(){
+        //     if(!bool) return        //开关
+        //     // console.log("加一"+(time++)+"s");
+        //     left+=20;
+        //     div0.style.left=left+"px";
+        // }
+
+        //addEventListener() 方法来向按钮添加点击事件
+        // var x =document.getElementById("btn")
+        // x.addEventListener("click",fn5);
+        // x.addEventListener("click",fn6);
+        // function fn5(){
+        //     alert("弹窗o")
+        // }
+        // function fn6(){
+        //     alert("再次弹窗")
+        // }
+
+        //将内容写到HTML元素
+        // var x=document.getElementById("btn");
+        // var b=document.getElementById("bt");
+        //     x.addEventListener("click",myfunction)
+        // function myfunction(){
+        //     b.innerHTML="点击成功";
+        //     this.style.backgroundColor="red" //修改button的样式
+        // }
+
+        //addEventListener() 方法来传参
+        // var s1=10,s2=10;
+        // var x=document.getElementById("btn");
+        // x.addEventListener("click",myfunction);
+        // function myfunction(){
+        //     myfn(s1,s2);
+        // }
+        // function myfn(x,y){
+        //     var result=x*y;
+        //     document.getElementById("bt").innerHTML=result;
+
+        // }
+        //利用按钮移动div盒子
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var btn4 = document.getElementById("btn4");
+        var div0 = document.getElementById("div0")
+        var speed = 2;
+        btn1.addEventListener("click", myfunction)
+        btn2.addEventListener("click", myfunction)
+        btn3.addEventListener("click", myfunction)
+        btn4.addEventListener("click", myfunction)
+        div0.lefts = 0;
+        div0.tops = 0;
+        function myfunction() {
+
+            switch (this) {
+                case btn1: div0.tops -= speed; break;
+                case btn2: div0.tops += speed; break;
+                case btn3: div0.lefts -= speed; break;
+                case btn4: div0.lefts += speed; break;
+            }
+            div0.style.top = div0.tops + "%";   //"px"
+            div0.style.left = div0.lefts + "%"; //"px"
+
+        }
+        myfunction();
+
+
+
+    </script>
+</body>
+
+</html>

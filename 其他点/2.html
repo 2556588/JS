@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" name="title">
+    <span name="span"></span> -->
+
+    <input type="text">
+    <ul></ul>
+    <script>
+        //some,every
+        // some可带三个参数 value，index，array
+        // let keywords=["php","js"]
+        // let title=document.querySelector("[name=title]");
+        // title.addEventListener("keyup",function () { 
+        //     const res=keywords.some(values=>{
+        //         return this.value.indexOf(values)!=-1;
+                
+        //     })
+        //     // if(res===false){
+        //     //     document.querySelector("[name=span]").innerHTML="必须要有关键字"+[...keywords]
+        //     // }else{
+        //     //     document.querySelector("[name=span]").innerHTML=""
+        //     // }
+        //     document.querySelector("[name=span]").innerHTML=res?"":"必须带有关键字"+[...keywords]
+        //  })
+
+      
+
+    //过滤 fliter 参数value，index，array
+        // let lessons=[
+        //     {title:"adl0",category:"css"},
+        //     {title:"撒大大",category:"css"},
+        //     {title:"阿斯顿",category:"js"}
+        // ]
+        // const sys=lessons.filter((values)=>{
+        //     return values["category"]=="css"
+        // })
+        // console.log(sys);
+        // //fliter原理
+        // let hd=[1,2,3,4];
+        // function fn(arr,except) {  
+        //     let newarr=[];
+        //     for (const value of arr) {
+        //         if(except.includes(value)===false){
+        //             newarr.push(value);
+        //         }
+        //     }
+        //     return newarr
+        // }
+        // console.log(fn(hd,[1,4,6]));
+    
+    //map()映射数组 参数value index arr；//注：直接引用数值类型修改值不会改变原数组的值，可以改变数组中对象的值，或给对象添加属性，
+        // let arr=[1,2,3,4,5];
+        // let lessons=[
+        //     {title:"adl0",category:"css"},
+        //     {title:"撒大大",category:"css"},
+        //     {title:"阿斯顿",category:"js"}
+        // ]
+        // arr.map(value=>{
+        //     return  value+=10   
+        // })
+        // console.log(arr);
+        
+        // lessons.map((value)=>{
+        //      return value.click=100; //添加属性
+           
+        // })
+        // console.log(lessons);
+        
+        // let arr=lessons.map((value)=>{
+        //     return {
+        //         title:value.title,
+        //         category:value.category
+        //     }
+        // })
+        // console.log(arr);
+        
+    //reduce  (用于求和或计数) 参数total，currentValue，currentIndex，arr,initialValue(前两个参数必填)
+    /*
+            array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+            total:初始值，或计算结束后的返回值
+            currentValue：当前元素
+            currentIndex：当前元素的索引
+            arr：当前元素的数组对象
+            initialValue:初始值(默认值为1)赋值给total
+    */
+        //计算一个数组中元素出现几次
+        // let arr=[1,2,3,2,5,2,3,2,3,0,2];
+        // function count(arr,item) { 
+        //     return arr.reduce(function (total,value) { 
+        //         total+=item===value?1:0;
+        //         return total;
+        //      },0)
+        //  }
+        // console.log(count(arr,2));
+        
+        //计算最大值
+        // let arr=[1,2,64,64,6,49,9,49];
+        // function arrayMax(arr) {  
+        //     return arr.reduce(function (total,value) { 
+        //         return total>value?total:value;
+        //      })
+        // }
+        // console.log(arrayMax(arr));
+        // let arr=[
+        //     {name:"iphone",price:12000},
+        //     {name:"ipad",price:1200},
+        //     {name:"mac",price:8852},
+        // ]
+        // function fn(arr) {  //返回数组某一项的最大值
+        //     return arr.reduce(function (total,value) { 
+        //         return total.price>value.price?total:value
+        //      },0)
+        //  }
+        //  function fn(arr) { //求和
+        //      return arr.reduce(function (total,value) { 
+        //        return  total+=value["price"]
+               
+               
+        //       },0)
+        //   }
+        //  console.log(fn(arr));
+        
+        //判断price值大于10000并返回name
+        // function fn(arr,price) {  
+        //     return arr.reduce(function (arr,value) {  
+        //         if(value.price>price){
+        //             arr.push(value)
+        //         }
+        //         return arr
+        //     },[]).map(item=>{
+        //         return item.name
+        //     })
+        // }
+        // console.log(fn(arr,10000));
+        
+        //数组去重
+        // let arr=[1,2,1,5,1,2];
+        // function fn(arr) { 
+        //     return arr.reduce(function (arr,value) {  
+        //         if(arr.includes(value)===false){
+        //             arr.push(value);
+        //         }
+        //         return arr
+        //     },[])
+        //  }
+        //  console.log(fn(arr));
+        //去除重复商品
+        // let arr=[   
+        //     {name:"iphone",price:12000},
+        //     {name:"ipad",price:1200},
+        //     {name:"ipad",price:16162},
+        //     {name:"mac",price:8852},
+        //     {name:"mac",price:156},
+        // ]
+        // function fn(array) { 
+        //     return array.reduce(function (arr,value) { 
+        //         let find=arr.find(function (v) { 
+        //             console.log(v.name,value.name,v.name===value.name);
+                    
+        //             return v.name===value.name
+         
+        //          })
+        //          if(!find){
+        //              arr.push(value);
+        //          }
+        //          return arr;
+        //      },[])
+        //  }
+        //  console.log(fn(arr));
+         
+    //symbol()  新的数据类型与其他数据类型不一样
+            /*
+                
+        //     */
+        // let sys=Symbol("哈皮");//定义不是全局变量所以下方Symbol.keyFor()读取不到内容，重复key声明时则为多个symbol
+        // let syy=Symbol.for("哈皮");//定义是全局变量所以下方Symbol.keyFor()读取内容 ，重复key声明时结果还是一个symbol
+        // console.log(sys,syy); //这两种定义相比较结果是不相等的
+        // let syss=Symbol.keyFor(syy);
+        // let sys2s=Symbol.keyFor(sys);//
+        // console.log(syss,sys2s);
+        
+        //解决耦合问题（就是有重复的地方防止多条数据被层叠掉，）
+        // let user1={
+        //     name:"李四",
+        //     key:Symbol()
+        // };
+        // let user2={
+        //     name:"李四",
+        //     key:Symbol()
+        // } ;
+        // let grade={
+        //     // [user1]:{js:100,css:89},
+        //     // [user2]:{js:50,css:30}
+
+        //     [user1.key]:{js:100,css:89},
+        //     [user2.key]:{js:50,css:30}
+        // }
+        // console.log(grade);
+        
+        //缓存容器中使用，
+        // class Cache{
+        //     static data={};
+        //     static set(name,value){
+        //         return (this.data[name]=value);
+        //     }
+        //     static get (name){
+        //         return this.data[name];
+        //     }
+        // }
+        // Cache.set("你拉登死了","balkbdla");
+        // console.log(Cache.get("你拉登死了"));
+
+        // let user={
+        //     name:"apple",
+        //     desc:"用户资料",
+        //     key:Symbol("购物车资料")
+        // }
+        // let cart={
+        //     name:"apple",
+        //     desc:"购物车",
+        //     key:Symbol("le资料")
+        // }
+        // // Cache.set(user-name,user);
+        // // Cache.set(cart-name,cart);
+        // // console.log(Cache.get(user-name));
+        // Cache.set(user.key,user);
+        // Cache.set(cart.key,cart);
+        // console.log(Cache.get(user.key));
+        
+
+        //遍历symbol私有属性
+        // let symbol=Symbol("ksba")
+        // let hd = {
+        //     name:'sys',
+        //     [symbol]:'haldasf'
+        // };
+        // for (const key of Reflect.ownKeys(hd)) { //Reflect.ownKeys()可以遍历带有私有属性
+        //     console.log(key);
+            
+        // }
+
+    //set();
+        // let set=new Set();
+        // set.add("dsankl");  //添加
+        // set.clear();//清空
+        // set.delete("dsankl");//删除元素
+        
+        // console.log(set);
+        // console.log(set.has("dsankl"));//判断是否有此元素
+        // console.log(set.size);//获取数据个数
+        // console.log(set.value());//获取数据内容
+        
+        //去重
+        // let arr=[1,2,1,2,3,4,6,4];
+        // arr=[...new Set(arr)];
+        // console.log(arr);
+        
+        //遍历
+        // let set=new Set(["syy","ssy"]);
+        // console.log(set.entries());
+        // set.forEach(function (value,index,arr) {  //由于set没有键名所以value和index是相同的
+        //     console.log(value,index,arr);
+            
+        // })
+    
+        //输入框关键字
+        // let obj={
+        //     data:new Set(),
+        //      keyword(word){
+        //         this.data.add(word);
+        //     },
+        //      show(){
+        //         let ul=document.querySelector("ul");
+        //         ul.innerHTML="";
+        //         this.data.forEach(item=>{
+        //             console.log(item);
+        //             ul.innerHTML+=`<li>${item}</li>`
+        //         })
+        //     }
+        // };
+        // let input=document.querySelector("input");
+        // input.addEventListener("blur",function () {
+        //     obj.keyword(this.value);
+        //     obj.show()
+        //     this.value=""
+            
+        //   })
+
+       //并集 ,交集，差集 [...变量]将set转换为数组
+        // let a=new Set([1,2,516,61,6,56,6,21]);
+        // let b=new Set([1,21,516,78,56]);
+        
+        // //并集
+        // console.log(new Set([...a,...b]));
+        
+        // //交集
+        // let sys=new Set([...a].filter((item)=>{
+        //     return b.has(item)
+        // }))
+        
+        // console.log(sys);
+        
+
+        // //差集
+        // let syy=new Set([...a].filter((item)=>{
+        //     return !b.has(item)
+        // }))
+        // console.log();
+        
+    
+        
+    </script>
+</body>
+</html>

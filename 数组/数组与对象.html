@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>
+            var str5={a:2,b:{
+                a:4,b:{
+                    c:5,a:{
+                        v:2
+                    }
+                }
+            }}
+
+            //复制
+            // var obj={a:1,b:2,c:3};
+            // var str="";
+            // for(prop in obj){
+            // str+=prop+":"+obj[prop]+","
+            // }
+            // console.log(str)
+
+            // //将对象转换为JSON字符串
+            // var str2=JSON.stringify(obj);
+            // console.log(str2)
+            // //将JSON字符串逆转回对象
+            // var str3=JSON.parse(str2)
+            // console.log(str3)
+
+                //利用JSON完成深复制
+            // var str8=JSON.parse(JSON.stringify(str5));
+            // console.log(str8)
+            // console.log("b" in str5);  //属性名是否在对象下
+            var str9=[1,2,3,34,5,66,5]
+            // console.log(1 in str9);        //数组中是否有该下标
+
+
+            // //push();方法  添加尾部数据
+            // console.log(str9.push(10,20),str9);  //返回新长度和添加数据
+            // console.log(str9.push([8,54,2,2]));            //这里只添加一条数据
+            
+            // //unshift();方法 添加头部数据
+            // console.log(str9.unshift())         //括号内没数据则为返回数组的长度
+            // console.log(str9.unshift(1,34,5,56),str9)    //在数组最前面添加数据
+
+            //pop();方法    删除尾部数据
+            // var str=[];
+            // var s=0
+            // while(s=str9.pop()){       //删除员数组的数据添加给新数组并且为倒序
+            //     str.push(s)
+            // }
+            // console.log(str,str9)
+
+
+
+        
+            //shift();方法  删除头部数据
+            // var s=str9.shift();     //返回删除的数据
+            // console.log(s)
+
+           
+            //concat();     复制
+            // var arr1=[1,2,4,45,776];
+            // var arr2=arr1.concat(6,89);  //添加数据，原数组的数据不变
+            // var arr3=arr1.concat([3,85]);  //添加数据，原数组的数据不变
+            
+            // console.log(arr2,arr3)
+
+
+
+
+            //随机输出一个五位数以内的随机数，并输出长度
+            // var arr=[];
+            // for(var i=0;i<4;i++){
+            //     var s=Math.round(Math.random()*10);  //设置随机数
+            //     if(s===0){                      //判断随机数是否为0
+            //         continue;
+            //     }
+            //     arr.push(s)
+            // }
+            // var num=arr.join("|");
+            // console.log(arr,arr.length,num);
+
+
+
+
+            //splice();
+            // var arr1=[1,34,56,88,6,95];
+            // var arr2=arr1.splice();     //创建空数组
+            // var arr3=arr1.splice(0) ;    //把arr1的元素导入arr2
+            // console.log(arr2,arr3)
+
+            // var arr4=arr1.splice(4);        //删除下标4到结尾的元素 
+            // console.log(arr4)
+
+            // var arr5=arr1.splice(0,2)   //从数组下标0开始删除2位并返回
+            // console.log(arr5,arr1)
+
+            // var arr6=arr1.splice(0,0,2);    //在下标为0位添加一个值为2
+            // console.log(arr6,arr1)
+            
+            // var arr7=arr1.splice(-1,0,2);   //在倒数第二位插入一个值
+            // console.log(arr1,arr7)
+
+            // var arr8=arr1.splice(arr1.length,0,3);  //在倒数第一位插入一个值
+            // console.log(arr1,arr8)
+
+            // var arr9=arr1.splice(1,2,5,6);      //在下标为1-3为替换值为5和6
+            // console.log(arr1,arr9);
+
+              //slice();  数组截取，把被截取的值赋给新数组
+            // var arr1=arr.slice();   //复制数组
+            // var arr1=arr.slice(2);     //从下标第二位开始截取到形成新的数组
+            // var arr1=arr.slice(-2,-1);  //从倒数一位到倒数第二位截取形成新的数组
+            // var arr1=arr.slice(2,4);    //从下标2-4位截取形成新的数组
+            // console.log(arr1)
+            
+            // var div=document.getElementsByTagName("div")
+            // console.log(div)
+            // var arr1=Array.prototype.slice.call(div)  //将非数组的元素转换为数组元素 *
+            // console.log(arr1)
+            // //indexOf();
+            // var arr=[42,43,56,89,6,9,89,90,3,2,1]
+            // console.log(arr.indexOf(2,2))    //第一个为要找的元素，第二个为从元素下标为起始位往后开始找元素，返回元素的
+            // //索引查找
+            // var arr=[1,2,3,4,3,3,5,6,3,9]
+            // var index=0;
+            // while(arr.indexOf(3,index+1)>-1){
+            //     index=arr.indexOf(3,index+1);
+            //     console.log(index)
+            // }
+            //数组去重
+            // var arr=[1,23,4,5,1,4,4,5,5];
+            // var arr1=[];
+            // for(var i=0;i<arr.length;i++){
+            //     var bool=false;
+            //     for(var j=0;j<arr1.length;j++){
+            //         if(arr[i]==arr1[j]){
+            //             bool=true;
+            //             break;
+            //         }
+            //     }
+            //     if(!bool){
+            //         arr1.push(arr[i])
+            //     }
+            // }
+            // console.log(arr1)
+                //法二
+            // for(var i=0;i<arr.length;i++){
+            //     if(!~arr1.indexOf(arr[i])){     //arr1.indexOf(arr[i])===-1
+            //         arr1.push(arr[i])
+            //     }
+            // }
+            // console.log(arr1)
+
+
+            // var arr1=[1,23,4,5,1,4,4,5,5];
+
+            //法三 利用数组和对象结合的方式
+            // function fn1(arr){
+            //     var arr2=[];
+            //     var obj={};
+            //     for(var i=0;i<arr.length;i++){
+            //         if(obj[arr[i]]==undefined){     //把数组中的元素当成对象的属性
+            //             arr2.push(arr[i]);          //将第一次出现的添加到数组
+            //             obj[arr[i]]=1               //给对象的属性赋值使其再次循环不等undefined
+            //         }
+            //     }
+            //     return arr2;
+            // }
+            // console.log(fn1(arr1))
+               
+            // function fn2(arr){
+            //     for(var i=0;i<arr.length;i++){          //控制外层
+            //         for(var j=i+1;j<arr.length;j++){    //控制内层
+            //             if(arr[i]==arr[j]){             //判断是否相等
+            //                 arr.splice(j,1);            //删除数组元素
+            //                 j--;                        //索引向前减一
+            //             }
+            //         }
+            //     }
+            //     return arr;
+            // }
+            // console.log(fn2(arr1))
+        
+
+
+
+            //重复次数
+            // var arr2={};
+            // for(var i=0;i<arr.length;i++){
+            //     if(!arr2[arr[i]]){      //判断是否有若没有则=1   arr[i]重复次数
+            //         arr2[arr[i]]=1
+            //     }else{
+            //         arr2[arr[i]]++;
+            //     }
+            // }
+            // console.log(arr2)
+
+            //定义30个元素整型的数组，分别从2的偶数开始，每五个数算平均数
+            var arr=[];
+            for(var i=0;i<60;i+=2){
+                arr.push(i);
+            }
+            var arr2=[];
+            for(var s=0;s<arr.length;s++){
+                var sum=0;
+                for(var j=0;j<s+5;j++){
+                    if(!arr[j]&&arr[j]!==0) break;
+                    sum+=arr[j]
+                }
+                arr2.push(sum/(j-s))
+            }
+            console.log(arr,arr2)
+
+                //法二
+//             function f1(){
+//             var arr1=[];  //用来存放最开始的这些数字
+//             var arr2=[];  //用来存放平均值
+//             var sum=0;
+//             for(var i=1;i<30;i++){
+//             arr1[i-1]=(i)*2;    //数组的下标从0开始
+//             sum+=arr1[i-1];
+//             if((i)%5==0){
+//                 arr2.push(sum/5);
+//                 sum=0;  //每求一次平均值，sum要进行清零
+//             }
+//         }
+//     console.log(arr2);
+//     console.log(arr1)
+// }
+//     f1();
+
+
+
+                //sort(function(){})
+                // var arr=[12,3,45,6,67,35,8]
+                // arr.sort(function(x,y){     //前一个数减后一个数(小到大排序)
+                //     return x-y;             //后一个数减前一个数(大到小排序)
+                // })
+                // console.log(arr)
+               
+                
+
+                // var data=[
+                //     {id:1021,name:"餐饮0",num:1,price:"1032"},
+                //     {id:1023,name:"餐饮1",num:1,price:"100"},
+                //     {id:1022,name:"餐饮2",num:1,price:"103"},
+                //     {id:1025,name:"餐饮3",num:1,price:"142"},
+                //     {id:1028,name:"餐饮4",num:1,price:"107"},
+                //     {id:1026,name:"餐饮5",num:1,price:"187"}
+                // ]
+                // for(var i=0;i<data.length;i++){
+                //     data[i].num=Math.round(Math.random()*8+2)  //2-10的随机数
+                // }
+                // console.log(data)
+                // data.sort(function(pre,next){   //排序
+                //     return pre.num-next.num
+                // })
+                // console.log(data)
+
+                // //定义4位数的1-100以内的数随机生成且不能有重复
+                //法一
+                var arr=[];
+                // for(var i=0;i<4;i++){
+                //     var num=Math.round(Math.random()*100);
+                //     if(arr.indexOf(num)===-1){
+                //         arr.push(num);
+                //     }
+                // }
+                // console.log(arr)
+                //法二:排序的随机乱序
+                    // for(var i=1;i<100;i++){
+                    //     arr.push(i)
+                    // }
+                    // arr.sort(function(){
+                    //     return Math.random()-0.5;   //将数组随机打乱,在随机数的数值减0.5
+                    // })
+                    // arr.length=4
+                    // console.log(arr)
+                
+
+                        //模拟抽奖
+                    for(var i=0;i<10000;i++){
+                        
+                            arr.push(0)
+                        
+                    }
+                    
+                    for(var j=0;j<6;j++){
+                        for(var s=0;s<j;s++){
+                            arr.push(s)
+                        }
+                    }
+                    arr.sort(function(){
+                        return Math.random()-0.5
+                    })
+                    console.log(arr)
+
+                    
+
+                    
+            //   var arr=["name","sjs","jjdoj","ddis"];
+            //   arr.sort(function(pre,next){
+            //       return pre.charAt(0)-next.charAt(0)
+            //   })
+            //   console.log(arr)
+
+              //随机4位数中1-9和a-z大小写
+              var arr2=[];
+              for(var i=0;i<123;i++){
+                  if(i<10){
+                      arr2.push(i);
+                      continue;
+                  }
+                  if(i<65) continue;
+                  if(i<91){
+                      arr2.push(String.fromCharCode(i));
+                      continue;
+                  }
+                  if(i<97) continue;
+                  if(i<123){
+                      arr2.push(String.fromCharCode(i));
+                  }
+              }
+             
+              arr2.sort(function(){
+                  return Math.random()-0.5
+              })
+              arr2.length=4;
+              console.log(arr2.join(""))
+        </script>
+    </body>
+</html>

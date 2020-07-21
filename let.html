@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [];
+        for (var i = 0; i < 2; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        // for (let i = 0; i < 2; i++) {
+        //     arr[i] = function () {
+        //         console.log(i);
+        //     }
+        // }
+        //let每次循环都会产生新的块级作用域（大括号就是块级作用域）每个块级作用域的变量都是不同的
+        arr[0]();   //若为全局变量i时输出2，若为let定义时0
+        arr[1]();   //若为全局变量i时输出2，若为let定义时1
+    </script>
+</body>
+
+</html>

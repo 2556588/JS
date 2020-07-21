@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab栏切换</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 320px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            box-sizing: border-box;
+        }
+        .bd{
+            width: 100%;
+            height: 40px;
+        }
+        .bd span{
+         
+            display: block;
+            width: 79.5px;
+            line-height: 40px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+        .hd{
+            width: 100%;
+            height: 260px;
+        }
+        .hd li{
+            height: 100%;
+            display: none;
+            background-color: pink;
+        }
+        .bd .current{
+            background-color: pink;
+        }
+        .hd .current{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="bd">
+            <span class="current">娱乐</span>
+            <span>新闻</span>
+            <span>体育</span>
+            <span>热点</span>
+        </div>
+        <div class="hd ">
+            <li class="current">娱乐看点</li>
+            <li>新闻看点</li>
+            <li>体育看点</li>
+            <li>热搜看点</li>
+        </div>
+    </div>
+    <script>
+            var btns=document.getElementsByTagName("span");
+            var lis=document.getElementsByTagName("li");
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].index=i;
+                btns[i].onmouseover=function(){
+
+                    for (let i = 0; i < btns.length; i++) {
+                       btns[i].className='';
+                       lis[i].className='';
+                        
+                    }
+                    this.className='current';
+                    lis[this.index].className='current'
+                }
+                
+            }
+    </script>
+</body>
+</html>

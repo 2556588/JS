@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!-- <div>1</div>
+<div id="two">2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+<div>7</div>
+<div>8</div>
+<div>9</div> 
+<div>10</div> -->
+
+
+<div id="demo">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>
+<script>
+        // nodeType(节点类型)：可以用来判断是不是文档节点  （重点记忆）
+        // 元素----1；
+        // 属性----2；
+        // 文本----3；
+        // 注释----8；
+        // 文档----9；
+
+        //childNodes		//获取所有子节点（谷歌等其他浏览器会包括注释,换行，元素）
+        //children			//获取标签类型的子元素--HTMLCollection(适用谷歌等其他浏览器)（ie 6,7,8包含注释）
+        // firstElementChild		//第一个子节点（其他浏览器适用）
+        // firstChild			//第一个子节点(只适用ie 6,7,8)
+        // lastElementChild		//最后一个子节点（其他浏览器适用）
+        // lastchild			//最后一个子节点(只适用ie 6,7,8)
+        // nextElementSibling		//下一个兄弟节点（其他浏览器适用）
+        // nextSibling		//下一个兄弟节点(只适用ie 6,7,8)
+        // previousElementSibling	//上一个兄弟节点（其他浏览器适用）
+        // previousSibling		//上一个兄弟节点(只适用ie 6,7,8)
+    // var two = document.getElementById("two");
+    // // two.nextSibling.style.backgroundColor = "red";       
+    // var next = two.nextElementSibling || two.nextSibling;   //nextSibling只适用ie 6,7,8。nextElementSibling适用其他浏览器
+    // // 谷歌认识nextSibling但会报错，所以nextElementSibling放前面执行
+    // next.style.backgroundColor = "purple";
+
+
+    //子节点
+    var demo=document.getElementById("demo");
+    // alert(demo.childNodes.length);   //childNodes包含包括注释,换行，元素 
+    // var nodes=demo.childNodes;
+    // for (let i = 0; i < nodes.length; i++) {
+    //     if (nodes[i].nodeType==1) { //nodetype==1 为元素节点
+    //         nodes[i].style.backgroundColor='#ccc'
+    //     }
+        
+    // }
+
+    // alert(demo.children.length)  //谷歌等其他浏览器适用
+    // var child=demo.children;
+    // for (let i = 0; i < child.length; i++) { //节点遍历
+    //     child[i].style.backgroundColor='#ccc'
+        
+    // }
+</script>

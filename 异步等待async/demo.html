@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>async,await</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * async返回的是promise对象
+         * await返回异步代码
+        */
+        async function abc() {
+            let s = await a();       //异步等待
+            console.log(s);
+
+            // console.log(s.width);
+
+            return "a"
+        }
+        async function a() {
+            return "ab"
+            // let img=new Image();
+            // img.src="../../images/yujiazai/01.gif"
+            // img.onload=function(){
+
+            // };
+            // return img
+        }
+        abc().then(function (data) {
+            console.log(data);  //
+
+        })
+    </script>
+</body>
+
+</html>

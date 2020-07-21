@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /* div{
+                width:50px;
+                height: 50px;
+                background-color: #ccc;
+                position: absolute;
+            } */
+
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: #ccc;
+                position: relative;
+            }
+            div div{
+                width:50px;
+                height: 50px;
+                background-color: #f10214;
+                margin:auto;
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div></div> -->
+        <div>
+            <div></div>
+        </div>
+        <script>
+            // var div=document.querySelector("div");
+            // div.addEventListener("click",clickHander)
+            // div.addEventListener("mouseout",clickHander);       //鼠标经过	针对e.target 目标（目标改变就会触发）
+            // div.addEventListener("mouseover",clickHander);      //鼠标划出	针对e.target 目标（目标改变就会触发）
+            // div.addEventListener("mouseenter",clickHander);     //鼠标进入	针对e.currentTarget侦听
+            // div.addEventListener("mouseleave",clickHander);     //鼠标离开 	针对e.currentTarget侦听
+            // div.addEventListener("mouseup",clickHander);        //释放鼠标时	鼠标上的键都可以触发
+            // div.addEventListener("mousedown",clickHander);     //按下鼠标时 	鼠标上的键都可以触发
+            // div.addEventListener("contextmenu",clickHander);     //鼠标右键呼出菜单
+
+        //     div.addEventListener("dblclick",clickHander)       //dblclick 双击事件
+        //     div.addEventListener("mousemove",clickHander);      //鼠标在事件上移动
+        //    // e.x,e.y,e.clientX,e.clientY   鼠标相对文档左上角顶部位置（当有滚动条或滚动条改变的）
+        //       e.offsetX, e.offsetY,  鼠标距离侦听目标的左上角
+        //       e.layerX,  e.layerY    容器内元素对侦听目标的左上角位置
+        //       e.movementX, e.movementY   鼠标本次移动的距离
+        //       e.screenX, e.screenY       针对显示屏的左上角位置
+        // //    e.pageX,e.pageY  鼠标相对页面的位置
+        //       e.ctrlKey,  e.shiftKey,  altKey,   e.metaKey 鼠标事件触发时按下键盘的辅助键，是true就是按下了 
+            // function clickHander(e) {
+            //     console.log(e.type);    //获取事件类型
+            //     console.log(e);
+            //     e.preventDefault();     //阻止系统右键的菜单 
+                
+            // }
+
+
+
+
+
+
+
+        // 鼠标跟随事件
+        // var div=document.querySelector("div");
+        // div.addEventListener("mousemove",mouseMove);
+        // function mouseMove(e) {
+        //     div.style.left=e.clientX-div.offsetWidth/2+"px"
+        //     div.style.top=e.clientY-div.offsetHeight/2+"px"
+        // }
+        </script>
+    </body>
+</html>

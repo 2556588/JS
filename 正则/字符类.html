@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <input type="text" id=text><span></span>
+        <script>
+            //字符类
+            // var str="catctcdtcstc.t";
+            // console.log(str.match(/c[as]t/g));      //[]里面的字符仅可以选择一个字符 可以理解为或的关系
+            // console.log("143285690".match(/[012345679]/g));
+            // console.log("abcdbadc".match(/[ab][ba]/g)); //组合有更多匹配
+            
+            // console.log(str.match(/c[.a]t/g)); //[]中的 . 不为通配符为原字符串
+
+            // console.log("[a][b]".match(/[\[\]]/g));     //如果在字符类中需要使用[]字符，那就需要使用\[\]来做转义
+            
+            
+            // // 字符范围
+
+            // console.log("bjbadUGUH".match(/[a-z]/g));   //小写a-z
+            // console.log("bjbadUGUH".match(/[A-Z]/g));   //大写A-Z
+            // console.log("bjbadUGUH".match(/[a-zA-Z]/g));  //大小写
+
+
+
+
+            //判断
+            var text=document.getElementById("text");
+            text.addEventListener("input",inputHander);
+            function inputHander(e) {
+                if (/a/.test(text.value)) {  //nextElementSibling下一个兄弟元素
+                    text.nextElementSibling.textContent="输入正确";
+                    text.nextElementSibling.style.color="green";
+                    return ;
+                }
+                text.nextElementSibling.textContent="输入错误";
+                text.nextElementSibling.style.color="red";
+            }
+            
+            
+        </script>
+    </body>
+</html>

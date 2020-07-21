@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 先判断表达式以是否为true，若为true则输出码代1，若为false则到表达式2
+        // var score = parseInt(prompt("请输入"));
+        // if (score>90&&score<=100){
+        //     console.log("A");
+        // }else if (score>80){
+        //     console.log("B");
+        // }else if (score>=70){
+        //     console.log("C");
+        // }else if (score>=60){
+        //     console.log("D");
+        // }else {
+        //     console.log("F");
+        // }
+        //判断是闰年还是平年
+        // var year = 2020;
+        // if (year%4==0&&year%100!==0||year%400==0){
+        //     console.log("闰年");
+        // }else {
+        //     console.log("平年");
+        // }
+
+        //根据运算符判断加减乘除
+        var value1=Number(prompt("请输入第一个数值"));
+        var value2=Number(prompt("请输入第二个数值"));
+        var key = prompt("请输入运算符")
+        var sum=0;
+        if(!isNaN(value1)&& !isNaN(value2)){
+            if(key==="+"){
+                sum=value1+value2;
+            }else if(key==="-"){
+                sum=value1-value2;
+            }else if(key==="*"){
+                sum=value1*value2;
+            }else if(key==="/"){
+                sum=value1/value2;
+            }else{
+                console.log("输入的运算符有误")
+            }
+        }else{
+            console.log("输入的数值有误")
+        }
+        console.log(sum);
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>

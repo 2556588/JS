@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>onclick click</title>
+        <style>
+         
+        </style>
+    </head>
+    <body>
+  
+        <input id="btn1" type="button" value="按钮" />
+        <!-- <input  type="button" value="按钮" onclick='test()'/> -->
+        <script>
+
+             //法一  在标签内设置onclick属性
+            //  function test( ) {
+            //     alert("sss")
+            // }
+        //   法二 利用获取dom元素添加onclick事件   onclick比click事件更早执行
+        //   var btn1 = document.getElementById('btn1');
+        //     function abc() {
+        //     alert('abc');
+        //     }
+        //     btn1.onclick = abc; 
+      
+        // var btn1=document.getElementById("btn1").onclick=function(){
+        //     alert("saa");
+          
+        // }
+        
+      
+
+        //法三 通过监听事件添加click事件
+       var btn1=document.getElementById("btn1");
+       btn1.addEventListener("click",fn);
+       function fn( ) {
+           alert("sss");
+           
+       }
+    //    btn1.removeEventListener('click', fn, false);         //清除点击事件
+
+
+      
+        </script>
+    </body>
+    </html>

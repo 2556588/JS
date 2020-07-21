@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向对象</title>
+</head>
+<body>
+    <script>
+        /*
+            类
+            类别（抽象性模版）
+            类就是一个抽象性的模版，对于该类事物的综合描述，这些描述中分为两种内容，
+            一种是属性---是一种值（一个变量）
+            另一种是方法---是一个过程（一个函数）
+
+
+            实例化---就是根据将类这种抽象性模版，创造出一个实体（实际的对象）
+            实例化使用new 类别();---->产生一个新对象
+
+
+            对象是类别的实例化表现，类是对象的抽象化体现
+            不是说创建一堆或者一些内容时才需要创建类的；
+            如果需要创建唯一的对象，不需要实例化，这种类别就是静态类（包含静态属性和静态方法）；
+            静态是相对动态而言；因为普通类中的方法通过实例化成对象后，各属性方法可以有自己不同的值和内容，因此他们就是类的动态属性
+            和方法，如果我们希望该属性，不是根据新对象自己的属性改变，而是所有类别的属性值统一变化和执行，那么这种属性就是静态属性和
+            静态属性和方法
+
+
+
+            对象的动态属性和方法是针对该对象处理的方法；
+            类的静态属性和方法是处理所有该类的某些方式；
+
+
+            父类，子类，超类
+
+            父类：当前类继承的原类别
+            子类：继承当前类的下属类别
+            超类：子类的父类，当前类继承唯一上一层类别
+
+
+        */
+
+
+        // class Box{  //类
+        //     constructor(r){   //构造函数-构造就是创建该对象时执行的方法，在其他语言中，构造函数可以有多个，但js中只有一个
+        //         this.r=r;   //创造实例化对象并赋值(动态属性)
+        //         Box.a=10;   //静态属性
+                
+        //     }
+        //     play(s){    
+        //         console.log(s+this.r);
+        //         console.log(s+this.r+Box.a);
+                
+        //     }
+        //     static plays(){     //静态方法
+        //     //静态方法---不能使用this，也不能使用对象的属性和方法
+        //     //作用解决所有相关的自身方法，不是解决对象的方法，他是唯一。
+        //         console.log(Box.a);
+                
+        //     }
+        // }
+        // let box1=new Box(5);  //执行上方的构造函数--若上方的构造函数有参数也可以传参
+        // let box2=new Box(10);
+        // console.log(box1,box2);
+        // box1.play(6);   //11
+        // box2.play(6)
+        // console.log(box1,box2);
+        // Box.plays();
+
+
+        // let arr=new Array();
+        // arr.push(20);
+        // Array.isArray(arr); //  判断对象是否为数组
+        // Array.from(arr);//转化为数组
+        
+
+        class Star{
+            constructor(username,age){
+                this.uname=username;
+                this.age=age;
+            }
+            sing(song){
+                console.log(this.uname+" "+song);
+                
+            }
+        }
+
+        class Son extends Star{
+
+        }
+        var syy=new Son("sad",15)
+        console.log(syy);
+        
+    </script>
+</body>
+</html>

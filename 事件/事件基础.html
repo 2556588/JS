@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <button id="btn1">按钮1</button>
+        <button id="btn2">按钮2</button>
+        <script>
+
+
+            //事件触发并
+            var btn1=document.getElementById("btn1");
+            var btn2=document.getElementById("btn2");
+            btn1.addEventListener("click",clickHander);
+            btn2.addEventListener("click",clickHander);
+            function clickHander(params) {
+                console.log("sss");
+                
+            }
+            //模拟点击事件
+            // var evt=new MouseEvent("click")      //创建鼠标事件
+            // btn1.dispatchEvent(evt)
+
+
+            //抛发事件
+            //  btn1.addEventListener("sai",fn);   //侦听事件
+            // var evt=new Event("sai") //click也可以
+            // evt.a=20;   //事件对象是可以携带一些非系统规定的属性（原event对象的属性不能覆盖
+            // btn1.dispatchEvent(evt) //抛发事件
+            // //同一个对象（抛发和接收的）只要事件的type相同，那么就会侦听事件收到
+            // console.log(evt);   //事件函数中只有一个参数，这个参数就是事件对象
+            
+            // function fn(params) {
+            //     console.log("bbb");
+                
+            // }
+
+                // document.addEventListener("sys",fn);
+                // var evt=new Event("sys");       //利用构造函数创建事件
+                // document.dispatchEvent(evt);    //调用事件
+                // new Promise(function (res,rej) {
+                //     console.log("1");
+                //     res()
+                    
+                // }).then(function (params) {
+                //     console.log("2");
+                    
+                // });
+                // setTimeout(function (params) {
+                //     console.log("3");
+                    
+                // },0)
+                // function fn(e) {
+                //    console.log("4");
+                    
+                // }
+                // console.log("5");
+                
+
+                
+
+                document.addEventListener("sys",fn);
+                
+                
+                setTimeout(function (params) {
+                    new Promise(function (res,rej) {
+                    console.log("1");
+                    res()
+                    
+                }).then(function (params) {
+                    var evt=new Event("sys");
+                document.dispatchEvent(evt);
+                    console.log("2");
+                    
+                });
+                    console.log("3");
+                    
+                },0)
+                function fn(e) {
+                   console.log("4");
+                    
+                }
+                console.log("5");
+                
+        </script>
+    </body>
+</html>

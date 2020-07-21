@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下拉列表换肤</title>
+    <style>
+        body{
+            background-image: url("./images/chun1.jpg");
+            -webkit-backgound-size:cover;   /*平铺拉伸*/
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <select name="select" id="selects">
+        <option value="1">春意绵绵</option>
+        <option value="2">夏日炎炎</option>
+        <option value="3">秋风瑟瑟</option>
+        <option value="4">冬雪皑皑</option>
+    </select>
+    <script>
+        var selects=document.getElementById("selects");
+        selects.onchange=function(){  //onchange 改变事件
+            switch (this.value) {
+                case "1": document.body.style.backgroundImage="url(./images/chun1.jpg)"
+                    
+                    break;
+                case "2": document.body.style.backgroundImage="url(./images/xia1.jpg)"
+                    
+                    break;
+                case "3": document.body.style.backgroundImage="url(./images/qiu1.jpg)"
+                    
+                    break;
+                case "4": document.body.style.backgroundImage="url(./images/dong1.jpg)"
+                    
+                    break;
+               
+            }
+        }
+    </script>
+</body>
+</html>

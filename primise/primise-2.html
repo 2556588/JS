@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //加载图片
+            function getImg(src) {
+                return new Promise(function (res,rej){
+                    let img=new Image();
+                    img.src=src;
+                    img.onload=function(){
+                        res(img);
+                    }
+                })
+            }
+            let promise=getImg("../../images/yujiazai/01.gif");
+            let promise1=promise.then(function (data) {
+                console.log(data);
+                return getImg("../../images/yujiazai/02.gif")
+                
+            },function (error) {
+                console.log(error);
+                
+            })
+            console.log(promise1);
+            
+            let promise2=promise1.then(function (data) {
+                console.log(data);;
+                return getImg("../../images/yujiazai/03.gif")
+                
+            })
+
+            // //链式异步
+            //         function getImg(src) {
+            //             return new Promise(function (res,rej){
+            //                 let img=new Image();
+            //                 img.src=src;
+            //                 img.onload=function(){
+            //                     res(img);
+            //                 };
+            //                 img.onerror=function(){
+            //                     rej("加载失败")
+            //                 }
+            //             })
+            //         }
+                    // getImg("../../images/yujiazai/01.gif").then(function (data) {
+                    //     console.log(data);
+                    //     return getImg("../../images/yujiazai/02.gif")
+
+                    // }).then(function (data) {
+                    //     console.log(data);
+
+                    //     return getImg("../../images/yujiazai/03.gif")
+                    // }).then(function (data) {
+                    //     console.log(data);
+
+                    //     return getImg("../../images/yujiazai/04.gif")
+
+
+                    // })
+                //then的第一个函数为成功调用函数，第二个为失败调用函数
+                    // getImg("../../images/yujiazai/9.gif").then(function(data){
+                    //     console.log(data);
+                        
+                    // },function (err) {
+                    //     console.log(err);
+                        
+                    // })
+
+                //catch失败后执行方法，有一个参数，这个参数失败后执行
+                    // getImg("../../images/yujiazai/9.gif").then(function (data) {
+                    //     console.log(data);
+                        
+                    // }).catch(function (err) {
+                    //   console.log(err);
+                        
+                    // })
+
+                     
+                //Promise.all()--- 执行多个异步加载数组，最后返回所有结果组成的列表数组
+                    // let list=[];
+                    // for (let i = 1; i < 9; i++) {
+                    //     list.push(getImg("../../images/yujiazai/0"+i+".gif"))
+                        
+                    // }
+                    // Promise.all(list).then(function (arr) {
+                    //     arr.forEach(element => 
+                    //         console.log(element.src)
+                            
+                    //     );
+                    // })
+
+                //Promise.race()----执行多个异步数组，谁先完成异步先返回谁
+                // let list=[];
+                //     for (let i = 1; i < 9; i++) {
+                //         list.push(getImg("../../images/yujiazai/0"+i+".gif"))
+                        
+                //     }
+                // Promise.race(list).then(function (data) {
+                //     console.log(data);
+                    
+                // })
+    </script>
+</body>
+</html>

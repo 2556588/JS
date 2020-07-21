@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>symbol</title>
+</head>
+<body>
+    <script>
+       //Symbol类型，独一无二类型
+    //    let a=Symbol("a");  //()中可添加字符串
+    //     let b=Symbol("a");    
+    //     console.log(a==b);  //false
+    //     console.log(a.toString()===b.toString());
+        
+
+        //Symbol赋值需要解构赋值方式
+        let [a,b]=[Symbol(),Symbol()]
+        let obj={
+            [a]:10,
+            [b]:20,
+            c:Symbol()
+        }
+        console.log(obj.c);
+        
+
+        //消除魔术字符串--防止修改
+        // const EVENT_ID="abcde";
+        // switch(a){
+        //     case EVENT_ID:break;
+        // }
+        const EVENT_ID=Symbol();
+        switch (key) {
+            case EVENT_ID:
+                
+                break;
+        
+        }
+    </script>
+</body>
+</html>

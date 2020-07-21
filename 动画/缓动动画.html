@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓动动画</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn500">btn500</button>
+    <button class="btn800">btn800</button>
+    <div></div>
+</body>
+<script>
+    //obj目标对象，target目标位置
+    function animation(obj,target) {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(() => {
+            if(obj.offsetLeft==target){
+                clearInterval(obj.timer);
+            }
+            // 每次运动步长=(目标位置-当前位置)/10
+            speed=(target-obj.offsetLeft)/10; 
+            //速度 (取整防止小数，会比目标位置小几像素)
+            speed=speed>0?Math.ceil(speed):Math.floor(speed);   //判断speed为正数还是负数（正数向上取整，负数向下取整）
+            obj.style.left=obj.offsetLeft+speed+"px"
+        }, 15);
+    }
+    var div=document.querySelector("div");
+    // animation(div,500)
+    var btn500=document.querySelector(".btn500");
+    var btn800=document.querySelector(".btn800");
+    btn500.onclick=function(){
+        animation(div,500);
+    }
+    btn800.onclick=function(){
+        animation(div,800);
+    }
+</script>
+</html>

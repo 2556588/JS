@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <style>
+            
+            #rollImg{
+                width:520px;
+                height: 280px;
+                position: relative;
+                margin: 0 auto;
+                
+                overflow: hidden;
+            }
+            #imgCon img{
+                width:520px;
+                height: 280px;
+                
+                
+
+                
+                
+            }
+            #imgCon{
+                width:2080px;
+                height: 280px;
+                font-size:0;
+                position: absolute;
+                transition: all 1s;
+                left:0;
+                
+
+                
+            }
+            ul li{list-style:none;}
+            ul{
+                position: absolute;
+                bottom:0;
+                left:35%;
+
+            }
+            li{
+                width:10px;
+                height: 10px;
+                border:1px solid #f10215;
+                border-radius:5px;
+                float:left;
+                margin-right: 5px;
+                background-color:rgba(255,0,0,0);
+
+            }
+            #leftBn,#rightBn{
+                position: absolute;
+                top:50%;
+                margin-top:-23px;
+                
+
+            }
+            #leftBn{left:0px;}
+            #rightBn{right:0px}
+        </style>
+
+    </head>
+    <body>
+        <div id="rollImg">
+            <div id="imgCon">
+                <img src="../../images/lunbotu/TB1tP_cjaL7gK0jSZFBXXXZZpXa-520-280.jpg_q90_.webp (1).jpg">
+                <img src="../../images/lunbotu/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg">
+                <img src="../../images/lunbotu/TB1tP_cjaL7gK0jSZFBXXXZZpXa-520-280.jpg_q90_.webp.jpg">
+                <img src="../../images/lunbotu/TB1wG9OiKT2gK0jSZFvXXXnFXXa-520-280.jpg_q90_.webp.jpg">
+            </div>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <img id="leftBn" src="../../images/lunbotu/tb04_03.gif">
+            <img id="rightBn" src="../../images/lunbotu/tb05_03.gif">
+        </div>
+
+        <script>
+           
+           
+            
+            //法一
+            // var leftBn,rightBn,imgCon,liList,preLi;
+            // var i=0
+            // init();
+            // function init(){
+            //     leftBn=document.getElementById("leftBn");
+            //     rightBn=document.getElementById("rightBn");
+            //     imgCon=document.getElementById("imgCon");
+            //     liList=document.getElementsByTagName("li");
+            //     leftBn.addEventListener("click",fnclick);
+            //     rightBn.addEventListener("click",fnclick);
+            //     for(var j=0;j<liList.length;j++){
+            //         liList[j]['indexA'] = j;
+            //         liList[j].addEventListener("click",fn2click)
+            //     }
+
+            // }
+            
+            // imgConMover();
+            // function fnclick(){
+            //     if(this===leftBn){
+            //         i--;
+            //         if(i<0){
+            //             i=3;
+            //         }
+            //         imgConMover();
+            //         return;
+            //     }
+            //     i++;
+            //     if(i>3){
+            //         i=0;
+            //     }
+            //     imgConMover();
+            // }
+            // function imgConMover(){
+            //     imgCon.style.left=-520*i+"px";
+            //     if(preLi){
+            //         preLi.style.backgroundColor="rgba(255,0,0,0)";
+            //     }
+            //     preLi=liList[i];
+            //     console.log(i);
+                
+            //     console.log(preLi)
+            //     preLi.style.backgroundColor="rgba(255,0,0,0.4)";
+            // }
+
+
+            // function fn2click(event){
+            //     // console.log(event.target.indexA);
+            //     console.log(event);
+                
+            //     i=event.target.indexA;
+            //     imgConMover();
+                
+            // }
+            
+
+
+
+
+
+      
+
+     
+            //法二
+            var leftBn,rightBn,liList,imgCon,preLi;
+            var i=0;
+            init();
+            function init() {
+                leftBn=document.getElementById("leftBn");
+                rightBn=document.getElementById("rightBn");
+                imgCon=document.getElementById("imgCon");
+                liList=Array.from(document.getElementsByTagName("li"));
+                leftBn.addEventListener("click",fnclick);
+                rightBn.addEventListener("click",fnclick);
+                for(var j=0;j<liList.length;j++){
+                    liList[j].addEventListener("click",clickhander);
+                }
+                imgmove();
+        
+
+            }
+            
+            
+            function fnclick() {
+                if (this===leftBn) {    
+                    i--;
+                    console.log(i);
+                    
+                    if (i<0) {
+                        i=3
+                    }
+                   
+                    imgmove();
+                    return; 
+                }
+                i++;
+                if(i>3){
+                    i=0;
+                }
+                imgmove();
+            }
+            function imgmove() {
+                imgCon.style.left=-520*i+"px";
+                if(preLi){
+                    preLi.style.backgroundColor="rgba(255,0,0,0)"
+                }
+               
+                
+                preLi=liList[i];
+                preLi.style.backgroundColor="rgba(255,0,0,0.4)"
+               
+            }
+
+            function clickhander(e) {
+                
+                i=liList.indexOf(this);      //查当前点击的数组是第几位
+               
+                console.log(i);
+                
+                imgmove();
+            }
+
+
+           
+        </script>
+        
+    </body>
+</html>

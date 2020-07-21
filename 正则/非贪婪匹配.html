@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>非贪婪匹配，起始结束，选择匹配，</title> 
+    </head>
+    <body>
+        <script>
+            //非贪婪匹配---
+            // 任何范围性重复，在重复的次数后增加？，就可以实现最小匹配次数
+            // 如果该匹配前后没有任何内容，就符合重读的最小次数
+            // 如果前后有其他内容，中间使用的是非贪婪匹配，就根据实际中最少能匹配次数来确定
+
+
+            console.log("asdjasid".match(/\w?/g));//重复次数为1，找到所有，带空字符串
+            console.log("asdjasid".match(/\w{1,8}?/g));//重复次数为1，找到所有，带空字符串
+            console.log("asdjasid".match(/\w{2}?/g));//找到所有，重复次数2次
+            console.log("asdjasid".match(/.*?/g));//找到所有空字符串
+            console.log('"as""asdasiad"'.match(/"\w+?"/));  //找到“as”
+            
+            // | 或者  可以选多个字符
+            console.log("catdog".match(/cat|dog/g));
+            
+            
+            // ^起始符 $结束符
+            console.log("1992-05-10".match(/^\d{4}-\d{2}-\d{2}$/g));
+            
+        </script>
+    </body>
+</html>

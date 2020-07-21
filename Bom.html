@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="div1">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <p></p>
+        <div id="div0"></div>
+        <input name="syy" type="radio">
+        <input name="syy" type="radio">
+        <input name="syy" type="radio">
+        <input name="syy" type="text">
+        <input name="syy" type="text">
+        <input name="syy" type="button"value="提交">
+        <script>
+        //  var a=   window.open("http://www.163.com")          //打开新窗口（url地址）
+        // a.alert("syy")
+        // window.close();                //关闭窗口
+
+
+
+        //设置多长时间重载页面
+        // var id=setTimeout(function(){
+        //     location.reload()
+            
+        //     clearTimeout(id)
+
+        // },5000)
+
+        // document.addEventListener("click",fn);
+        // function fn(){
+        //     // location.href="http://www.baidu.com";     //有历史记录
+        //     // location.assign("http://www.baidu.com");  //有历史记录
+        //     // location.replace("http://www.baidu.com"); //无历史记录
+        // }
+        // console.log(location.hostname);         //域名
+        // console.log(location.pathname);         //目录
+        // console.log(location.port);             //端口号
+        // console.log(location.protocol);         //协议
+        
+        
+            //history
+        // document.addEventListener("click",fn);
+        // function fn(){
+        //     // location.href="练习.html";     //有历史记录
+        //     history.go(1)           //0刷新，1向前，-1向后
+        // }
+        
+         
+            // console.log(navigator.userAgent);       //返回系统的数据
+             
+            // var div0=document.getElementById("div0");
+            // var div1=div0.cloneNode(false);         //克隆节点false不带节点里的内容，true带节点里的内容
+            // document.body.appendChild(div1)         //添加节点
+            // console.log(document.body.nodeName);        //节点名称
+            // console.log(document.body.nodeValue);       //节点值
+            // console.log(document.body.nodeType);        //节点类型
+            // console.log(document.body.firstChild.nodeName);     //子节点
+            // console.log(document.body.firstChild.nodeType);
+        //    console.log(document.getElementsByName("syy"));      //返回nodeList节点列表可以用foreach遍历
+            
+        //    var arrary= document.getElementsByName("syy");
+        //     arrary.forEach(function (s) {
+        //         console.log(s);
+                
+        //     })
+        //     console.log(document.querySelectorAll("#div0"));
+            
+
+            //节点遍历
+            div1=document.getElementById("div1");
+            for(var i=0;i<div1.firstElementChild.children.length;i++){
+                div1.firstElementChild.children[i].innerHTML=i+1;
+            }
+        </script>
+    </body>
+</html>

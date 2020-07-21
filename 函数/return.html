@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="div00"></div>
+        <div id="div2"></div>
+        <div id="div3">
+            <ul id="ul0">
+                <li id="li0"></li>
+                <li></li>
+                <li id="li1"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div id ="div5">
+            <span id="span0"></span>
+            <span></span>
+            <spanid="span1></span>
+            <span></span>
+        </div>
+        <div ></div>
+        <div ></div>
+        <div id="div4"></div>
+        <div ></div>
+            
+        <script>
+        //     function fn1(a,b){
+        //         var sum=a+b;
+        //         console.log(sum);
+        //     }  
+           
+        //    console.log( fn1(1,2)); //没有返回值return或return后面没有带数据则输出为undefined
+
+           //
+        //    function fn2(w,h,bgc){
+        //     var style="width:"+w+"px;height:"+h+"px;background-color:"+bgc
+        //     var div="<div style="+style+"></div>"
+        //     return div;
+        //    }
+        //    document.write(fn2(100,100,"red"));
+
+
+            //求周长和面积
+        //    function fn1(w,h){
+        //     var _perimeter=(w+h)*2;
+        //     var _area=w*h;
+        //     return {perimerter:_perimeter,area:_area}  //利用object返回多个值
+        //    }
+        //    console.log(fn1(10,20));
+
+        //    //return 单例模式
+        //    var box;
+        //    function fn2(_a,_b){
+        //     if(!box){       //第一次判断box不存在则给box添加对象,赋值
+        //         box={};         
+        //         console.log(box)
+        //     }
+        //     box.a=_a;       //第二次存在则执行修改值覆盖前面的数值,所以结果为true;
+        //     box.b=_b;
+        //     return box;
+        //    }
+        //    console.log(fn2(2,3)===fn2(3,5)) 
+
+
+           //返回参数传入对象
+        //    function fn7(obj){
+        //     obj=obj||{};    //宽模式 
+        //     obj.a=4;   
+               
+        //     return obj;
+        //    }
+        //    var obj=fn7({});     //传入参数返回 
+        //    var obj1=fn7();      //传入对象返回对象
+        //    console.log(obj,obj1)
+           
+
+        //如果参数是一个函数，返回的是回调函数的结果。
+        // function fn1(fn){
+        //     var obj={};
+        //     return fn(obj);     //根据return返回出不同值在调用
+        // }
+        // function fn2(obj){
+        //     obj.a=10;
+        //     return obj;
+        // }
+        // function fn3(obj){
+        //     obj.b=10;
+        //     return obj;
+        // }
+        // var obj=fn1(fn3);
+        // console.log(obj)
+
+
+
+        // //函数中返回一个函数，这叫做闭包
+        // function fn5(){
+        //     return function (){
+        //         console.log("aaa")
+        //     }
+        // }
+        //   fn5()(); 
+
+
+        //递归
+        // var i=0,sum=0;
+        // function fn1(){
+        //     i++;
+        //     sum+=i;
+        //     if(i>100){      //控制次数
+        //         return;   //return sum;  //最后一次返回给前一个函数
+        //     }
+        //     fn1();        //return fn1()
+        // }
+        // fn1();
+        // console.log(sum)    //console.log(fn1())
+
+        // var s=fn0();
+        //  function fn0(){
+        //     i++;
+        //     sum+=i;
+        //     return fn1();
+
+        // }
+        // function fn1(){
+        //     i++;
+        //     sum+=i;
+        //     return fn2();  
+        // }
+        // function fn2(){  
+        //     i++; 
+        //     sum+=i;
+        //     if(i>2){
+        //         return sum;  
+        //     }
+            
+        // }
+        // console.log(s)
+
+    
+
+
+            //找出布局中的带有ID元素
+           var obj={};
+           function fn(sys){
+               if(sys.id){
+                   obj[sys.id]=sys; //对象创建属性
+               }
+               for(var i=0;i<sys.children.length;i++){
+                   fn(sys.children[i]);
+               }
+               return obj;
+           }
+           console.log(fn(document.body))
+        </script>
+    </body>
+</html>

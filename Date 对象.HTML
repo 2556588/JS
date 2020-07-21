@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="div0"></div>
+        <script>
+        //     var date=new Date();
+        // console.log(date.getFullYear());    //年份
+        // console.log(date.getMonth());       //月份 从0开始
+        // console.log(date.getDay());         //星期几 0-6
+        // console.log(date.getDate());        //几号s
+        
+        
+        //setInterval();
+        var id=setInterval(fn,1000)        //按照周期调用函数
+        var div=document.getElementById("div0");
+        function fn() {
+            var date=new Date();
+            // console.log(date);
+            
+            div.innerHTML=date.getUTCFullYear()+"年"+(date.getMonth()+1)+"月  星期"+(date.getDay()===0?"日":date.getDay())+" "+date.getHours()+"时"+date.getMinutes()+"分"+date.getSeconds()+"秒"
+            // console.log(id);
+            // clearInterval(id);           //清除周期调用函数
+
+            
+        }
+        fn();
+
+
+
+        //在某个点上清除id
+        // var id=setInterval(fn,1000);
+        // var num=0;
+        // function fn() {
+        //     console.log(id);
+        //     num++
+        //     if(num>6){
+        //         clearInterval(id)
+        //     }
+            
+        // }
+
+        //定时打印
+        // var id=setInterval(fn,1000);
+        // var num=3
+        // function fn() {
+        //     num--;
+        //     console.log(num);
+            
+        //     if(num>0)return;
+        //     num=3;
+        //     console.log("aa");
+            
+        // }
+
+
+        //setTimeout()  延迟调用函数  setTimeout与clearTimeout一起使用
+        // var id=setTimeout(fn,6000)
+        // function fn() {
+        //     console.log("aaa");
+        //     clearTimeout(id)
+        // }
+        </script>
+    </body>
+</html>

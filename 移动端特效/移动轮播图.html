@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .rollImg{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .rollImg ul{
+            width: 500%;
+            list-style: none;
+            overflow: hidden;
+            margin-left: -100%; /*向左移动一个图片位置防止最后一张图片作为首页*/
+        }
+        .rollImg ul li {
+            width: 20%;
+            float: left;
+        }
+        .rollImg ul li img{
+            width: 100%;
+        }
+        .rollImg ol{
+            list-style: none;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+        .rollImg ol li{
+            width: 6px;
+            height: 6px;
+            background-color: #f10130;
+            display: inline-block;
+            border-radius: 2.5px;
+
+        }
+        .rollImg ol li.current{
+            width: 17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rollImg">
+        <ul>
+            <li><img src="./images/banner3.jpg" alt=""></li>
+            <li><img src="./images/banner1.jpg" alt=""></li>
+            <li><img src="./images/banner2.jpg" alt=""></li>
+            <li><img src="./images/banner3.jpg" alt=""></li>
+            <li><img src="./images/banner1.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</body>
+<script>
+    /*
+        图片的最后一张和第一张要复制到第一张或最后一张
+        利用transform和transition
+    */
+    var rollImg=document.querySelector(".rollImg");
+    var ul=rollImg.querySelector("ul");
+    var ol=rollImg.querySelector("ol");
+    var rollImgWidth=rollImg.offsetWidth;
+    var index=0;
+    var timer=setInterval(() => {
+        index++;
+        // ul.style.transition="all 0.3s";
+        // var step=-index*rollImgWidth;
+        // ul.style.transform="translateX("+step+"px)";
+        Trans(index)
+    }, 2000);
+    ul.addEventListener("transitionend",function (e) { //过渡完成后
+        //无缝滚动
+        if(index>=ul.children.length-2){
+            index=0;
+            ul.style.transition="none"; //清除过渡效果
+            var step=-index*rollImgWidth;
+            ul.style.transform="translateX("+step+"px)"
+
+        }else if(index<0){
+            index=ul.children.length-3;
+            ul.style.transition="none"; //清除过渡效果
+            var step=-index*rollImgWidth;
+            ul.style.transform="translateX("+step+"px)"
+        }
+
+        //ol里面的current类选出来清除current类
+        ol.querySelector(".current").classList.remove("current");
+        ol.children[index].classList.add("current");
+    })
+    var startX=0;
+    var moveX=0;
+    var flag=false;
+    ul.addEventListener("touchstart",function (e) {
+        startX=e.targetTouches[0].pageX;
+        clearInterval(timer);   //手指触摸时不需要自动播放轮播图
+    })
+    ul.addEventListener("touchmove",function (e) {
+        moveX=e.targetTouches[0].pageX-startX;//计算移动距离
+        var step=(-index*rollImgWidth)+moveX;
+        ul.style.transition="none"; //清除过渡效果
+        ul.style.transform="translateX("+step+"px)";
+        flag=true;
+        e.preventDefault();//阻止默认行为
+    })
+    ul.addEventListener("touchend",function (e) {
+        if(flag=true){   //判断用户点击后是否移动，有移动才有判断左滑还是右滑
+             if(Math.abs(moveX)>50){   //判断移动距离大于50就播放上一张或下一张图片
+                 if(moveX<0){    //判断是左滑还是右滑
+                     index++;
+                 }else{
+                     index--;
+                 }
+                //  var step=-index*rollImgWidth;
+                //  ul.style.transition="all 0.3s";
+                //  ul.style.transform="translateX("+step+"px)"
+                Trans(index)
+             }else{
+                //  var step=-index*rollImgWidth;
+                //  ul.style.transition="all 0.3s";
+                //  ul.style.transform="translateX("+step+"px)"
+                Trans(index)
+             }
+        }
+        clearInterval(timer);
+        timer=setInterval(() => {
+            index++;
+            ul.style.transition="all 0.3s";
+            var step=-index*rollImgWidth;
+            ul.style.transform="translateX("+step+"px)"
+        }, 2000);
+    })
+    function Trans(index) {
+        var step=-index*rollImgWidth;
+        ul.style.transition="all 0.3s";
+        ul.style.transform="translateX("+step+"px)"
+    }
+</script>
+</html>

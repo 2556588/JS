@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微博发布</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        .box{
+            width: 600px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        textarea{
+            width: 400px;
+            height: 250px;
+            margin-left: 10px;
+            resize: none;
+        }
+        ul{
+            margin-left: 90px;
+        }
+        ul li{
+            list-style: none;
+            width: 400px;
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px dashed #ccc;
+        }
+        ul a{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        微博发布：<textarea name="" id="text" cols="30" rows="10"></textarea>
+        <button id="btn">发布</button>
+        <ul id="ul">
+            <!-- <li>sdan<a href="javascript:;">删除</a ></li> -->
+            
+        </ul>
+    </div>
+    <script>
+        var ul=document.getElementById("ul");
+        var text=document.getElementById("text");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            if (text.value=="") {
+                alert("please输入，不能发布空的内容");
+                return false;
+            }
+            var li=document.createElement("li");
+            li.textContent=text.value;
+            ul.appendChild(li);
+            text.value=""
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>load</title>
+    </head>
+    <body>
+        <script>
+            //load 加载 ----防止图片未完全加载完成时返回不了属性值
+        //   var img=new Image();
+        //   img.src="../images/no_login.jpg"
+        // document.body.appendChild(img);
+        // console.log(img.width);
+        
+        var img=new Image();
+        var arr=[]
+        img.src="../images/no_login.jpg"
+        img.addEventListener("load",loadHander);
+        function loadHander( ) {
+            document.body.appendChild(this);
+            console.log(this.width);        //图片加载完成返回width值
+            
+            
+        }
+        console.log("aaa");         //在load之前加载完成--（先加载后面再加载loadHander方法）
+        
+        </script>
+    </body>
+</html>

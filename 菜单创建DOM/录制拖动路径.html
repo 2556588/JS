@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="Utils.js"></script>
+</head>
+<body>
+    <script>
+        /*
+            拖拽时开始录制，按下时录制，释放时停止录制
+        */
+        let div;
+        let record=false;   //录制
+        let play=false;
+        let list=[];
+        init();
+        function init() {
+            div=Utils.createDom("div",document.body,{
+                width:"50px",
+                height:"50px",
+                backgroundColor:"red",
+            });
+            div.addEventListener(Utils.MOUSE_DOWN_EVENT,mouseHander);
+            div.addEventListener(Utils.MOUSE_UP_EVENT,mouseHander);
+            Utils.dragElem(div);
+           
+            animation();
+        }
+        function mouseHander(e) {
+            if (e.type===Utils.MOUSE_DOWN_EVENT) {  //按下时
+                record=true;    //开始录制
+            }else if (e.type===Utils.MOUSE_UP_EVENT) {  //释放时
+                record=false;   //停止录制
+                play=true;
+            }
+            
+            
+        }
+        function animation() {
+            requestAnimationFrame(animation);
+            recordFn(); 
+            playFn();
+        }
+
+        function recordFn() {   //录制
+            if (!record) return;    //不录制
+            let range=div.getBoundingClientRect();  //getBoundingClientRect()有对应上下左右的值
+            list.push({x:range.x,y:range.y});   //div位置
+        }
+
+        function playFn() {     //播放
+            if (!play) return;  //不播放   
+            let point=list.pop();   //删除并返回最后一条数据(表示div位置的最新数据)
+            if (!point) {   //若point不存在则不播放并返回
+                play=false;
+                return;
+            }
+            div.style.left=point.x+"px";
+            div.style.top=point.y+"px";
+        }
+    </script>
+</body>
+</html>

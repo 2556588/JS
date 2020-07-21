@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                border-collapse: collapse;
+                width:600px;
+            }
+            td,th{
+                text-align: center;
+                height:30px;
+                line-height: 30px;
+                border:1px solid #ccc;
+            }
+            td img{
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <button></button> -->
+        
+       <div id=div0>
+           <span></span>
+       </div>
+
+       
+        <script>
+            // 创建节点：
+            // document.createElement("标签名")	//创建新元素--接收参数为string类型的nodename
+            // document.createTextNode("")		//创建文本节点-- -接收参数为string类型的text内容
+
+            // document.createAttribute() 		//创建一个属性节点--接收参数为string类型的属性名称
+            // document.createComment() 		//创建一个注释节点---接收参数为string类型的注释文本
+            // document.createDocumentFragment();	//创建虚拟的节点对象（临时仓库）or文档碎片，使更多的
+            // 				元素最后加入body中（减少渲染dom的次数，提升效率）
+
+            // 插入节点：
+            // appendChild(node)			//向子节点的末尾插入节点node
+            // inserBefore(newElemt,targetElemt)	//向targetNode之前插入节点node
+
+            // 替换节点：
+            // replaceChild(newNode，oldNode)	newNode替换节点oldNode 
+
+            // 删除节点：
+            // removeChild（node）		//移除父节点的某个子节点
+            // remove()				//移除当前节点
+
+            // 复制节点：
+            // cloneNode（boolean）		//复制一个节点 如果传入的是true(深复制)那么就是
+			// 	标签和内容及子元素一起复制,false(浅复制)则只传入标签。
+
+
+            // var bn=document.querySelector("button"); 
+
+            // //给标签添加内容
+            // var text=document.createTextNode("按钮")        //创建文本节点
+            // bn.appendChild(text)
+
+
+            // //利用点击事件添加div
+            // bn.addEventListener("click",clickHander);
+            // function clickHander() {
+               // document.body.innerHTML+="<div></div>"        //会覆盖，只能添加一次
+            //     var div=document.createElement("div");          //利用标签名创建
+            //     document.body.appendChild(div)                  //插入body尾部
+            // }
+
+
+            // document.Fragment();  //文档碎片---临时仓库（为了减少渲染dom元素的次数，提高效率）
+            // var ul=document.createElement("ul")
+            //     document.body.appendChild(ul)
+            // var elem=document.createDocumentFragment();
+            // for(var i=0;i<10;i++){
+            //     var div=document.createElement("div");
+            //     elem.appendChild(div);
+            // }
+            // // document.body.appendChild(elem)
+            // // document.body.insertBefore(elem,ul);  //在ul前面插入elem
+            // document.body.insertBefore(elem,document.body.firstElementChild);   //插入在body元素的最前面
+
+
+
+                //insertBefore 在前面添加节点
+                var divs=document.getElementById("div0");
+                var div=document.createElement("div");
+                divs.insertBefore(div,divs.children[0]);
+            //删除所有的子元素
+            // var ul=document.createElement("ul")
+            //     document.body.appendChild(ul)
+               
+            //     var elem=document.createDocumentFragment();
+            //     for(var i=0;i<10;i++){
+            //         var li=document.createElement("li")
+            //     elem.appendChild(li);
+            // }
+            //     ul.appendChild(elem)   
+                 
+
+            // var len=ul.children.length;
+            // for(var i=0;i<len;i++){
+            //     ul.lastElementChild.remove();
+            // }
+            
+            //cloneNode();  克隆节点  
+        //   var div0=document.getElementById("div0");
+        //   document.body.appendChild(div0);      //如果在有元素的基础上插入相当于移位
+            // document.body.appendChild(div0.cloneNode(false));      //浅复制--不带子元素
+            // document.body.appendChild(div0.cloneNode(true));        //深复制--带子元素
+            // div0.parentNode.appendChild(div0.cloneNode(true))
+
+        //replaeChild();    替换
+        // var span=document.createElement("span");
+        // document.body.replaceChild(span,div0)
+
+
+
+        //  var data=[
+        //             {id:1021,name:"餐饮0",icon:"../images/no_login.jpg",num:1,price:"1032"},
+        //             {id:1023,name:"餐饮1",icon:"../images/no_login.jpg",num:1,price:"100"},
+        //             {id:1022,name:"餐饮2",icon:"../images/no_login.jpg",num:1,price:"103"},
+        //             {id:1025,name:"餐饮3",icon:"../images/no_login.jpg",num:1,price:"142"},
+        //             {id:1028,name:"餐饮4",icon:"../images/no_login.jpg",num:1,price:"107"},
+        //             {id:1026,name:"餐饮5",icon:"../images/no_login.jpg",num:1,price:"187"}
+        //         ]
+        
+        //         // data.forEach(function(t){        //后面添加新元素
+        //         //     t.selected=Math.floor(Math.random()*2)>0;
+        //         // })
+
+        //             data=data.map(function(t){      //将新加的元素在前面显示
+        //                 var obj={};
+        //                 obj.selected=Math.floor(Math.random()*2);
+        //                 for(var key in t){
+        //                     obj[key]=t[key];
+        //                 }
+        //                 return obj;
+        //             })
+
+        //         createTable(data);
+        //         function createTable(data){
+        //             var table=document.createElement("table");
+        //             var thd=document.createElement("tr")
+        //             table.appendChild(thd)
+        //             for(var prop in data[0]){
+        //                 var th=document.createElement("th");
+        //                 if(prop==="selected"){
+        //                     var input1=document.createElement("input");
+        //                         input1.type="checkbox";
+        //                         th.appendChild(input1);
+        //                 }else{
+        //                     th.textContent=prop;
+        //                 }
+                        
+        //                 thd.appendChild(th);
+        //             }
+                  
+
+        //             for(var i=0;i<data.length;i++){
+        //                 var tr=document.createElement("tr");
+        //                 table.appendChild(tr);
+        //                 for(var key in data[i]){
+        //                     var td=document.createElement("td");
+                           
+        //                     if(key==="icon"){
+        //                         var img=new Image();
+        //                         img.src=data[i].icon;
+        //                         td.appendChild(img)
+        //                     }else if(key==="selected"){
+        //                         var input=document.createElement("input");
+        //                         input.type="checkbox";
+        //                         td.appendChild(input);
+        //                         input.checked=data[i].selected;
+        //                     }else{
+        //                         td.textContent=data[i][key]
+        //                     }
+        //                      tr.appendChild(td)
+        //                 }
+                        
+        //             }
+        //             document.body.appendChild(table)
+        //         }
+
+          
+          //创建一个函数，参数为标签名，父容器，style样式
+          function dn(type,parent,style){
+              var elem=document.createElement(type);
+              for(var key in style){
+                  elem.style[key]=style[key];
+              }
+              parent.appendChild(elem);
+              return elem
+          }
+        //   dn("div",document.body,{width:"100px",height:"100px",backgroundColor:"green"})
+        var div=  dn("div",document.body,{width:"100px",height:"100px",backgroundColor:"green"})
+          var img=dn("img",div);
+          img.src="../../images/no_login.jpg"
+</script>
+    </body>
+</html>

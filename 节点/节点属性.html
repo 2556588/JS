@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点属性</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div0">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script>
+        // 获取节点上的属性：			getAttribute("属性")
+        // 给节点创建一个新属性：		setAttribute("属性"，值)；	//设置属性或者获取属性，属性值都是字符型
+        // 删除节点上的属性：			removeArribute("属性")
+        // 删除节点：
+        // removeChild（node）		//移除父节点的某个子节点
+        // remove()				//移除当前节点
+
+        // 复制节点：
+        // cloneNode（boolean）		//复制一个节点 如果传入的是true(深复制)那么就是
+        // 			标签和内容及子元素一起复制,false(浅复制)则只传入标签。
+
+
+
+        var div = document.getElementById("div0");
+        console.log(div.getAttribute("id"));    //获取属性
+        div.children[0].setAttribute("class", "box")  //添加属性
+        div.children[0].removeAttribute("class")  //删除属性
+
+        //兼容性写法(上面的写法ie 6，7不支持)
+        div.className = 'one'
+
+    </script>
+</body>
+
+</html>

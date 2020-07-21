@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        a:link { 
+        color:#3C3C3C; 
+        text-decoration:underline; 
+        } 
+        a:visited { 
+        color:#0000FF; 
+        text-decoration:none; 
+        } 
+        a:hover { 
+        color:#FF00FF; 
+        text-decoration:none; 
+        } 
+        a:active { 
+        color:#D200D2; 
+        text-decoration:none; 
+        } 
+        </style>
+</head>
+<body>
+    <a href="javascript:;" target="black">点我点我</a>
+    <script>
+        var that;
+        class Tab{
+            constructor(id){
+                that=this;
+                this.mian=document.querySelector(id);
+                this.add=this.main.querySelector(".tabadd");
+                this.ul=this.mian.querySelector(".firstnav ul:first-child");
+                this.fsection=this.main.querySelector(".tabscon");
+                this.init();
+            }
+            init(){
+                that.updateNode();
+                this.add.onclick=this.addTab();
+                for (let i = 0; i < this.lis.length; i++) {
+                    lis[i].index=i
+                    this.lis[i].onclick=this.toogleTab;
+                    this.remove[i].onclick=this.removeTab;
+                    this.lis[i].dblclick=this.editTab();
+                    this.sections[i].dblclick=this.editTab();
+                    
+                }
+            }
+            updateNode(){
+                this.lis=this.main.querySelectorAll("li");
+                this.sections=this.main.querySelectorAll("section");
+                this.remove=this.main.querySelectorAll(".icon-guanbi");
+                this.spans=this.main.querySelectorAll("firstnav li span:first-child");
+
+            }
+            clearClass(){
+                for (let i = 0; i < this.lis.length; i++) {
+                    this.lis[i].className="";
+                    this.sections[i].className="";
+                    
+                }
+            }
+            toogleTab(){
+                that.clearClass();
+                this.className="liactive";
+                this.sections[this.index].className='conactive';
+            }
+            removeTab(){
+                e.stopPaprogation();
+                var index=this.parentNode.index;
+                that.lis[index].remove();
+                that.sections[index].remove();
+                that.init();
+                if(document.querySelector(".liactive"))return;
+                index--;
+                that.lis[index]&&that.lis[index].remove();
+            }
+            addTab(){
+                var li=``
+                that.ul.ajht=("beforeend",li);
+                var section
+                that.fsection.ajh("beforeend",section);
+                that.init()
+            }
+            editTab(){
+                var str=this.innerHTML;
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                this.innerHTML=`<input type="text" />`;
+                var input=this.children[0];
+                input.value=str;
+                input.select();
+                input.onblur=function(e){
+                    this.parentNode.innerHTML=str;
+                }
+                input.onkeyup=function(){
+                    if(keyCode===13){
+                        this.blur();
+                    }
+                }
+            }
+        }
+        new Tab("#tab");
+    </script>
+</body>
+</html>

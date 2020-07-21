@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action="Bom.html"method="get">
+            <input type="text"name="user">
+            <input type="submit">
+        </form>
+        <script>
+            var sub=document.querySelector("[type=submit]")
+            sub.addEventListener("click",clickHander);
+            function clickHander(e) {
+                console.log(e);
+                try {
+                    e.preventDefault(); //阻止默认事件--表单提交
+                } catch (error) {
+                      e.returnValue=false //ie8及以下适用
+                }
+                
+              
+            }
+        </script>
+    </body>
+</html>

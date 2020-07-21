@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES5</title>
+    <style>
+        div{
+            width: 600px;
+            height: 600px;
+            border:1px solid #000;
+            margin: auto;
+            font-size: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="divs"></div>
+    <script>
+        var divCon;
+        var lv=1;   
+        var list=[];
+        const WIDTH=600;
+        const HEIGHT=600;
+         
+        init();
+        function init() {
+            divCon=document.getElementById("divs");
+            divCon.addEventListener("click",clickHandler);
+            createGame();
+        }
+
+        function createGame() {
+            for (var  i = 0; i < (lv+1)*(lv+1); i++) {
+                var img=new Image();
+                img.src="./images/2.jpg";
+                divCon.appendChild(img);
+                list.push(img);
+                img.style.width=WIDTH/(lv+1)+"px";
+                img.style.height=HEIGHT/(lv+1)+"px";
+                
+                
+            }
+            list[Math.floor(Math.random()*list.length)].src="./images/1.jpg";   //数组随机某张图片替换
+        }
+      
+        function clickHandler(e) {
+            if (e.target.constructor===HTMLDivElement) return ; //若点击的目标位div则return；
+            if (~e.target.src.indexOf("1.jpg")) {   //查找到
+                lv++;   
+                clearGame();    //lv++;
+                createGame();   //}
+            }else{              //clearGame();
+                clearGame();    //createGame();
+                createGame();
+            }
+            
+        }
+
+        function clearGame() {  //清空数组的内容
+            for (var i = 0; i < list.length; i++) {
+                list[i].remove();
+                list[i]=null;
+                
+            }
+            list.length=0;
+        }
+    </script>
+</body>
+</html>

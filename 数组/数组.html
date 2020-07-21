@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: #ccc;
+        }
+    
+    </style>
+   
+</head>
+<body>
+    <div id="div0"></div>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+        <script>
+                arr1=[1,2,3,4,5]
+                // arr2=([1,2,3,4,5]);
+                // console.log(arr1)
+                // console.log(Array.isArray(arr1))  //判断是否为数组
+        
+                // //1-100奇数以数组形式输出
+                // var arr=[];
+                // for(var i=1,j=0;i<100;i+=2,j++){
+                //     arr[j]=i;
+                // }
+                // console.log(arr)
+
+                var arr1=[];
+                for(var b=0;b<4;b++){
+                    arr1[b]=document.getElementById("div"+b)
+                }
+                arr1[1].style.width="200px";
+                arr1[1].style.marginLeft="100px"
+
+                //循环
+                    for(var i=0;i<arr1.length;i++){
+                        console.log(arr1[i])
+                    }
+
+                    for(prop in arr1){
+                        console.log(arr1[prop])
+                    }
+
+                  
+
+                //forEach();
+                var arr=[1,2,4,3,5,6];
+                arr.forEach(function(item,index,array){ //第一个为值，第二个为下标，第三个以数组方式返回
+                    // array[index]++;         //修改数组中的值
+                    if(item%2==0){      //若值为偶数则加1
+                        array[index]++;
+                    }
+                    console.log(item,index,array);
+                })
+
+                // //遍历
+                //修改产品的数量和总价
+                var data=[
+                    {id:1021,name:"餐饮0",num:1,price:"1032"},
+                    {id:1023,name:"餐饮1",num:1,price:"100"},
+                    {id:1022,name:"餐饮2",num:1,price:"103"},
+                    {id:1025,name:"餐饮3",num:1,price:"142"},
+                    {id:1028,name:"餐饮4",num:1,price:"107"},
+                    {id:1026,name:"餐饮5",num:1,price:"187"}
+                ]
+                // data.forEach(function(item){
+                //     item.num=Math.round(Math.random()*10+1)
+                //     item.sum=item.num*item.price;
+                // })
+                // console.log(data);
+
+                //map();
+                // arr=arr.map(function(s){
+                //     // return ++s;  //每个元素加一
+                //     if(s%2==0){     //判断偶数加一
+                //         s++;    
+                //     }
+                //     return s;
+                    
+                // })
+                // console.log(arr)
+                
+
+                // some();判断所有元素是否满足条件的如果遇到一次满足则返回true，否则返回false
+            //    var bool=arr.some(function(s){
+            //         return s>5;    //判断数组中大于5的值
+            //    })
+            //    console.log(bool)
+
+            //some  查询对象型数组是否有符合条件的元素
+            // if(data.some(function(s){return s.id===1022;})){
+            //     console.log("由此id")
+            // }
+
+                //every();
+            // var arr=[1,2,4,3,5,6];
+            // var bool=arr.every(function(s){
+            //    return s>0;
+            // })
+            // console.log(bool)
+
+            // var arr1=arr.filter(function(s){
+            //     s++;
+            //     return s>3; //返回任然是原来的数组
+            // })
+            // console.log(arr1,arr)
+
+            data.forEach(function(s){
+                s.selected=Math.random()*2+1<2;      //随机true or false
+            })
+             console.log(data)
+
+              data=data.filter(function(s){
+                return s.selected
+            })
+            console.log(data)
+
+            // //判断是否每个元素是否选中
+            if(data.length===data.filter(function(s){return s.selected}).length){
+                console.log(data.length)
+            }
+
+            // reduce();
+            // var arr1=arr.reduce(function(sum,item,index){
+            //     console.log(sum,item,index)
+            //     return sum+item;
+            // },-2)       //初始值 index从0开始
+            // console.log(arr1)
+            </script>
+</body>
+</html>

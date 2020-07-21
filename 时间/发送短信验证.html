@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取短信验证</title>
+</head>
+<body>
+    手机号码：<input type="text"><button>发送</button>
+</body>
+<script>
+    var input=document.querySelector("input");
+    var btn=document.querySelector("button");
+    btn.onclick=function(){
+        btn.disabled=true;
+        var time=5;
+        var timer=setInterval(() => {
+            if(time==0){
+               clearInterval(timer);
+               btn.disabled=false;
+               time=5;
+               btn.innerHTML="发送"
+            }else{
+                btn.innerHTML="还剩"+time+"秒";
+                time--;
+            }
+        }, 1000);
+    }
+</script>
+</html>

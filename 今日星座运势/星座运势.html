@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 246px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .div-title{
+            color: blue;
+            font-size: 16PX;
+            font-weight: 550;
+            margin-top: 10px;
+            margin-left: 8px;
+        }
+        .box-stars{
+            width: 250px;
+            height: 60px;
+            margin-top: 30px;
+            margin-left: 20px;
+            display: flex;
+          
+            /* justify-content: space-between; */
+        }
+        .box-stars-left{
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            background: url("./images/Icon.png");
+        }
+        .box-stars-right{
+            margin-top: 7px;
+            margin-left: 10px;
+        }
+        .yunshi{
+            width: 80px;
+            height: 13px;
+            display: inline-block;
+            background: url("./images/yunshi.png") no-repeat;
+            position: relative;
+        }
+        .star{
+            width:0;
+            height: 13px;
+            position: absolute;
+            top:0;
+            left:0;
+            background:url("./images/yunshi.png") no-repeat left bottom;
+        }
+        .box-desc{
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div-title">星座运势</div>
+        <div class="box-stars">
+            <div class="box-stars-left" id="icon"></div>
+            <div class="box-stars-right">
+                <select name="sel" id="selects">
+                    <option value="0">白羊座 03.21-04.19</option>
+                    <option value="1">金牛座 04.20-05.29</option>
+                    <option value="2">白羊座 04.20-05.29</option>
+                </select> 
+                <div>
+                    今日运势：<span class="yunshi" >
+                        <span class="star" id="stars"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="box-desc" id="desc">
+            这几天的财运都很强，但是危机总在不知不觉之中发生了，例如：因为太过乐观而误判情势，导致投...[详细]
+        </div>
+    </div>
+    <script>
+        var arr=[8,9,10,5];
+        var icon=document.getElementById("icon");
+        var select=document.getElementById("selects");
+        var star=document.getElementById("stars");
+        var desc=document.getElementById("desc");
+        var textArr=["受到财帛宫内行星不利相位的影响，部份的人花钱较不节制，经常一不小心就把信用卡刷爆了，除此之...",
+        "最近你的学习能力相当好，领悟力也很高，可以在很短的时间内就对新的业务内容有通盘的了解，所以.",
+        "或许最近有些心事困扰着你，让你今天工作起来相当无力，甚至有些心不在焉，如果忙碌了一段时间后.."];
+        star.style.width=8*arr[0]+"px";
+        select.onchange=function(){
+            icon.style.backgroundPosition="0 "+(-this.value*50)+"px";
+            desc.textContent=  textArr[this.value];
+            star.style.width= 8*arr[this.value]+'px'
+        }
+    </script>
+</body>
+</html>

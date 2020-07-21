@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch触摸事件</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    var div=document.querySelector("div");
+    div.addEventListener("touchstart",function (e) {//手指开始触摸事件
+        div.style.backgroundColor="pink";
+        console.log(e.touches);//正在触摸的所有手指列表
+        console.log(e.targetTouches);//正在触摸当前DOM元素的所有手指
+        console.log(e.changedTouches);//手指状态发生改变的列表（从无到有，从有到无）
+        
+        
+    })
+    div.addEventListener("touchmove",function (e) {//手指移动触摸事件
+        div.style.backgroundColor="yellowgreen";
+    })
+    div.addEventListener("touchend",function (e) {//手指结束触摸事件
+        div.style.backgroundColor="#f25250";
+    })
+</script>
+</html>

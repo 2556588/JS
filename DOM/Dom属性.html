@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <div width="100px"id="div0"></div>
+        <script>
+        //设置标题的文本环绕
+        var str="您好，欢迎浏览本网页，请注意信息安全"
+        var str1="";
+        var num=0;
+        // document.title=str;
+        setInterval(fn,500);
+        function fn(){
+        str1=str.substr(num,num+12);
+        if(num+12>str.length-1){
+            var s=num+12-(str.length-1);
+            str1+=str.substr(0,s);
+        }
+        num++;
+        if (num>str.length-1) {
+            num=0
+        }
+        document.title=str1
+        }
+
+
+
+        var btn=document.getElementsByTagName("button");
+        for(var i=0;i<btn.length;i++){
+            btn[i].addEventListener("click",clickHander)
+            btn[i].n=i
+        }
+        function clickHander(){
+            this.textContent=this.textContent+this.n
+        }
+        var div=document.getElementById("div0")
+            console.log(div.getAttribute("width"));     //获取标签的属性
+          var div2=  div.setAttribute("height","100px") //设置标签的属性
+            div.removeAttribute("height");
+        
+        // console.log(getComputedStyle(div).width);       //获取计算后的值，除ie浏览器外
+        try {                   //消耗性能较大
+            width=getComputedStyle(div).width;
+        } catch (error) {
+           width=div.currentStyle.width
+        }
+        console.log(width);
+        
+
+        </script>
+    </body>
+</html>

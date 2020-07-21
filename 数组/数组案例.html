@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+        <script>
+                //1.求数组值的和
+        
+                // for (var i=0;i<arr1.length;i++) {
+                //     sum +=arr1[i];
+                // }
+                // console.log(sum );
+                //2.求数组的平局值
+                // var sum =0;
+                // var avg=0;
+                
+                // for (var i=0;i<arr1.length;i++){
+                //     sum +=arr1[i]
+                //     // avg = sum / arr1.length;
+                // }
+                // console.log(sum/arr1.length);
+
+                // function fn(arr){
+                //     var sum=0;
+                //     var len=arr.length;
+                //     for (let i = 0; i < len; i++) {
+                //         sum+=arr[i]
+                        
+                //     }
+                //     return sum/len
+                // }
+                // console.log(fn([1,2,3,4,5]))
+             
+        
+                //3.求数组中的最大值
+        
+                // var arr1 = [10,232,5,65,462];
+                // var max=arr1[0];
+                // for (var i=1;i<arr1.length;i++){
+                //     if (max<arr1[i]){
+                //         max=arr1[i];
+                //     }
+                // }
+                // console.log(max);
+        
+        
+                //4.求数组中的最小值
+        
+                // var arr1 = [10,20,30,40,50];
+                // var min =arr1[0];
+                // for (var i=1;i<arr1.length;i++){
+                //     if (min>arr1[i]){
+                //         min=arr1[i];
+                        
+                //     }
+                // }
+                // console.log("最小值:"+min);
+        
+               
+                
+                //选择排序
+                var arr1 = [10,232,5,65,462];
+                    for(var j=0;j<arr1.length;j++){      //从头开始循环
+                        var min=j;
+                    for(var i=min+1;i<arr1.length;i++){   //从当前值下一项循环
+                        if(arr1[min]>arr1[i]){           //判断大小，找到最小下标 
+                            min=i;
+                        }
+                    }
+                    var temp=arr1[j];
+                    arr1[j]=arr1[min];
+                    arr1[min]=temp;
+                    }
+                  
+                    console.log(arr1)
+                
+                    
+                //
+                // //5.倒序遍历数组
+                var arr2 = [10,20,30,40,50];
+                for (var i=arr2.length-1;i>=0;i--){
+                    console.log(arr2[i]);
+                }
+
+                //法二: 利用reverse();方法   原数组的倒序发生改变，新数组和原数组是引用关系
+                var arr=arr2.reverse();
+                console.log(arr2,arr==arr2,arr)
+
+               
+                
+               
+        
+                //6.把数组中的元素用|隔开
+                    //方法一
+                // for (var i=0;i<arr3.length-1;i++){
+                //     str +=arr3[i]+"|";
+                // }
+                // console.log(str+arr3[arr3.length-1]);
+        
+                    //方法二
+                // var str ="";
+                // var arr3 = ["宫本","鲁班","大小姐","韩信"];
+                // for (var i=1;i<arr3.length;i++) {
+                //     str +="|"+arr3[i];
+                // }
+                // console.log(arr3[0]+str)
+        
+        
+                //去掉数组中的0
+                var arr1 =[10,0,20,0,30,0,40];
+                var newarr1 =[];
+                for (var i=0;i<arr1.length;i++){
+                    if (arr1[i]!==0){
+                        newarr1[newarr1.length]=arr1[i];
+                    }
+                }
+                console.log(newarr1);
+        
+                    
+        
+        
+                //7.反转数组---把数组中的位置调换(头尾相换)
+                var arr = [10,20,30,40,50,70];
+                // for (var i=0;i<arr.length/2;i++){
+                //     var news=arr[i];
+                //     arr[i]=arr[arr.length-1-i];
+                //     arr[arr.length-1-i]=news;
+                // }
+                // console.log(arr);
+        
+                    
+        
+                //提示用户输入班级人数，分数。求总成绩，平均成绩，最高分，最低分。
+                // var percount = parseInt(prompt("请输入人数："));
+                // var perscroe = [];
+                // for (var i=0;i<percount;i++){
+                //     perscroe[perscroe.length]=parseInt(prompt("请输入第"+(i+1)+"个的成绩"));
+                // }
+                // console.log(perscroe);
+                //
+                // var sum =0;   //求和
+                // for (var i=0;i<perscroe.length;i++){
+                //     sum +=perscroe[i];
+                // }
+                // console.log("总分是："+sum);
+                //
+                // var avg =sum/percount;  //求平均数
+                // console.log("平均数分为："+avg);
+                //
+                // var max =perscroe[0];
+                // for (var i=0;i<perscroe.length;i++){
+                //     max =perscroe[i];
+                // }
+                // console.log("最高分："+max);
+                //
+                // var min =perscroe[0];
+                // for (var i=0;i>perscroe.length;i++){
+                //     min=perscroe[i];
+                // }
+                // console.log("最低分："+min);
+        
+                //冒泡排序：按照一定的顺序（从大到小，从小到大）
+                var arr = [10,50,40,60,80];
+                // for(var i=0;i<arr.length-1;i++){
+                //     for (var j=0;j<=arr.length-1-i;j++){
+                //         if (arr[j]>arr[j+1]) {
+                //             var newarr =arr[j];
+                //             arr[j]=arr[j+1];
+                //             arr[j+1]=newarr;
+                //         }
+                //     }
+                // }
+                // console.log(arr);
+        
+                //   //冒泡排序法二
+                    for(var i=0;i<arr.length;i++){  //从后向前
+                              for(var j=0;j<arr.length-1-i;j++){  //从前向后
+                                  if(arr[i]>arr[i+1]){  //判断值的大小互换位置
+                                      var temp=arr[i];
+                                      arr[i]=arr[i+1];
+                                      arr[i+1]=temp;
+                                  }
+                              }
+                          }
+                          console.log(arr)
+
+                    //法三  sort(function(前一项，后一项){})
+                        arr.sort(function(pre,next){
+                            return pre-next;
+                        })
+                        console.log(arr)
+        
+        
+                     
+
+                        // var arr1=[10,2334,4545]
+                        // var arr2=[120,234,45]
+                        // // arr2.length=0;  //清空数组的数据
+                        // arr2[arr2.length-1]=50
+                        // console.log(arr2)
+                        // document.write(arr1.concat(arr2))  //合并连个数组
+        
+                      
+
+                        
+                        
+                  
+                
+            </script>
+</body>
+</html>

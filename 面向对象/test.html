@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // function product() {
+        //     this.name = "";
+        //     this.price = 0
+        // }
+        // product.prototype = {
+        //     bindDom: function () {
+        //         var str = `<p>商品名称：${this.name}</p>
+        //             <p>商品价格：${this.price}</p>
+        //             `
+        //         return str;
+        //     }
+        // }
+        window.onload = function () {
+            // var product1 = new product();
+            // product1.name = "海尔冰箱";
+            // product1.price = 1200;
+            // // console.log(product1.bindDom);
+            // var app = document.getElementById("app");
+            // app.innerHTML = product1.bindDom();
+
+            // console.log(product1 instanceof product); //instanceof 判断手否为某个构造函数
+
+            //若构造函数中有return{}；返回值，则不会执行构造函数的方法
+            //若返回return；不是对象形式返回则还是执行构造函数的内容
+            /**
+            通过原型的方法判断Object.prototype
+            判断数据类型toString.call()
+
+            判断数据类型
+            a instanceof b  
+            */
+            // console.log(t([1, 2]));
+            // console.log(product1.__prototype__);
+            /**
+                属性屏蔽：
+                delete product1.属性或方法
+                product1.prototype.属性或方法
+
+            */
+
+
+        }
+
+        // class Fath {
+        //     constructor(x, y) {
+        //         this.x = x;
+        //         this.y = y;
+        //     }
+        //     sum() {
+        //         console.log(this.x + this.y);
+
+        //     }
+        // }
+        // class Son extends Fath {
+        //     constructor(x, y) {
+        //         super(x, y)
+        //     }
+        // }
+        // var f1 = new Fath();
+        // console.dir(f1.__proto__.constructor);
+
+        // console.log(f1);
+        // var son = new Son(1, 2);
+        // son.sum()
+
+
+        function fn(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        fn.prototype = {
+            constructor: fn,
+            sum: function () {
+                console.log("sdasd");
+
+            }
+        }
+        var f1 = new fn();
+        console.log(f1.sum);
+        //call();可以调用方法，也可改变他this的指向
+        // call(this指向，参数1，...);
+
+    </script>
+</body>
+
+</html>

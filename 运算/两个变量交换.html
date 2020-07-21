@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var num1 = 1;
+    var num2 = 2;
+    // 1.引入第三个变量
+    // var temp =num1;
+    // num1 =num2;
+    // num2 =temp;
+
+    //  2.适用于数字x+y=x，y=x-y,x=x-y.
+    //  num1 = num1+num2;
+    //  num2 = num1-num2;
+    //  num1 = num1-num2;
+    //  3.位运算
+    num1=num1^num2;
+    num2=num1^num2;
+    num1=num1^num2;
+    alert(num1);
+    alert(num2);
+</script>
+
+</body>
+</html>

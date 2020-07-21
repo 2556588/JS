@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function countDown(time) {
+        var nowTime=+new Date();//返回当前的时间毫秒数
+        var inputTime=+new Date(time);//返回用户输入的毫秒数
+        var times=(inputTime-nowTime)/1000;//times是剩下时间总得秒数
+        var h=parseInt(times/60/60%24);//时
+        h=h<10?'0'+h:h;
+        var m=parseInt(times/60%60);
+        m=m<10?'0'+m:m;
+        var s=parseInt(times%60);
+        s=s<10?'0'+s:s;
+
+    }
+</script>
+</html>

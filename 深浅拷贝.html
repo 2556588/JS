@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //浅拷贝只是拷贝一层，更深层次对象级别的拷贝引用
+        //用的是同一存储地址
+        var obj = {
+            id: 1,
+            name: "sad",
+            age: 18,
+            color: [
+                "pink", "yellow"
+            ],
+            msg: {
+                num: 10
+            }
+        }
+        var o = {};
+        // for (var i in obj) {
+        //     o[i] = obj[i];
+        // }
+        // o.msg.num = 20; //会影响原对象
+        // console.log(o);
+        // console.log(obj);
+        //es6   Object.assign(拷贝目标，拷贝对象);;浅拷贝
+        // Object.assign(o, obj)
+
+        //深拷贝拷贝多层，每一级别的数据都会拷贝
+        //新开辟内存空间，两者存储地址不相同
+        function deepCopy(newobj, oldobj) {
+            for (const k in oldobj) {
+                var item = oldobj[k];
+                //判断数据类型
+                if (item instanceof Array) {  //数组类型就放入数组操作
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item);
+                } else if (item instanceof Object) {   //对象类型放入对象操作
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item);
+                } else {  //简单数据类型--按照字符串操作
+                    newobj[k] = item;
+                }
+            }
+        }
+        deepCopy(o, obj);
+        console.log(o);
+        o.age = 20;//不会影响原数组的值
+        console.log(obj);
+
+
+
+    </script>
+</body>
+
+</html>

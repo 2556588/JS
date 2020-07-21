@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>document的属性及用法</title>
+        <style>
+           div{
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid #ff0000;
+
+}
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <button onclick="myFunction()">点击</button>
+        <pre>   
+             将标签里的内容原样输出 
+        <script>
+            document.writeln("aaa");           //每个表达式之后写一个换行符。
+            document.writeln("bbb");
+
+            document.write(document.URL);       //返回文档URL路径
+            document.write("<br/>")
+            document.write(document.title);     //返回文档标题
+
+            function myFunction(){          //利用onclick点击事件	返回文档的body元素
+                document.body.style.backgroundColor="green";
+            }
+
+            document.write("<br/>")
+            document.write(document.documentURI);//返回文档位置
+            
+        </script>
+        </pre>
+        
+    </body>
+</html>

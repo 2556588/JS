@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        
+        div {
+            width: 360px;
+            height: 70px;
+           background: url("./images/01big.jpg") no-repeat;
+            padding-top: 360px;
+            margin: 50px auto;
+        }
+        div ul{
+            list-style: none;
+            background-color: #fff;
+        }
+        div li{
+            float: left;
+            margin-right: 1px;
+            background-color: #fff;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <ul>
+            <li id="li1"><img src="./images/01.jpg"></li>
+            <li id="li2"><img src="./images/02.jpg"></li>
+            <li id="li3"><img src="./images/03.jpg"></li>
+            <li id="li4"><img src="./images/04.jpg"></li>
+            <li id="li5"><img src="./images/05.jpg"></li>
+        </ul>
+    </div>
+    <script>
+        var div=document.getElementById("div1");
+                // 事件源.事件 = function() {}
+        function taobao(id,bg) {
+            var eleId=document.getElementById(id);
+            eleId.onmouseover = function() {
+            div.style.backgroundImage = bg;
+        }
+        }
+        // taobao("li1","url(./images/01big.jpg)")
+        // taobao("li2","url(./images/02big.jpg)")
+        // taobao("li3","url(./images/03big.jpg)")
+        // taobao("li4","url(./images/04big.jpg)")
+        // taobao("li5","url(./images/05big.jpg)")
+           // 封装函数 思路 ：
+    //  1. 把相同的部分功能 放到一起，放到一个函数里面，就是封装
+    //  2. 然后，找不同的地方作为参数
+        for (let i = 1; i < 6; i++) {
+            taobao("li"+i,"url(./images/0"+i+"big.jpg)")
+            
+        }
+    </script>
+</body>
+</html>

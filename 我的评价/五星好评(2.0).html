@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<style type="text/css">
+*{
+margin:0;
+padding:0;
+}
+div{
+width:80px;
+height: 15px;
+z-index: 1;
+opacity: .8;
+background: url("images/commstar.png") repeat-x;
+position: relative;
+}
+.one{
+height: 15px;
+position: absolute;
+top:0;
+left:0;
+background:url('images/commstar.png') repeat-x 0 -15px;
+}
+</style>
+<script>
+window.onload=function() {
+    var div = document.getElementsByTagName("div")[0];
+    var p = document.createElement("p");
+    p.setAttribute("class","one");
+    div.appendChild(p);
+    div.onclick=function(ev){
+    var oEvent=ev||event;
+    var wid = oEvent.offsetX;
+    if(wid>=80){
+    wid = 80;
+    }
+    p.style.width=wid+"px";
+    }
+}
+</script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

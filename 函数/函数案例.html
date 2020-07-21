@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //求1-n之间的和
+    // function getSum(n){
+    //     var sum=0;
+    //     for (var i=1;i<=n;i++){
+    //         sum +=i;
+    //     }
+    //     return sum;
+    // }
+    // console.log(getSum(10));
+
+    //n-m之间的和
+    // function getSum(n,m){
+    //     var sum=0;
+    //     for (var i=n;i<=m;i++){
+    //         sum+=i;
+    //     }
+    //     return sum;
+    // }
+    // console.log(getSum(10,20));
+
+
+    //圆的面积
+    // function getS(r){
+    //     return Math.PI*r*r;
+    // }
+    // console.log(getS(5));
+
+    //求两个数的最大值
+    // function getMax(x,y){
+    //     return (x>y?x:y);
+    // }
+    // console.log("最大值是："+getMax(10,20))
+    // //求三个数的最大值
+    // function getMax2 (x,y,z){
+    //     return (x>y?(x>z?x:z):(y>z?y:z));
+    // }
+    // console.log("最大值为："+getMax2(10,20,30))
+
+
+    //判断一个数是否为素数（只能被一或本身整除的，从二开始）
+    // function isPrimeNumber(x){
+    //     var bool=true;      //假设这个数为素数；
+    //     for (var i=2;i<x;i++){
+    //         if(x%i===0){
+    //             // console.log(x,i);
+                
+              
+    //         bool=false;
+    //         }   
+              
+           
+    //     }
+    //     return bool
+        
+    // }
+    
+    // console.log(isPrimeNumber(3)===true?"这是素数":"这不是素数");
+     
+    
+
+
+    //求两个数的差
+    // function getSub(x,y){
+    //     return x-y;
+    // }
+    // console.log(getSub(10,20));
+
+    //求一组数字中的最大值
+    // function maxNumber(array){
+    //     var max =array[0];
+    //     for(var i=0;i<array.length;i++){
+    //     if(array[0]<array[i]){
+    //         max=array[i];
+    //     }
+    //     }
+    //     return max;
+    // }
+    
+    
+    // console.log(maxNumber(arr=[10,60,50,400]));
+
+
+    //返回自定义数组的最大值
+    function fn1(){
+        var arr=Array.from(arguments);   //转换为数组
+        return arr.reduce(function(x,y){
+            return x>y?x:y;
+        })
+       
+    }
+    console.log(fn1(23,44,66,73,2,5,56));
+
+    // function fn1(){
+    //     console.log(arguments.callee)
+    // }
+    // fn1();
+
+    //二维数组
+    var arr=[];
+    for(var i=0;i<10;i++){
+         arr[i]=[]
+        for(var j=0;j<10;j++){
+            arr[i][j]=i*10+j;
+        }
+    }
+    console.log(arr[1][2])
+
+
+
+</script>
+</body>
+</html>

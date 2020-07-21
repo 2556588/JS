@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logo</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+        }
+        div{
+            margin-top: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            
+
+        }
+        div span{
+            font-size: 4em;
+            color: blueviolet;
+            display: inline-block;
+            text-transform: uppercase;
+            
+        }
+        .color{
+            animation: sys 1.5s linear 0.2s 2  alternate;
+        }
+        @keyframes sys{
+            50%{
+                color: crimson;
+                transform:scale(2);
+            }
+            100%{
+                color: crimson;
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>hodunren.com</div>
+    <script>
+        let div=document.querySelector("div");
+        [...div.textContent].reduce((total,value,index)=>{
+            if(total==index){
+                div.innerHTML="";
+            }
+                let span=document.createElement("span");
+                span.innerHTML=value;
+                div.appendChild(span);
+               span.addEventListener("mouseover",function () {  //鼠标移入时添加该类
+                this.classList.add("color")
+               })
+               span.addEventListener("animationend",function () { //动画结束时清除该类
+                   this.classList.remove("color")
+                })
+        },0)
+    </script>
+</body>
+</html>

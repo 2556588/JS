@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取文本框的值</title>
+</head>
+<body>
+    <input type="text " id="text"> <button id="btn">查询</button>
+    <script>
+        function $c(id){
+            return document.getElementById(id)
+        }
+
+        $c("btn").onclick=function(){
+            var texts=$c("text").value; //获取input中的值，必须在点击后获取值
+            if(texts=="sys"){
+                alert("恭喜您，中大奖了");
+                alert("5毛钱");
+            }else{
+                alert("谢谢惠顾")
+            }
+        }
+    </script>
+</body>
+</html>

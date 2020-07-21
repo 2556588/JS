@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网络请求数据get方法</title>
+</head>
+<body>
+  
+</body>
+<script>
+    var xhr=new XMLHttpRequest();//实例化对象
+    xhr.open("get","http://49.235.117.27:9092/json");//打开链接(发送给后台数据在链接最后面？key=value值&key=value值形式)
+                                                                    //{key:value,key:value }
+    xhr.onreadystatechange=function(){  //监听方法
+        if (xhr.readyState===4&&xhr.status===200) { //连接成功拿到数据
+            console.log(xhr.responseText);
+            console.log(xhr);
+            
+            
+        }
+    }
+    xhr.send();//发送请求（可写在上面）
+
+    // setInterval setTimeout 网络请求 都是异步操作
+
+    
+</script>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>
+            change事件,error事件，load事件，resize事件
+        </title>
+        <style>
+            html{
+                font-size: 100px;
+            }
+            body{
+                font-size: 14px;
+            }
+            img{
+                width: 8rem;
+                height: 8rem;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="#" method="get" id="form1">
+        <input type="checkbox" id="inputs">
+        <input type="submit">
+        <input type="reset">
+        <input type="text" id="texts">
+        <select id="selects">
+            <option>北京</option>
+            <option>厦门</option>
+            <option>武汉</option>
+            <option>上海</option>
+            <option>石家庄</option>
+        </select>
+        </form> 
+        <img src="../images/jdphone.jpg" id="imgs">
+        <!-- <img src="../images/no_login.jpg" id="imgs"> -->
+        <script>
+            //change事件
+            //change 事件被<input>, <select>, 和<textarea> 元素触发。
+            //1.默认选项被修改时（通过点击或者键盘事件）。
+            //2.当用户完成提交动作时 
+            //3.当标签的value值被修改并且失去焦点后，但并未进行提交
+            //表单元素的value值或选中属性的被修改，并且与原来的值不同，触发change事件
+        //    var inputs=document.getElementById("inputs") 
+        //    inputs.addEventListener("change",changeHander);
+        //    function changeHander(e) {
+        //        console.log(e);
+               
+        //    }
+
+
+        //下拉菜单
+        // var selects=document.getElementById("selects");
+        // selects.addEventListener("change",changeFunction);
+        // function changeFunction(e) {
+        //     console.log(selects.selectedIndex); //下拉菜单索引值
+        //     console.log(selects.selectedOptions[0].textContent); //输出被选中的那个option的内容，textContent表示option里面的内容
+        //     //selects.selectedOptions是一个列表，当选择下拉菜单时，如果没有指定多选这个列表中只有一个元素，+
+        //     //如果指定多选，可以有多个元素，在标签中设置mutiple
+            
+        // }
+
+
+            //scroll事件
+            window.addEventListener("scroll",scrollHander);
+            function scrollHander(params) {
+                console.log("ss");
+                
+            }
+
+
+
+
+
+
+        //error事件
+        // 图片，脚本，css样式表文件的加载时，如果指定地址错误加载失败，都可以通过侦听error来判断是否失误
+        // var img=new Image();
+        // img.addEventListener("error",errorHander)
+        // img.src="../images/no_login.jpg"
+        // function errorHander(e) {
+        //     console.log("加载失误");
+            
+        // }
+
+        //load事件
+        //load,加载，用于浏览器全部加载完成判断，图片加载成功判断，视频，声音等加载，
+        // ajax也是用load判断是否加载完成
+
+        //因为script标签比img标签更早执行完毕
+        // var img=document.getElementById("imgs")
+        // console.log(img);   //null;
+
+        // window.onload=function(){
+        //     // 当整个页面加载完毕，然后图片加载完成
+        //     // 这个时候在执行这个load完成后的事件就可以获取页面中任意位置的img
+        //     var img=document.getElementById("imgs")
+        //     console.log(img);
+            
+        // }
+        
+        
+        //submit和reset事件都是针对表单form的侦听
+        //通常用于提交表单和重置表单时，需要取消系统默认的提交事件；
+        // var form1=document.getElementById("form1");
+        // form1.addEventListener("submit",formHander);
+        // form1.addEventListener("reset",formHander);
+        // function formHander(e){
+        //     e.preventDefault();
+        //     console.log("aaa");
+            
+        // }
+            //resize事件；
+            //页面随着窗口大小的变化自适应缩放内部元素的大小
+            //resize事件可以获取window窗口变化缩放的事件侦听，当窗口大小发生改变时，收到改事件
+            // window.addEventListener("resize",resizeHander);
+            // function resizeHander(e) {
+            //     var scale=document.documentElement.clientWidth/1349;    //document.documentElement为html
+            //     document.documentElement.style.fontSize=100*scale+"px"
+            //     console.log(scale);
+                
+            // }
+
+
+            /*
+            当文本框中的值被选中时，激活改事件
+            text.selectionStart    text.selectionEnd 被选中的元素
+            
+            */
+        //    var texts=document.getElementById("texts")
+        //    texts.addEventListener("select",selectFunction);
+        //    function selectFunction(e) {
+        //     //    console.log(e);
+        //     //    console.log(texts.selectionStart,texts.selectionEnd);
+                                     //选中位置索引值的下标
+        //     texts.value=texts.value.slice(0,texts.selectionStart)+   
+        //     texts.value.slice(texts.selectionStart,texts.selectionEnd).toUpperCase()+
+        //     texts.value.slice(texts.selectionEnd)
+                ////texts.value--为input里面的文本
+        //    }
+
+      
+
+        </script>
+    </body>
+</html>

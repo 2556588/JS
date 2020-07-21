@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 获取对象的所有属性：Object.keys(obj)；//返回数组
+        // var obj = {
+        //     name: "sad",
+        //     age: 15
+        // }
+        // console.log(Object.keys(obj));
+
+        // 定义对象中新属性或修改原有的属性：Object.defineProperty(目标对象，需要定义或修改的属性名，目标属性拥有的特性)；//三个参数都是必须的
+        var obj = {
+            id: 1,
+            name: "sad",
+            age: 15
+        }
+        // 有则修改，无则添加属性和值
+        // Object.defineProperty(obj, "sex", {
+        //     value: "男"
+        // })
+        Object.defineProperty(obj, "id", {
+            writable: false, //是否在允许修改
+        })
+        Object.defineProperty(obj, "adderss", {
+            enumerable: false, //是否允许遍历
+        })
+        Object.defineProperty(obj, "id", {
+            configurable: false, //是否在允许删除或修改
+        })
+        console.log(obj);
+
+    </script>
+</body>
+
+</html>

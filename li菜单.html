@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <!-- <ul>
+            <li>菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+            <li>菜单4</li>
+            <li>菜单5</li>
+        </ul>
+        <script>
+            var ul=document.getElementsByTagName("ul")[0];
+            ul.addEventListener("click",clickHander);   //仅侦听父容器，对所有的子容器的侦听
+            function clickHander(e) {
+                
+                
+                if(e.target.constuction===HTMLUListElement)return ; //若e.target为ul则return
+                e.target.style.color="red"
+               
+            }
+        </script> -->
+
+
+
+        <ul>
+            <li>北京
+                <ul>
+                    <li>昌平
+                        <ul>
+                            <li>沙河</li>
+                            <li>城关</li>
+                            <li>回龙观</li>
+                            <li>天通苑</li>
+                        </ul>
+                    </li>
+                    <li>海淀</li>
+                    <li>朝阳</li>
+                    <li>东城</li>
+                    <li>西城</li>
+                </ul>
+            </li>
+            <li>山东</li>
+            <li>山西</li>
+            <li>河北
+                <ul>
+                    <li>保定</li>
+                    <li>石家庄</li>
+                    <li>张家口
+                        <ul>
+                            <li>张北</li>
+                            <li>崇礼</li>
+                            <li>下花园</li>
+                            <li>宣化</li>
+                        </ul>
+                    </li>
+                    <li>承德</li>
+                    <li>邯郸</li>
+                </ul>
+            </li>
+            <li>河南</li>
+            
+        </ul>
+        <script>
+            var lis=document.getElementsByTagName("li");
+            for(var i=0;i<lis.length;i++){
+                lis[i].addEventListener("click",clickHander)
+            }
+            function clickHander(e) {
+                e.stopPropagation();            //阻止冒泡
+                this.bool=!this.bool;
+                console.log(this.bool);
+                
+                if(this.bool){
+                    this.firstElementChild.style.display="none"
+                    return ;
+                }
+                this.firstElementChild.style.display="block"
+            }
+        </script>
+    </body>
+    
+</html>

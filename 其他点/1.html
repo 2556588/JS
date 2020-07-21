@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* span{
+            color: #fff;
+        } */
+        .hide{
+            display: none;
+        }
+        .div{
+            color: blue;
+        }
+        .styles{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">dsf</div>
+    <div class="div">sa</div>
+    <script>
+        //switch
+        // function message(age){
+        //     let msg;
+        //     switch (true) {
+        //         case age>60:
+        //             msg='老年';
+                    
+        //             break;
+        //         case age>40:
+        //            msg='中老年';
+                    
+        //             break;
+        //         case age>30:
+        //             msg='青年';
+                    
+        //             break;
+        //         default:
+        //             msg='青少年';
+                
+        //             break;
+        //     }
+        //     return msg
+        // }
+        // console.log(message(70));
+
+        //while
+    //   function fn(options={a:10,b:8}){
+    //     document.write(`<table border="1",width="100px">`)
+    //     let a=options.a;
+    //     while(a--&&a!=0){
+    //         document.write(`<tr>`)
+    //         let b=options.b
+    //         while(b--&&b!=0){
+    //             document.write(`<td width="100px",height="50px">${b}</td>`)
+    //         }
+    //         document.write(`</tr>`)
+    //     }
+    //     document.write(`</table>`)
+    //   }
+    //   fn({a:6,b:5})
+
+        //do-while
+        // function fn(row=10){
+        //     let a=0;
+        //     do {
+        //         let b=0
+        //         do {
+        //             document.write("s")
+        //         } while (++b<=a);
+        //         document.write("<br />")
+        //     } while (++a<=row);
+        // }
+        // fn()
+
+        // //杨辉三角
+        // function fn(row=5){
+        //    for (let i = 1; i < row; i++) {
+        //         for (let s = 0; s < row-i; s++) {
+        //           document.write("<span>s</span>")
+                    
+        //         }
+        //         for (let b = i*2-1; b >0; b--) {
+        //             document.write("*")
+                    
+        //         }
+        //        document.write(`<br />`)
+        //    }
+        // }
+        // fn(100)
+
+        //break：打标签(指定推出循环)
+        // sys:for(let i=0;i<10;i++){
+        //     syy:for(let s=0;s<10;s++){
+                
+        //         if(s%2==0){
+        //             console.log(i,s)
+                    
+        //         }
+        //         if(s+i>10){
+        //             break sys;
+        //         }
+        //     }
+        // }
+
+        //for in
+        // let sys=[{
+        //     title:"标题一",
+        //     lesson:2
+        // },
+        // {
+        //     title:"标题二",
+        //     lesson:3
+        // },
+        // {
+        //     title:"标题三",
+        //     lesson:5
+        // }
+        // ];
+    //    document.write(`<table border="1"><thead><tr><th>标题</th><th>课程数</th></tr></thead>`)
+    //    for (const i in sys) {
+    //        document.write(`<tr><td width="100px",height="50px">${sys[i].title}</td><td>${sys[i].lesson}</td></tr>`)
+    //    }
+    //    document.write("</table>")
+    
+        //for of
+        // document.write(`<table border="1" width="300px"><thead><tr><th>标题</th><th>价格</th></tr></thead>`);
+        //     for (const value of sys) {
+        //         document.write(`<tr><td>${value.title}</td><td>${value.lesson}</td></tr>`)
+        //     }
+        
+        //字面量``
+        // var list=[
+        //    {title:"课程一"},
+        //    {title:"课程二"}
+        // ]
+        // function fn(e){
+        //     return `<ul>${list.map(item=>`<li>${item.title}</li>`).join("")}</ul>`
+        // }
+        // document.body.innerHTML=fn()
+
+        //标签模版-->将指定字符串替换  标签引用标签函数
+        // var list=[
+        //    {title:"课程一",name:"零零七可骄傲的不是看syy"},
+        //    {title:"课程二",name:"瓦syy特撒旦"},
+        //    {title:"课程三",name:"syy？？？安师大"}
+        // ]
+        // function fn(e){
+        //     return `<ul>
+        //         ${list.map(item=>links`<li>标题：${item.title},名字:${item.name}</li>`).join("")}
+        //         </ul>`
+        // }
+
+        // function links(strings,...vars){
+        //     return strings.map((str,index)=>{
+        //         return str+(vars[index]?
+        //         vars[index].replace("syy",`<a href="http://www.baidu.com">syy</a>`)
+        //         :"")//字符串大于变量
+        //     })
+        // console.log(strings);
+        // console.log(...vars);
+        
+        // }
+        // document.body.innerHTML+=fn()
+
+        //字符串操作
+        //  var syy="alkfl"
+         
+        //  for (let i = 0; i < syy.length; i++) {
+        //      var span=document.createElement("span");
+        //      span.style.fontSize=i*10+"px";
+        //      span.innerHTML=syy[i]
+        //      document.body.appendChild(span)
+             
+        //  }
+
+        //字符串截取 slice,substr,substring
+        /*
+            只有一个参数时表示从哪里开始截取，
+            两个参数从哪开始截取到哪
+
+        */
+        // var sys="ahalfnkl";
+        // console.log(sys.slice(0,2));
+        // console.log(sys.substr(0,2));
+        // console.log(sys.substring(0,2));
+        
+       /*
+        //字符查找  indexof,includes
+        indexOf 返回值问1，-1；
+        include返回值为boolean值
+        lastIndexOf
+        startsWith 查找大小写
+       */
+        
+       /*
+        字符串替换 reduce，replace
+       */
+        // const word=["php","css"];
+        // const string="我喜欢在后盾人学习php与css知识";
+        // const replaceString=word.reduce((pre,sys)=>
+        // pre.replace(sys,`<a  href="?w=${sys}">${sys}</a>`),string
+        // )
+        // console.log(replaceString);
+        // document.body.innerHTML+=replaceString
+
+        //repeat -->电话号码*替换
+        // function fn(sys,len=3){
+        //     return sys.slice(0,len*-1)+"*".repeat(len)
+        // }
+        // console.log(fn("1161513213",4));
+
+        //  const word=["php","css"];
+        // const string="我喜欢在后盾人学习php与css知识";
+        // const strings=word. 
+        
+        //math方法
+    //     function fn(array,start=0,end) {
+    //         end=end?end:array.length;
+    //         start--;
+    //         const index=start+Math.floor(Math.random()*(end-start))
+    //         return array[index];
+    //     }
+    //   console.log(  fn([1,2,3,4,5],2,5));
+      
+    //时间戳用法-->执行中间的方法需要多长时间
+    // var start=Date.now();
+    // for(var i=0;i<2000000;i++){}
+    // var end=Date.now()
+    // console.log(end-start);
+    
+    // console.time("for");
+    // for(var i=0;i<202000000;i++){}
+    // console.timeEnd("for");
+    
+
+    //date封装
+    // const date=new Date("1992-10-20 13:20:20");
+    // function fn(date,format="yyyy-MM-dd hh:mm:ss") {
+    //     const config={
+    //         yyyy:date.getFullYear(),
+    //         MM:date.getMonth()+1,
+    //         dd:date.getDate(),
+    //         hh:date.getHours(),
+    //         mm:date.getMinutes(),
+    //         ss:date.getSeconds()
+    //     }
+    //     for (const i in config) {
+    //       format=format.replace(i,config[i]);
+    //       console.log(i,config[i]);
+    //       console.log(format);
+          
+          
+    //     }
+    //     return format;
+    // }
+    // console.log(fn(date));
+    
+
+    //转换数组的静态方法
+        // let divs=document.querySelectorAll("div");
+        // Array.from(divs,function (item) { 
+        //     item.style.backgroundColor="red"
+        //  })
+
+    //展开语法：...
+        //  let arr=["njk","asda"];
+        //  let hd=["jask","nkjsda"];
+        //  arr=[...arr,...hd];
+        //  console.table(arr);
+        //  for (const value of hd) {
+        //      arr.push(value)
+        //  }
+        //  console.log(arr);
+    
+    //点语法操作dom元素
+            /*
+            element.classList属性方法
+            add(class1, class2, ...)	在元素中添加一个或多个类名。如果指定的类名已存在，则不会添加
+            contains(class)	返回布尔值，判断指定的类名是否存在。
+                可能值：
+                true - 元素包已经包含了该类名
+                false - 元素中不存在该类名
+                item(index)	返回元素中索引值对应的类名。索引值从 0 开始。
+                如果索引值在区间范围外则返回 null
+            remove(class1, class2, ...)	移除元素中一个或多个类名。
+                注意： 移除不存在的类名，不会报错。
+            toggle(class, true|false)	在元素中切换类名。
+            */
+        // var divs=document.querySelectorAll("div");
+        // [...divs].map(function (item) {
+        //     // console.log(item);
+            
+        //     item.addEventListener("click",function () { 
+        //         this.classList.toggle("div")   
+        //      })
+        //   })
+
+    //随机创建数组
+        // function range(start,end) {
+        //     let arr=[];
+        //     for (let i = start; i <=end; i++) {
+        //         arr.push(i)                
+        //     }
+         
+        //    return arr;
+        // }
+        // console.table(arr);
+
+    //splice
+            // let arr=[1,2,3,4,5];
+            // arr.splice(1,0,"sad");//此时为添加元素
+            // arr.splice(1,1,"sad");//此时为替换元素
+        
+
+    //数组移动案例
+        // function move(array,from,to) {  
+        //     if(from<0||to>=array.length){
+        //         console.error("错误")
+        //         return ;
+        //     }
+        //     let newarr=[...array];
+        //     let item=newarr.splice(from,1);
+        //     newarr.splice(to,0,...item);
+        //     return newarr
+        // }
+        // let arr=[1,2,3,4,5,6]
+        // console.table(move(arr,1,4))
+
+    //数组拆分合并
+        // let hd=[1,2,3,4,5,6];
+        // console.log(hd.concat(7,9));//合并
+        // let obj="asdasdad,siab"
+        // console.log(obj.split(","));//拆分
+        // console.log(hd.copyWithin(3,1,3));  //把下标1-3的元素复制到下标为3
+        
+    //查找元素
+            /*
+                find()--->返回元素的值，若无则返回undefined
+                findIndex()-->返回元素的下标，
+            */
+        // let arr=[1,2,3,4,5,6];
+        // function fn(arr,find) { 
+        //     for (const value of arr) {
+        //         if(value===find){
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        //  }
+        // console.log(fn(arr,9));
+        
+        // let find=arr.find(function (item) {  
+        //     return item==2
+        // })
+        // console.log(find);
+
+        
+        // let index=arr.findIndex(function (item) { 
+        //     return item===3
+        //  })
+        //  console.log(index);
+    
+    //自定义函数查找
+        // function fn(arr,callback) {
+        //     for (const value of arr) {
+        //         if(callback(value)){
+        //             return value;
+        //         }
+        //     }
+        //     return undefined;
+        //   }
+        //   let arr=[1,2,3,4,5,6];
+        //   console.log(fn(arr,function (item) { 
+        //     return item==2
+        // }));
+    
+    //prototype查找
+        // let arr=[1,2,3,4,5,6]
+        // Array.prototype.findValue=function(callback){
+        //     console.log(this);
+            
+        //     for (const value of this) {
+        //         if(callback(value)){
+        //             return value;
+        //         }
+        //     }
+        //     return undefined;
+        // }
+        // const res=arr.findValue(function (item) {
+        //     return item==2
+        //   })
+        //   console.log(res);
+          
+//数组排序  sort    
+        /*
+            sort 两个参数-->利用他们的差值做排序
+        */
+        // let cart=[
+        //     {name:"sys",price:1651},
+        //     {name:"lnd",price:161},
+        //     {name:'adsd',price:16163}
+        // ]
+
+        // cart.sort(function (x,y) { 
+        //     return x.price-y.price;
+        //  })
+        
+        //  console.table(cart);
+        //原理
+        // let arr=[1,61,498,8,598,4,];
+        // function fn(arr) {
+        //     for (const i in arr) {
+        //         for (const n in arr) {
+        //            if(arr[n]>arr[i]){
+        //                let temp=arr[n];
+        //                arr[n]=arr[i];
+        //                arr[i]=temp;
+        //            }
+        //         }
+        //     }
+        //     return arr;
+        //   } 
+        // console.log(fn(arr));
+    
+    //循环操作 foreach for-of for-in
+            // let arr=[1,2,3,4];
+            // for (let value of arr) {
+            //     value+=10;  //引用数值类型直接改变时不能改变原数组的值但可以改变[{},]对象里面的值
+                   
+            // }
+            // console.table(arr);
+            
+            // foreach-->遍历操作dom元素
+            // var divs=document.querySelectorAll("div");
+            //     divs.forEach(element => {
+            //         element.addEventListener("click",function () {
+            //             this.classList.toggle("styles")
+            //           })
+            //     });
+
+            
+    </script>
+</body>
+</html>

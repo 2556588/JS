@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点哪,哪出15*15的圆型div</title>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .yuan {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div οnmοuseοver="javascript:this.style.border='1px solid red';" οnmοuseοut="javascript:this.style.border='0px solid red';">内容</div>  -->
+    <script>
+        /**
+         * 点哪 哪出15*15的圆型div
+         */
+        document.body.addEventListener('click', function (e) {
+            console.log(e.clientX, e.clientY);
+
+            var div = document.createElement('div'); //创建div元素
+            var className = document.createAttribute('class');//创建class属性
+            className.value = 'yuan';//属性赋值
+            div.style.left = e.clientX - div.offsetWidth / 2 + 'px';
+            div.style.top = e.clientY - div.offsetHeight / 2 + 'px';
+            div.setAttributeNode(className);//设置属性节点
+            div.style.backgroundColor = '#' + parseInt(0xffffff * Math.random()).toString(16);//设置属性节点的属性值 随机背景颜色
+            document.body.appendChild(div);//给body添加元素div
+
+        })
+
+
+
+
+        var pre;
+        init();      //设置初始函数
+        function init(params) {
+            document.addEventListener("click", clickHander);
+
+        }
+        function clickHander(e) {
+            if (e.target === document.documentElement) {   //若点击目标为html则创建div节点及添加样式添加到body下面的节点
+                var div = document.createElement("div");
+                // div.style.width="50px";
+                // div.style.height="50px";
+                // div.style.backgroundColor="green";
+                // div.style.position="absolute";
+
+                // div.style.left=e.clientX-25+"px";
+                // div.style.top=e.clientY-25+"px";
+                Object.assign(div.style, {   //复制
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "red",
+                    position: "absolute",
+                    left: e.clientX - 25 + "px",
+                    top: e.clientY - 25 + "px",
+
+                })
+                document.body.appendChild(div);
+
+                return;
+
+
+            }
+            if (!e.target.bool) {    //若点击目标不为html则给目标添加边框
+                console.log(e.target.bool);
+
+
+                if (pre) {       //在目标变换后原来的目标边框清除
+                    console.log(pre);
+
+                    pre.style.border = "none";
+                    pre.bool = false;
+                }
+                // e.target.style.border="1px solid #000";
+                e.target.bool = true;
+                pre = e.target;
+                return;
+            }
+            e.target.bool = false;
+            e.target.style.border = "none";
+        }
+
+    </script>
+</body>
+
+</html>

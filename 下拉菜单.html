@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+    
+
+        #dropMenu{
+            position: relative;
+        }
+        
+        button{ 
+            width:120px;
+            height: 30px;
+            background-color: transparent;
+            border:1px solid #ccc;
+            box-shadow: 1px 1px 1px #999;
+            position: relative;
+        }
+        #triangular{
+            display: inline-block;
+            width:0;
+            height: 0;
+            border-top:10px solid #ccc;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+            position: absolute;
+            top:10px;
+            right:10px;
+        }
+        ul {
+            width: 118px;
+            list-style: none;
+            line-height: 30px;
+            border:1px solid #ccc;
+            position: absolute;
+            top: 30px;
+            box-shadow: 1px 1px 1px #999;
+            display: none;
+           
+        }
+        li{
+            background-color: #FFF;
+            text-align: center;
+            padding-right: 10px;
+            border-bottom: 1px solid #ccc;
+
+        }
+        li:last-child{
+            border:none
+        }
+        li:hover{
+            background-color: #ccc;
+        }
+        .spans{
+           margin-left: -30px;
+           font-size: 16px;
+        }
+    </style>
+    </head>
+    <body>
+        <div id=dropMenu>
+           <button> <span class="spans"></span><span id="triangular"></span></button>
+           <ul id="menu">
+               
+            </ul>
+        </div>
+        <script>
+            var city=["北京","厦门","西安","上海","深圳","香港","台湾"];
+            var button,menu,dropMenu;
+            init();
+            function init() {
+                button=document.getElementsByTagName("button")[0];
+                menu=document.getElementById("menu");
+                dropMenu=document.getElementById("dropMenu");
+                for (let i = 0; i < city.length; i++) {
+                   var li=document.createElement("li");
+                   li.textContent=city[i];
+                   menu.appendChild(li)
+                    
+                }
+                button.addEventListener("click",clickHander);
+                menu.addEventListener("click",menuClickHander);
+                button.firstElementChild.textContent=city[0];   //设置button的第一个子节点的内容为city[0]
+                dropMenu.addEventListener("mouseleave",mouseLeaveHander)
+            }
+            function clickHander(e) {
+                menu.style.display="block";
+            }
+            function menuClickHander(e) {
+                console.log(e.target);
+                
+                if (e.target.constructor===HTMLUListElement) return ; //若当前点击为ul时则返回
+                button.firstElementChild.textContent=e.target.textContent;  //将button的第一个子节点的内容赋给当前点击的节点内容
+                menu.style.display="none"   
+                
+            }
+            function mouseLeaveHander(e) {  //鼠标离开是影藏ul
+                menu.style.display="none"
+            }
+              
+        </script>
+    </body>
+</html>

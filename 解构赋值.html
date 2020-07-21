@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // //解构赋值----给多个变量赋值
+        // let [a,b,c]=[1,2,3]
+        // console.log(a,b,c);
+
+        // let [x,y]=[14]
+        // console.log(x,y);
+
+        // //初始值赋值
+        // let [h,s=0]=[14]
+        // console.log(h,s);
+
+        // //函数解构赋值
+        // function fn([a,b]) {
+        //     console.log((a*b));
+
+        // }
+        // fn([10,56])
+
+        // // 初始值赋值函数
+        // function fn1([a,b=2]) {
+        //     console.log(a+b);
+
+        // }
+        // fn1([10])
+
+        // function fn2([a,b=0,c=3]) {
+
+        // }
+        // let arr=[1,2]
+        // fn2(arr)
+
+        //数组解构赋值一一对应
+        // 对象解构赋值是属性名称一一对应
+
+
+        //对象解构赋值
+        // let {sum,num}={sum:10,num:34};
+        // console.log(sum,num);
+
+        //     let {sum,a1,b}={a1:23,b:34,sum:function (e) {
+        //         return this.a1+this.b
+        //     }
+        // }
+        //   console.log(sum,a1,b);
+
+        //   let obj={
+        //       p:[
+        //           "hello",
+        //           {y:"world"}
+        //       ]
+        //   };
+        //   let {p:[a1,{y}]}=obj;
+        //   console.log(a1,y);
+
+        var { length: lens } = [1, 2, 3, 4, 5, 6]
+        console.log(lens);  //打印长度
+
+
+
+        // 字符串解构赋值(只能完成length解构)----以数组的解构方式
+        let [i1, i2, i3] = "sys"
+        console.log(i1, i2, i3);
+
+        let { length: len } = "abcde";
+        console.log(len);
+
+        let [{ length: len0 }, { length: len1 }, { length: len2 }] = ["aaa", "bb", "cccc"]
+        console.log(len0, len1, len2);
+
+
+
+        //用途：
+
+        //交换变量
+        let x = 10, y = 20;
+        [x, y] = [y, x]
+        console.log(x, y);
+
+        //函数返回多个值
+        function fn(e) {
+            let a = 10;
+            let b = 20;
+            let c = 30;
+            return [a, b, c]; //如果数组解构返回，外面的变量可以和里面的不同，但是按照顺序接收
+            return { a: a, b: b, c: c }    //若果对象解构返回，外面的变量必须和返回的属性相同
+        }
+        console.log(fn());
+
+
+        //解构赋值（常用于let定义的变量），可解构对象，数组；
+        //数组解构
+        // let arr = [10, 23, 44];
+        // let [a, b, c] = arr;
+        // console.log(a, b, c);
+
+        //对象解构
+        let person = { name: 'zhangsan', age: 18 }
+        //使用左侧的name属性匹配右侧的对象是否有此属性，若有，就将此属性的值赋值给变量uname 
+        let { name: uname } = person;
+        console.log(uname);
+
+    </script>
+</body>
+
+</html>

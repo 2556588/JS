@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小球碰壁</title>
+</head>
+<body>
+    
+    <script>
+
+        //setInterval优势： 每间隔多长时间执行一次，但不是精准时间。
+            var ball;
+            
+            var arr=[]
+            var time;
+            init();
+            function init( ) {
+                for (let i = 0; i < 10; i++) {  //设置多个多个小球
+                    arr.push(createBall(randomInt(10,20),randomInt(1,5),randomInt(2,8)));
+                    
+                }
+                // time=new Date().getTime();  //获取时间毫秒数
+                setInterval(animation,16)
+            }
+            function randomInt(min,max) {   //随即大小，随机颜色
+                return Math.floor(Math.random()*(max-min)+min)
+            }
+
+            function createBall(r,speedX,speedY,parent) {   
+                if (!parent) {  //若没有赋值parent则为document.body
+                    parent=document.body;
+                }
+                if (r<=0) {   //若没有赋值r时则为r=5
+                    r=5;
+                }
+                ball=document.createElement("div");   //创建小球
+                setStyle(ball,{         //设置样式
+                    width:r*2+"px",
+                    height:r*2+"px",
+                    borderRadius:r+"px",
+                    backgroundColor:"red",
+                    position:"absolute",
+                });
+                ball.speedX=speedX;     //设置速度
+                ball.speedY=speedY;
+                parent.appendChild(ball);   //将小球添加到document.body
+                return ball;
+            }
+            function setStyle(elem,style) {     //小球样式函数
+                for (const prop in style) {
+                    elem.style[prop]=style[prop];
+                }
+            }
+
+            
+            function animation(e) {         //获取运动
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i].style.left=arr[i].offsetLeft+arr[i].speedX+"px";
+                    arr[i].style.top=arr[i].offsetTop+arr[i].speedY+"px";
+                    if (arr[i].offsetLeft>1300||arr[i].offsetLeft<=0) {  //若小球距离页面最左边大于500或小于等于0时则反方向运动
+                        arr[i].speedX=-arr[i].speedX;
+                    }
+                    if (arr[i].offsetTop>500||arr[i].offsetTop<=0) {
+                        arr[i].speedY=-arr[i].speedY;
+                    }
+                }
+                // console.log(new Date().getTime()-time); //打印时间毫秒数
+                // time=new Date().getTime();
+                
+            }
+
+    </script>
+</body>
+</html>

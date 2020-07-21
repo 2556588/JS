@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num=10;
+        fn();
+        function fn(){
+            console.log(num);   //undefined
+            var num=20
+        }
+        //等价于
+        function fn(){  //将带有var的变量提升到function的作用域的最顶层并不赋值
+            var num;
+            console.log(num);
+             num=20
+        }
+
+
+        var a=18;
+        fun1();
+        function fun1(){
+            var b=9;
+            console.log(a)  //undefined
+            console.log(b)  //9
+            var a='123'
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排他思想</title>
+    <style>
+        .current{
+            background-color: #daa520;
+    }
+    </style>
+</head>
+<body>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+    <script>
+//             排他性是指一种物品具有可以阻止其他人使用该物品的特性。
+// 排他性思想：
+// 在程序中但凡是遇到只让自己怎么样，不让别人怎么样的效果，都要用到排他性思想。而排他性思想往往需要使用到for循环进行群控制。
+// 步骤：一定是先排他，再控制自己。
+// 排他思想：  首先先清除所有人，  再剩下我自己。
+        var btns=document.getElementsByTagName("button");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick=function(){
+                for (let j = 0; j < btns.length; j++) {
+                    btns[j].className="";
+                    
+                }
+                this.className="current"
+            }
+            
+        }
+    </script>
+</body>
+</html>

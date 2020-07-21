@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子索引</title>
+    <style>
+        .current{
+            background-color: #daa520;
+    }
+    </style>
+</head>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+        var btns=document.getElementsByTagName("button");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].index=i;  //给数组赋属性
+           btns[i].onclick=function(){
+             
+            for (let j = 0; j < btns.length;j++) {
+                btns[j].className='';
+                console.log(this.index)
+            }
+            this.className='current'
+           }
+            
+        }
+    </script>
+</body>
+</html>

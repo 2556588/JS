@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //计算100-200的奇数和。
+        // var i=100;
+        // var sum = 0;
+        // while(i<=200){
+        //     if (i%2==0){
+        //         i++; //不能省略
+        //         continue;
+        //     }
+        //     i++; //不能省略
+        //     sum +=i;
+        // }
+        // console.log(sum);
+        //计算1-100的和，跳过个位数为3的数。
+        var sum = 0;
+        var i = 1;
+        while (i <= 10) {
+            if (i % 10 == 3) {
+                i++;
+                continue;
+
+            }
+            sum += i;
+            i++;
+        }
+        console.log(sum);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

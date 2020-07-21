@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       
+    <meta charset="utf-8">
+        <title>es特性</title>>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        const obj2 = {
+            name: 'Jine',
+            get age() { return '18' }
+        }
+        //获取自身属性的描述符，如果没有任何自身属性，则返回空对象。
+        var obj = Object.getOwnPropertyDescriptors(obj2)
+        console.log(obj);
+
+
+        // var arr2 = [1, 2, [3, 4, [5, 6]]];
+        // //数组降维---可去数组中的空项
+        // var arr = arr2.flat();
+        // console.log(arr);
+
+
+        var arr1 = [1, 2, 3, 4];
+        //与map相类似
+        var arr = arr1.map(x => [x * 2]);
+        console.log(arr);
+
+
+
+
+
+
+        var data = [];
+
+        for (var i = 0; i < 3; i++) {
+            data[i] = (function (i) {
+                return function () {
+                    console.log(i);
+                }
+            })(i);
+        }
+
+        data[0]();
+        data[1]();
+        data[2]();
+    </script>
+</body>
+
+</html>

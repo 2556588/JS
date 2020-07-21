@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>拖拽碰撞</title>
+        <style>
+            div{
+                width:50px;
+                height: 50px;
+                background-color: #ccc;
+                position: absolute;
+                
+            }
+            #div1{
+                background-color: #f10215;
+            }
+        </style>
+        <script src="./js/utils.js"></script>
+    </head>
+    <body>
+        <div id="div0"></div>
+        <div id="div1"></div>
+        <script>
+            var div1=document.getElementById("div1");
+            utils.getRandomPosition(div1);
+            var div0=document.getElementById("div0");
+            utils.dragElem(div0)
+            div0.addEventListener("elemMove",mouseHander);      //接收elemMove的抛发事件
+            function mouseHander(e) {
+                if(utils.hitTest(div0,div1)){       //返回boolean值若为true则为碰撞
+                    utils.getRandomPosition(div1)
+                }
+            }
+        </script>
+    </body>
+</html>

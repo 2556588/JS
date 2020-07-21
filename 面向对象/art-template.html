@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./artTemplate.js"></script>
+    <div id="app"></div>
+    <script id="atrtemplate" type="text/html">
+        <h3>导演：{{ director }}</h3>
+            <h3>男主：{{ maleHos }}</h3>
+            <h3>女主：{{ empress }}</h3>
+    </script>
+    <script>
+        var film = {
+            director: "周星驰",
+            maleHos: "邓超",
+            empress: "林允"
+        }
+        var html = template("atrtemplate", film);
+        document.getElementById("app").innerHTML = html
+    </script>
+</body>
+
+</html>

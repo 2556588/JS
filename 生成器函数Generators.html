@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生成器函数</title>
+</head>
+<body>
+    <script>
+        //用于异步处理
+          function*abc(n)  {
+              yield n;
+              let s=5;
+              n+=s;
+              yield n;      //停止返回n的值
+              n*=n;
+              yield n;
+              return n;
+          }
+        //   let s=abc(10);
+        //   console.log(s.next());    //表示下一步的返回值  {done:布尔值，value:yield返回值} 当done为true时结束
+          let s=abc(10)
+        let v=s.next();
+        while (!v.done) {       //通过循环打印最终的结果
+            console.log(v.value);
+            v=s.next();
+            
+        }
+          
+    </script>
+</body>
+</html>

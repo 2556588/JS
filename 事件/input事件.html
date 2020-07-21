@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>input事件</title>
+        <style>
+            
+        </style>
+      
+    </head>
+    <body>
+        <input type="text" id="texts">
+            <script>
+                //input事件，输入事件，当改变文本框内容时，收到该事件
+                //可控制长度，内容
+                var input=document.getElementById("texts")
+                input.addEventListener("input",inputHander);
+                function inputHander(e) {
+                    console.log(e);
+                    /*
+                    e.data    当前输入的内容；
+                    e.inputType 输入的类型，插入文本，删除文本
+                    e.isComposing  是否开启输入法
+                    */
+
+                }
+            </script> 
+    </body>
+</html>

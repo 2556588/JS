@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            td{
+                width:100px;
+                height: 30px;
+                border:1px solid #ccc;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+            
+        <table>
+            <tr><td><label>全选</label><br/><input id="allid"type="checkbox"></td></tr>
+            <tr><td><input id="id1"type="checkbox"></td></tr>
+            <tr><td><input id="id2"type="checkbox"></td></tr>
+            <tr><td><input id="id3"type="checkbox"></td></tr>
+            <tr><td><input id="id4"type="checkbox"></td></tr>
+        </table>
+        <script>
+            
+
+            var allid=document.getElementById("allid");
+            allid.addEventListener("click",myfunction);
+            for(var i=0;i<4;i++){
+                
+                var id=document.getElementById("id"+(i+1));
+                
+                id.addEventListener("click",myfunction)
+            }
+            function myfunction(){
+                if(this===allid){
+                    for(var i=0;i<4;i++){
+                        var id=document.getElementById("id"+(i+1));
+                        id.checked=allid.checked;
+                    }
+                    return;
+                }
+                var bool=true;
+                for(var j=0;j<4;j++){
+                    var ids=document.getElementById("id"+(j+1)); 
+                    if(!ids.checked){
+                        bool=false;
+                    }
+
+                }
+                allid.checked=bool;
+            }
+
+            
+        </script>
+    </body>
+</html>

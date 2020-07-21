@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>贪婪匹配</title>
+    </head>
+    <body>
+        <script>
+            //重复：｛｝
+            // {x}	//x表示重复次数   x必须大于1
+            // {0}	//匹配空字符
+            // [{}]	//这里匹配一个｛ 或者 ｝
+
+            console.log("1992-02-05".match(/\d{4}-\d{2}-\d{2}/g));
+            console.log("aabbccdd".match(/[ac]{2}/g));
+            console.log("acaacacc".match(/[ac]{2}/g));
+            console.log("a{2}".match(/a\{2\}/g));   //a{2}等于a\{2\}
+            console.log("a{2}".match(/at{0}/g));   //a
+            console.log("a{}".match(/a[{}]/g)); //a{
+            
+
+//           重复范围：
+            // a{x,y}	//a重复的次数不固定，最少为x次，最多重复y次，如果这个重复的次数大于y时，
+            // 那么先找出最大的重复次数y，这种重复范围属于贪婪匹配，先找到最多的
+
+            console.log("aaa".match(/a{2,4}/g));    //aaa
+            console.log("aaa".match(/a{2,4}/g));    //aaa
+            console.log("aa".match(/a{2,4}/g));    //aa
+            console.log("aaaaa".match(/a{2,4}/g));  //aaaa
+            console.log("aaaaaa".match(/a{2,4}/g)); //aaaa aa
+            console.log("aaaaaaa".match(/a{2,4}/g));    //aaaa aaa
+            
+            console.log("minutes".match(/minutes{0,1}/)); //minute和minutes都符合需求
+            console.log("aaaaaa".match(/a{3,}/));   //3-无限
+            console.log("aaaaa".match(/a{1,}/g));//匹配最大重复次数
+            console.log("aaaaa".match(/a{0,}/g));//有无都行，找到返回最大重复次数和空字符串
+            console.log("bbbbb".match(/a{0,}/g));  //返回空字符串
+            
+            console.log("abcdf".match(/.*/g));   //===｛0，｝包含空字符串
+            console.log("abcdf".match(/.+/g));   //===｛1，｝至少找到一个字符
+            console.log("abcdf".match(/.?/g));   //===｛0，1｝只能找到一个字符,包含空字符串
+
+            
+            
+            
+            
+            
+        </script>
+    </body>
+</html>

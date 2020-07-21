@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>li</title>
+</head>
+<body>
+    <button id="btn"> 按钮</button>
+    <ul id="ul">
+
+    </ul>
+    <script>
+        var arr=['您有一条新消息','喂哟','撒拉嘿哟'];
+        var i=0;
+        var btn=document.getElementById("btn");
+        var ul=document.getElementById("ul");
+        btn.onclick=function(){
+             i=Math.floor(Math.random()*arr.length);
+            var li=document.createElement("li");
+            li.textContent=arr[i];
+            console.log(i);
+            
+            ul.appendChild(li)
+        }
+    </script>
+</body>
+</html>

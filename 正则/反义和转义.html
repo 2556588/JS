@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <input type="text">
+        <script>
+            //反义字符 ^只用在[]中表示，扩号内的这些之外都可以满足条件
+            // 如果^不在括号的最前面，代表^字符
+            
+          var reg= /[^0-9]/g ;  //除了0-9的所有字符
+          console.log("dlknfl16516".match(reg));
+          
+
+          //文本框只输入数值
+            var text=document.getElementsByTagName("input")[0];
+            text.addEventListener("input",function (e) {
+                text.value=text.value.replace(/[^0-9]/g,"")
+            })
+
+
+            console.log("1098a".match(/[\^0-9]/g)); //结果为0-9
+            console.log("1098a^".match(/[^\^]/g)); //结果为除了^
+            console.log("1098a^".match(/[0-9^a-z]/g));  //0-9a-z^  （^在中间代表^字符）
+            
+            // .转义字符：只代表一个字符
+            // \w	查找单词字符。与[a-zA-Z_0-9]
+            // \W	查找非单词字符。与[^0-9A-Za-z_]
+            // \d	查找数字。与[0-9]相同
+            // \D	查找非数字字符。与[^0-9]相同
+            // \s	查找空白字符
+            // \S	查找非空白字符
+
+
+            console.log("sys kdn lm".replace(/\s/g,"")); //删除空格
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+            table
+            {
+                border-collapse: collapse;
+            }
+            td
+            {
+                border:1px solid #000000;
+                width: 100px;
+                height: 30px;
+            }
+        </style>
+    
+</head>
+<body>
+    <script>
+        // 1-100计算
+        var sum =0;
+        for (var i= 1;i<=100;sum += i,i++ ) {}
+    console.log(sum);
+    //     1-100偶数和
+    //     for (var i=1;i<=100;i++){
+    //         if(i%2==0){
+    //             sum +=i;
+    //         }
+    //     }
+    //     console.log(sum);
+        // 1-100奇数和
+        // var sum =0;
+        // for (var i =1;i<=100; i++){
+        //     if(i %2!==0){
+        //         sum+=i;
+        //     }
+        // }
+        // console.log(sum);
+        //1-100被3整除的数
+        // for(var i=1;i<=100;i++){
+        //     if(i%3==0){
+        //         sum += i;
+        //     }
+        // }
+        // console.log(sum);
+        // for(var i=1;i<=100;i++) {
+        //     if(i %7==0){
+        //         sum +=i;
+        //     }
+        // }
+        // console.log(sum);
+        // 画星星
+        //     for (var j =0;j<5;j++) {    //控制行数
+        //     for (var i = 0; i < 5; i++) {    //控制个数
+        //         document.write("★");
+        //     }
+        //     document.write("<br />");
+        // }
+        //三角形
+        // for(var i=0;i<=5;i++){
+        //     for(var j=0;j<i ;j++){
+        //         document.write("★")
+        //     }
+        //     document.write("<br/>")
+        // }
+        //死循环
+        //for(;;){
+        //     与while(true){}一样
+        // }
+        // for(var i=0,sum=0;;sum+=i,i++){
+        //     if(i>100)break;
+        // }
+        // console.log(sum)
+
+        //判断素数
+        // for(var i=2;i<100;i++){
+        //     var bool=false;
+        //     for(var j=2;j<i;j++){
+        //         if(i%j===0){
+        //             bool=true;
+        //             break;
+        //         }
+        //     }
+        //     if(!bool)console.log(i)
+        // }
+       
+
+       //制作表格
+    //    var row=Number(prompt("请输入行数"));
+    //    var col=Number(prompt("请输入列数"));
+    //    document.write("<table  border='1px solid #ccc' >")
+    //    for(var i=0;i<row;i++){
+    //        document.write("<tr >");
+    //        for(var j=0;j<col;j++){
+    //            document.write("<td width='100px'height='100px'>");
+    //        }
+    //    }
+    //    document.write("</table>");
+       
+    //求出1-1/2+1/3-1/4……1/100的和
+    // var sum=0;
+    // for(var i=1;i<101;++i){
+    //     if(i%2===0){
+    //         sum-=1/i;
+    //     }else{
+    //         sum+=1/i;
+    //     }
+    // }
+    // console.log(sum)
+
+    //打印出1000-2000年中所有的闰年，并以每行四个数的形式输出
+    var s=0;
+    for(var i=1000;i<2000;i++){
+        if(i%400===0||i%4===0&&i%100!==0){
+            document.write(i+" ");
+            s++;
+            if(s%4===0){   //四条数据换行
+                  document.write("<br/>");
+              }
+              }
+              
+    }
+
+    //使用双重循环完成表格制作, document.body.innerHTML="
+    // var row=Number(prompt("请输入行数"));
+    // var col=Number(prompt("请输入列数"));
+    // if(!isNaN(row) && !isNaN(col)){
+    //     var str="<table>";
+    //     for(var j=0;j<row;j++){
+    //         str+="<tr>";
+    //         for(var i=0;i<col;i++){
+    //             str+="<td></td>";
+    //         }
+    //         str+="</tr>";
+    //     }
+    //     str+="</table>";
+    // }
+    // document.write(str);
+
+    //使用循环完成水仙花数100-999 
+    
+
+    for(var i=100;i<=999;i++){
+        var a,b,c;
+        a=parseInt(i/100);
+        b=parseInt(i%100/10);
+        c=i%10;
+        if(a*a*a+b*b*b+c*c*c==i){
+            document.write(i+"<br />")
+        }
+    }
+    </script>
+</body>
+</html>

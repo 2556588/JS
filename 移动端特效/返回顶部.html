@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,content=user-scalable=no">  <!--1.禁止缩放-->
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .w{
+            text-align: center;
+        }
+        .one{
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+        }
+        .two{
+            margin-top: 5px;
+            width: 100%;
+            height: 400px;
+            background-color: #f10155;
+        }
+        .three{
+            margin-top: 5px;
+            width: 100%;
+            height: 800px;
+            background-color: #ccc;
+        }
+        .goback{
+            display: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            position: fixed;
+            top: 75%;
+            right: 5%;
+            border: 1px solid #555;
+        }
+    </style>
+    <script src="./js/click延迟解决方案.js"></script>
+</head>
+<body>
+    <div class="one w">头部</div>
+    <div class="two w">导航栏</div>
+    <div class="three w">inner</div>
+    <div class="goback">↑</div>
+</body>
+<script>
+    var nav=document.querySelector(".two");
+    var goback=document.querySelector(".goback");
+    
+    window.addEventListener("scroll",function (e) {
+        if(window.pageYOffset>=nav.offsetTop){
+            goback.style.display="block";
+        }else{
+            goback.style.display="none";
+        }
+    })
+    // goback.addEventListener("click",function (e) {
+    //     window.scroll(0,0);
+    // })
+    // 2. 解决click延迟方案
+    // tap(goback,function () {
+    //     window.scroll(0,0);
+    // })
+
+    //3.引用fastclick插件--先应用在执行下方代码
+    // if ('addEventListener' in document) {
+    //     document.addEventListener('DOMContentLoaded', function() {
+    //         FastClick.attach(document.body);
+    //     }, false);
+    // }
+</script>
+</html>

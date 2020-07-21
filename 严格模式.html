@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:50px;
+            height: 50px;
+            background-color: #ccc;
+            border:1px solid #f10215;
+        }
+    </style>
+</head>
+<body>
+    <div id="div0"></div>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <p id="p0">0</p>
+    <script>
+    // 开启严格模式
+    "use strict";
+    
+    
+        // 1.变量必须声明后再使用
+
+        // 2.函数的参数不能有同名属性
+            // function fn(a,a) {
+            
+        // }
+
+        // 3.不能使用with语句
+            // with(document.body.style){
+            //     color="red";
+            //     backgroundColor="#ccc"
+            // }
+
+        // 4.不能对只读属性赋值,不允许写入
+            // "abc".length=3
+
+        // 5.不能使用前缀0表示八进制
+
+        // 6.不能删除不可删除的属性
+            // var arr=[1,2,4]
+            // delete arr.length;
+
+        // 7.不能删除变量delete prop 只能删除delete global[prop]
+                // var sum=0;
+                // deletes window.sum;
+                
+        // 8.eval不会在它的外层作用域引入变量
+            // for (var i = 0; i < 3; i++) {
+            //     eval("div"+i).addEventListener("click",clickHander)
+                
+            // }
+            // function clickHander(e) {
+            //     eval("p0").innerHTML=parseInt(eval("p0").innerHTML)+10
+            // }
+
+                    // (eval可以将任何字符串转为对象 用for循环)
+            // var obj0={a:1}
+            // var obj1={a:1}
+            // for (let i = 0; i < 2; i++) {
+            //     eval("obj"+i).a=110;
+                
+            // }
+            // console.log(obj1,obj0);
+            
+
+            // function fn1(e) {
+            //     console.log("1");
+                
+            // }
+            // function fn2(e) {
+            //     console.log("2");
+                
+            // }
+            // function fn3(e) {
+            //     console.log("3");
+                
+            // }
+
+            // for (let i = 1; i < 4; i++) {
+            //     eval("fn"+i)();
+                
+            // }
+
+
+        // 9.eval和arguments不能被重新赋值
+                // eval=10;
+                // arguments=10
+
+        // 10.arguments不会自动反应函数参数的变化
+                // function fn1(e) {
+                //    console.log(arguments[0].a); //与下面的参数变化无关
+                    
+                // }
+                // var obj={a:1}
+                // fn1(obj)
+                // obj.a=10
+
+        // 11.不能使用arguments.callee和arguments.caller
+                   
+
+        // 12.禁止this指向全局对象；顶层的this指向undefined，即不应该在顶层代码使用this。
+                    // var a=10;
+                    // this.a;
+                    
+        //13.不能使用fn.caller和fn.arguments获取函数调用的堆栈
+
+        //14.增加了保留文字（比如：protected，static和interface）
+
+    </script>
+</body>
+</html>

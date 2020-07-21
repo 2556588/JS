@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+        <div id="box"></div>
+        <script>
+        
+    var oBox = document.getElementById("box");
+            
+    document.onclick = function () { //加速运动，向右加速运动
+     var l = 0;
+     setInterval(function () {
+         l++;
+         oBox.style.left = oBox.offsetLeft + l + 'px';
+     }, 30)
+ }
+
+ 
+    // document.onclick = function () {    //减速运动--向右运动，速度减到0，向左加速运动
+    //     var l = 30;
+    //     setInterval(function () {
+    //         l--;
+    //         oBox.style.left = oBox.offsetLeft + l + 'px';
+    //     }, 30)
+    // }
+
+        </script>
+</body>
+</html>

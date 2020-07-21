@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr=[
+        {
+            title:"title1",
+            content:"content1"
+        },
+        {
+            title:"title2",
+            content:"content1"
+        },
+        {
+            title:"title3",
+            content:"content1"
+        }
+    ]
+        var str="";
+    for(let i = 0; i < arr.length; i++) {
+        str+="<div>" 
+        str+="<span>"+arr[i].title+"</span>"
+        str+="<span>"+arr[i].content+"</span>"
+        str+="</div>"
+        
+    }
+    document.getElementsByTagName("body")[0].innerHTML=str
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <script>
+    //WeakSet （不能使用循环操作）与set类似
+        let nodes=new WeakSet();//在此添加数组["sad"]会报错，
+        console.log(nodes);
+        let divs=document.querySelectorAll("div");
+        divs.forEach(item=>{
+            nodes.add(item);    //添加元素
+        });
+        nodes.delete(divs[0]);//删除元素
+        console.log(nodes.has(divs[1]));//查找元素是否存在返回boolean类型
+    
+    //垃圾回收机制--》若此条数值没有被调用此时为垃圾
+    let hd={name:"sys"};
+    let edu=hd; //传址操作，
+    hd=null;//删除变量的值
+    console.log(edu);//edu还是会有值
+    edu=null;
+    console.log(hd);
+    
+    //Map支持链式操作，定义的key,value（key值可以为数字，对象，数组，字符串）
+    // let map=new Map([["daj","ndaslk"],["ad","amdl"]]);//可以在定义构造函数是创建数值
+        let map=new Map();
+        map.set("name","sian");//添加数据以key，value形式
+        map.set("ad","sidadan").set("nas","ad");//链式操作
+        // console.log(map.get("name"));//获取数据
+        // map.delete("name");//删除数据
+        // map.clear();//清空数据
+        // console.log(map);
+        console.log(map.keys());//获取键名
+        console.log(map.values());//获取值
+        console.log(map.entries());//获取键值对
+        //循环遍历 forof forEach
+        map.array.forEach(element => {
+            
+        });
+        
+        
+    </script>
+</body>
+</html>

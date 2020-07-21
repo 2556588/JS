@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Focus事件-
+        
+        </title>
+        <style>
+            #texts{
+                color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <input type="text">
+            <input type="text" id="texts" value="name">
+            <button>按钮</button>
+        </form>
+        <script>
+
+            //focus 聚焦        blur失焦
+            var input=document.getElementById("texts")
+            input.addEventListener("focus",focusHander)
+            input.addEventListener("blur",focusHander)
+            function focusHander(e) {
+                // console.log(e.relatedTarget);   //上一次焦点汇聚的元素对象
+                if (e.type==="blur") {
+                    if (this.value.trim().length===0) {     //str.trim()删除前后的空格
+                        this.style.color="#ccc";
+                        this.value="name"
+                    }
+                }else if(e.type==="focus"){
+                    if (this.value==="name") {
+                        this.style.color="#000";
+                        this.value=""
+                    }
+                }
+                
+            }
+        </script>
+    </body>
+</html>

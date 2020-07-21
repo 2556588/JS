@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图2.0版</title>
+    <style>
+        *{padding: 0;margin: 0;}
+    </style>
+</head>
+<body>
+    <script>
+       
+        var  rollImg,imgCon,dotUl,leftBn,rightBn;
+        var  imgList=[]; //所有加载好图片集合
+        var bnList=[];  //左右按钮图片
+        var position=0;     //第几张图片
+        var direction="";   //方向
+        var imgMoveBool=false;  //设置执行和播放
+        var speed=20;   //移动速度
+        var pre;
+      
+        
+        var imgSrcList=["tb04_03.gif","tb05_03.gif","TB1JNHwKFXXXXafXVXXSutbFXXX.jpg","TB1tP_cjaL7gK0jSZFBXXXZZpXa-520-280.jpg_q90_.webp (1).jpg","TB1wG9OiKT2gK0jSZFvXXXnFXXa-520-280.jpg_q90_.webp.jpg","TB1tP_cjaL7gK0jSZFBXXXZZpXa-520-280.jpg_q90_.webp (1).jpg"];
+        const IMG_WIDTH=520;   //定义常量宽高值
+        const IMG_HEIGHT=280;
+        init();
+        function init( ) {
+            loadImages();
+        }
+        function getImg(src) {      //图片预加载
+            return new Promise(function (res,rej) {
+                var img=new Image();
+                img.src=src;
+                img.onload=function(){
+                    res(img);
+                }
+            })
+        }
+        function loadImages() {
+            var list=[];
+            for (let i = 0; i < imgSrcList.length; i++) {
+                list.push(getImg("../../images/lunbotu/"+imgSrcList[i]));   
+                
+            }
+            Promise.all(list).then(function (_imgList) { //_imgList所有加载完的图片数组
+                
+                bnList=_imgList.splice(0,2);    //左右按钮图片
+                imgList=_imgList.splice(0);     //中间轮播图图片
+                createRollImage();  //框架及图片
+                createLeftRight();  //左右按钮
+                createDotList();    //小圆点
+                setDotStyle();
+                animation();    //设置运动
+            })
+        }
+
+        function createLeftRight( ) {   //添加左右按钮，及位置
+            for (let i = 0; i < bnList.length; i++) {
+                rollImg.appendChild(bnList[i]);
+                bnList[i].style.position="absolute";
+                bnList[i].style.top=(IMG_HEIGHT-bnList[i].height)/2+"px";  //居中 
+                bnList[i].addEventListener("click",clickHander);   //添加点击事件adadsasaddasadsads
+                if (i===0) {
+                    bnList[i].style.left="10px";    //设置左边按钮的位置
+                    continue;
+                }
+                bnList[i].style.right="10px";   //设置右边按钮的位置
+               
+            }
+        }
+
+        function clickHander() {    //左右按钮的点击事件
+            if (this.src.indexOf("tb04")>-1) {    //左边按钮
+            
+                direction="right";  //向右移动
+                position--;
+                if (position<0) {   //若<0则为图片跳到最后一张
+                    position=imgList.length-1;
+                }
+
+               
+            }else{
+                direction="left";   //右边按钮，向左移动
+                position++;
+                if (position>imgList.length-1) {    //若>图片的最后一张，则跳到第一张
+                position=0;
+                }
+            }
+            // console.log(direction,position);
+            
+            initNextImg();  //加载下一张图片
+        }
+       
+        function initNextImg() {
+            if (direction!=="right"&&direction!=="left")return ;
+            imgCon.style.width=IMG_WIDTH*2+"px";    //使添加的图片往后放
+            if (direction==="right") {  //图片向右移
+                imgCon.insertBefore(imgList[position].cloneNode(false),imgCon.firstElementChild);
+                imgCon.style.left=-IMG_WIDTH+"px"; //重新赋值为图片的宽度的负值
+                // console.log(imgCon);
+                
+            }else if(direction==="left"){   //图片向左移
+                imgCon.appendChild(imgList[position].cloneNode(false));
+            }
+           
+            imgMoveBool=true;   //播放
+        }
+
+        function createRollImage( ) {   //添加大盒子rollImg及图片容器imgCon及添加第一张图片
+            // console.log(imgList);
+            console.log(bnList,imgList);
+            
+            rollImg=$c("div",{
+                width:IMG_WIDTH+"px",
+                height:IMG_HEIGHT+"px",
+                position:"relative",
+                margin:"auto",
+                overflow:"hidden"
+            });
+            imgCon=$c("div",{   //图片容器放入roolImg
+                width:IMG_WIDTH+"px",
+                height:IMG_HEIGHT+"px",
+                position:"absolute"
+            },rollImg); 
+
+            for (let i = 0; i < imgList.length; i++) {   //修改图片的大小
+                imgList[i].style.width=IMG_WIDTH+"px";
+                imgList[i].style.height=IMG_HEIGHT+"px";
+ 
+            }
+            imgCon.appendChild(imgList[0]); //放入第一张图片
+        }
+
+        function createDotList() {
+            var dotUl=$c("ul",{
+                listStyle:"none",
+                margin:"0",
+                padding:"0",
+                position:"absolute",
+                bottom:"10px"
+
+            },rollImg);
+            console.log(rollImg);
+            
+            for (let i = 0; i < imgList.length; i++) {
+                $c("li",{
+                    width:"15px",
+                    height:"15px",
+                    borderRadius:"8px",
+                    border:"1px solid #FF0000",
+                    marginLeft:"5px",
+                    marginRight:"5px",
+                    float:"left"
+                },dotUl)
+                
+                
+            }
+            dotUl.style.left=(IMG_WIDTH-dotUl.offsetWidth)/2+"px";      //水平居中
+            dotUl.addEventListener("click",dotClickHander);
+           
+           
+            console.log(dotUl);
+            
+        }
+      
+        
+        function setDotStyle() {
+           
+            
+            // if (pre) {
+            //     pre.style.backgroundColor="rgba(255,0,0,0)"
+            // }
+            
+            
+            // pre=dotUl.children[position];
+            // pre.style.backgroundColor="rgba(255,0,0,0.3)";
+        }
+
+        function dotClickHander(e) {
+            if (e.target.constructor===HTMLUListElement)  return ;
+        }
+
+        function $c(type,style,parent) {
+            var elem=document.createElement(type);
+            if (style) {
+                for (const prop in style) {
+                    elem.style[prop]=style[prop];
+
+                }
+            }
+            if (!parent) {
+                parent=document.body;
+            }
+            parent.appendChild(elem);
+            return elem;
+        }
+
+        function animation() {
+            requestAnimationFrame(animation);
+            moveImg();
+        }
+
+        function moveImg() {
+            if (!imgMoveBool) return ;
+            if (direction==="left") {
+                imgCon.style.left=imgCon.offsetLeft-speed+"px";
+                console.log(imgCon.offsetLeft);
+
+                if (imgCon.offsetLeft<=-IMG_WIDTH) { //imgCon距离最左边<=图片的宽度时停止运动
+                    imgMoveBool=false;
+                    imgCon.firstElementChild.remove();
+                    imgCon.style.left="0px";    //重新赋值位置
+                    
+                }
+            }else if(direction==="right"){
+                imgCon.style.left=imgCon.offsetLeft+speed+"px";
+                console.log(imgCon.offsetLeft);
+                
+            if (imgCon.offsetLeft>=0) {
+                imgMoveBool=false;
+                imgCon.lastElementChild.remove();
+                
+
+                }
+            }
+           
+        }
+        
+    </script>
+</body>
+</html>

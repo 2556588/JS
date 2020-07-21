@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            display: none;
+            background-color: aqua;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button  onclick="fn('div1')">按钮1</button>
+    <button  onclick="fn('div2')">按钮2</button>
+    <button  onclick="fn('div3')">按钮3</button>
+    <button  onclick="fn('div4')">按钮4</button>
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+    <div id="div4">4</div>
+<script>
+    // function consoleSum(x,y){
+    //     var sum = 0;
+    //     sum =x+y;
+    //     console.log(sum);
+    // }
+    // consoleSum(5,10);
+
+
+    // function consoleSum(x,y){
+    //     var sum = 0;
+    //     sum =x+y;
+    //     console.log(sum);
+    // }
+    // var num1 =parseInt(prompt("请输入第一个数："))
+    // var num2 =parseInt(prompt("请输入第二个数："))
+    // consoleSum(num1,num2);
+
+    function fn(id) {
+        document.getElementById(id).style.display='block';
+    }
+</script>
+
+</body>
+</html>

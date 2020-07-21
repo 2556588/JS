@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="Utils.js"></script>
+
+</head>
+<body>
+    <script>
+        let menu,pre,cloneElem;
+        let menuList=["新建","复制","剪切","粘贴","删除"];
+        init();
+        function init() {
+            createMenu();
+            document.addEventListener("contextmenu",showMenuHander);
+        }
+        function createMenu() {
+            menu=Utils.createDom("ul",document.body,{
+                listStyle:"none",
+                margin:0,
+                padding:0,
+                cursor:"default",
+                display:"none",
+                zIndex:0,
+                position:"absolute",
+            });
+            for (let i = 0; i < menuList.length; i++) {
+                let li=Utils.createDom("li",menu,{
+                    padding:"10px 30px",
+                    backgroundColor:"rgba(100,100,254,0.4)",
+                })
+                li.textContent=menuList[i];
+                
+            }
+            menu.addEventListener("mouseover",mouseHander);
+            menu.addEventListener("mouseout",mouseHander);
+            menu.addEventListener("mouseleave",mouseHander);
+            menu.addEventListener("click",mouseHander);
+        }
+        function mouseHander(e) {
+            if (e.type==="mouseleave") {
+                mneu.style.display="none";
+            }
+            if (e.target.constructor===HTMLUListElement) {
+                return;
+            }
+            switch (e.type) {
+                case "mouseover":
+                    e.target.style.backgroundColor="rgba(100,100,254,0.8)";
+                    break;
+            
+                case "mouseout":
+                    e.target.style.backgroundColor="rgba(100,100,254,0.4)";
+                    break;
+
+                case "click":
+                createDiv();
+                menu.dispatchEvent(new MouseEvent("mouseleave"));
+                    break;
+                
+            }    
+        }
+
+        function ctrlDom(type,e) {
+            // console.log(type);  //打印传进的参数e.target.textContent
+            switch (menuList.indexOf(type)) {   //数组下标；
+                case 0:
+                    createDiv(e);      //传入e参数
+                    break;
+                case 1:
+                    if (!pre) return ;  //pre不存在则返回
+                    cloneElem=pre.cloneNode(false);
+                    break;
+                case 2:
+                if (!pre) return ;  //pre不存在则返回
+                    cloneElem=pre.cloneNode(false);
+                    removeElem(pre);
+                    break;
+                case 3:
+                    document.body.appendChild(cloneElem);   //将复制的节点添加到document.body
+                    cloneElem.style.left=e.x-25+"px";   //设置位置
+                    cloneElem.style.top=e.y-25+"px";
+                    cloneElem.style.border="none";  //复制的节点边框为none
+                    cloneElem.addEventListener("click",clickHandler);   //给复制的节点添加点击事件
+                    break;
+                case 4:
+                    if (!pre)return ;   //防止未选中时删除报错
+                    removeElem(pre);    //删除
+                    break;
+            }
+              
+        }
+        function createDiv(e) {
+            let elem=Utils.createDom("div",document.body,{
+                width:"50px",
+                height:"50px",
+                backgroundColor:Utils.randomColor(),
+                position:"absolute",
+                left:e.x-20+"px",
+                top:e.y-25+"px",
+            })
+            elem.addEventListener("click",clickHander);
+        }
+        function clickHander(e) {
+            selectElem(this);
+        }
+        function selectElem(elem) {
+            if (pre) {
+                pre.style.border="none";
+                Utils.removeDrag();
+            }
+            pre.elem;
+            pre.style.border="1px solid #ccc";
+            Utils.dragElem();
+        }
+        function removeElem(elem) {
+            Utils.removeDrag();
+            elem.removeEventListener("click",clickHander);
+            elem.remove();
+            pre=null;
+        }
+        function showMenuHander(e) {
+            if (!menu) return ;
+            e.preventDefault(); //清除默认事件
+            menu.style.display="block";
+            menu.style.left=e.x-20+"px";    //减一个数作用是为了点击时显示菜单鼠标不在菜单左上角
+            menu.style.top=e.y-30+"px";
+
+        }
+    </script>
+</body>
+</html>

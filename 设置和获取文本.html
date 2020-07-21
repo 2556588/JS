@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+            <!-- <p id="p1"><a href="http://www.yztcedu.com">点我进入育知同创官网</a></p>
+
+            <P><button onclick="getHTML();">点我获取超级链接的所有内容</button></P>
+        
+            <p><button onclick="setHTML();">点我更改整个超级链接</button></p>
+         -->
+        
+
+            <input type="button" value="按钮" id="btn">
+            <div id="dv">这是一个div</div>
+            <script>
+                //textContent 设置标签的文本
+               document.getElementById("btn").onclick=function(){
+                //    document.getElementById("dv").textContent="塞尼姆"           //设置文本
+
+                  var text= document.getElementById("dv").textContent         //获取文本内容
+                console.log(text);
+                
+               }
+
+                //利用onclick事件+innerhtml改变标签中的内容
+                 var p1 = document.getElementById("p1");
+                function getHTML () {
+                    alert(p1.innerHTML);
+                }
+                function setHTML () {
+                    p1.innerHTML = "<a href='https://www.baidu.com'>点我进入百度主页</a>"
+                }
+            </script>
+            
+            
+    </body>
+</html>

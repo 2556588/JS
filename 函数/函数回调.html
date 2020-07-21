@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+
+            //回调--执行别的函数
+            function fn1(o,fn){
+                o.a+=1;
+                fn(o);
+            
+            }
+            function fn2(_o){
+                _o.a+=10;
+            }
+            function fn3(_o){
+                _o.b+=20
+            }
+            var obj={a:1,b:0};
+            // fn1(obj,fn2);
+            fn1(obj,fn3)
+            console.log(obj);
+
+
+            //函数自己执行--递归
+            var sum=0,i=0;
+            function fn4(){
+                if(i===100){
+                   
+                    return;
+                }
+                sum+=i;
+                i++;
+                fn4();
+            }
+            fn4();
+            console.log(sum);
+        </script>
+    </body>
+</html>

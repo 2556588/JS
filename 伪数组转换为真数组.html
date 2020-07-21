@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        //将伪数组转换真正的数组
+        var divs = document.querySelectorAll("div");
+        // divs = [...divs];
+        // console.log(divs);
+
+        //Array.from(转换的数组，(item,index,arr)=>{});---构造函数的方法
+        divs = Array.from(divs);
+        console.log(divs);
+
+    </script>
+</body>
+
+</html>

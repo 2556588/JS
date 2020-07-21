@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数节流</title>
+        <style>
+            
+        </style>
+
+    </head>
+
+   <body>
+       <input type="text" ><span></span>
+        <script>
+            //存在bug
+            // 判断年月日
+        // var texts=document.getElementsByTagName("input")[0];
+        // texts.addEventListener("blur",blurHander);
+        // function blurHander(e) {
+        //     if (/[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/.test(texts.value)) {
+        //         texts.nextElementSibling.textContent="输入正确";
+        //         texts.nextElementSibling.style.color="green";
+        //         return ;
+        //     }
+        //     texts.nextElementSibling.textContent="输入错误";
+        //     texts.nextElementSibling.style.color="red";
+        // }
+        
+
+
+        // 节流：用来控制函数不要长时间的连续调用，减少判断次数，控制函数指定时间调用一次
+        var texts=document.getElementsByTagName("input")[0];
+        texts.addEventListener("input",inputHander);
+        var id;
+        function inputHander(e) {
+            if (id) return ;
+            id=setTimeout(function (e) {
+                clearTimeout(id);   //setTimeout会返回一个ID值，清除ID值
+                id=0;   //清除id值
+                if (/\d{4}-\d{2}-\d{2}/g.test(texts.value)) {
+                texts.nextElementSibling.textContent="输入正确";
+                texts.nextElementSibling.style.color="green";
+                return ;
+            }
+            texts.nextElementSibling.textContent="输入错误";
+            texts.nextElementSibling.style.color="red";
+            },1000)
+        }
+        </script>
+   </body>
+</html>

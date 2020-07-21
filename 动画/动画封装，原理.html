@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    /**
+     * 1.绝对定位
+     * 2.setinterval 定时器；
+    */
+    // var div=document.querySelector("div");
+    // var timer=setInterval(() => {
+    //     if(div.offsetLeft>=500){
+    //         clearInterval(timer)
+    //     }
+    //     div.style.left=div.offsetLeft+10+'px';
+    // }, 500);
+    
+
+    //封装
+        //obj目标对象，traget目标位置
+    function animation(obj,target) {
+        var timer=setInterval(() => {
+        if(obj.offsetLeft>=target){
+            clearInterval(timer)
+        }
+        obj.style.left=obj.offsetLeft+10+'px';
+    }, 500);  
+    }
+    var div=document.querySelector("div");
+    animation(div,200)
+
+    //优化--->防止每执行一次定义定时器名字（会开辟新的内存空间）
+    function animation(obj,target) {
+        clearInterval(obj.timer); //防止某个事件执行多次时，开启多个定时器
+        obj.timer=setInterval(() => {
+        if(obj.offsetLeft>=target){
+            clearInterval(obj.timer)
+        }
+        obj.style.left=obj.offsetLeft+10+'px';
+    }, 500);  
+    }
+    var div=document.querySelector("div");
+    animation(div,200)
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        td{
+            border: 1px solid #ccc;
+        }
+        tr{
+            border: 1px solid #ccc;
+        }
+        table{
+            border:1px solid #ccc;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <script>
+            //includes();		//表示是否找到参数字符串（返回布尔值）
+            console.log("abcde".includes("a"));
+            
+            //startsWith();	//判断是否由某个字符开始
+            console.log("abced".startsWith("a"));
+
+            //endsWith();	//判断是否由某个字符结尾
+            console.log("abced".endsWith("a"));
+            
+            //repeat(x);		//让字符串重复多次（括号中填数字）
+            console.log("abcd".repeat(5));
+            
+
+            //padStart(x,"y");	//判断字符串长度是否达到固定长度（x），如果没有达到在前面补y
+            console.log("abcde".padStart(10,"2"));
+            
+
+            //padEnd();		//判断字符串长度是否达到固定长度（x），如果没有达到在后面补y
+            console.log("abcde".padEnd(10,"3"));
+
+            //随机颜色
+            var col="#";
+            for (let i = 0; i < 3; i++) {
+                col+=Math.floor(Math.random()*256).toString(16).padStart(2,0)
+                
+            }
+            
+            console.log(col);
+            
+
+            //字符模版
+            let a=10;
+            let b=20;
+            console.log(`a:${a},b:${b}`); //输出a,b的值
+            
+
+            var date=[
+                {id:1005,name:"餐饮1",num:1,price:500},
+                {id:1006,name:"餐饮2",num:2,price:5000},
+                {id:1007,name:"餐饮3",num:2,price:5400},
+                {id:1008,name:"餐饮4",num:3,price:5400},
+                {id:1009,name:"餐饮5",num:4,price:5200},
+                {id:1000,name:"餐饮6",num:5,price:5600},
+            ]
+            let trs=``;
+            for (let i = 0; i < date.length; i++) {
+                let tds=``;
+                for (let prop in date[i]) {
+                   tds+=`<td>${date[i][prop]}</td>`
+                    
+                }
+                trs+=`<tr>${tds}</tr>`
+            }
+            let table=`<table >${trs}</table>`
+            document.body.innerHTML=table
+
+
+            //函数的参数数组
+            // 直接在函数参数中设置默认值
+            function fn(a,b=0,...arg) {
+                console.log(a,b,arg);
+                
+            }
+            fn(1,234,34,54,46,233)
+
+    </script>
+</body>
+</html>

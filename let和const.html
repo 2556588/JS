@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es6定义变量用let---作用域是语句块
+
+        function fn(e) {
+            // console.log(a); //在变量定义上面打印结果报错 es5则显示undefined
+            // let a=20;       //同一语句块，不允许定义相同的变量 会报错
+            let a=10;
+            // console.log(a);
+            
+        }
+        // console.log(a);//报错，不在作用域范围
+        
+        fn()
+
+
+        //常量的值和引用地址都是不可以改变的
+        const s="10";
+         
+         //可以改变地址堆里面的值
+         const obj={a:1}
+         obj.a=10;
+         console.log(obj);
+         
+    </script>
+</body>
+</html>

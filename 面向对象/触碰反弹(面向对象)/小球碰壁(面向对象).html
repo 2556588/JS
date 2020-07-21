@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小球碰壁ES6写法</title>
+</head>
+<body>
+    <script>
+      
+      
+        // var time=new Date().getTime();
+        // animation();
+        //     function animation( ) {  
+        //         requestAnimationFrame(animation);
+        //         console.log(new Date().getTime()-time);    //获取页面自动刷新的速度
+        //         time=new Date().getTime();
+        //     }
+
+
+        class Ball{
+            constructor(r,parent){
+                this.createBall(r,parent);
+                this.speedX=0;
+                this.speedY=0;
+            }
+            createBall(r,parent){
+                if (r<=0) {
+                    r=20;
+                }
+                if (!parent) {
+                    parent=document.body;
+                }
+                if (this.ball) return this.ball;    //若ball存在则返回ball
+                this.ball=document.createElement("div")
+                this.ball.style.width=r*2+"px";
+                this.ball.style.height=r*2+"px";
+                this.ball.style.borderRadius=r+"px";
+                this.ball.style.backgroundColor="red";
+                this.ball.style.position="absolute";
+                document.body.appendChild(this.ball);
+                return this.ball;
+            }
+                update(){   //设置移动的及碰壁反弹
+                this.ball.style.left=this.ball.offsetLeft+this.speedX+"px";
+                this.ball.style.top=this.ball.offsetTop+this.speedY+"px";
+                if (this.ball.offsetLeft>1300||this.ball.offsetLeft<=0) {  //若小球距离页面最左边大于500或小于等于0时则反方向运动
+                        this.speedX=-this.speedX;
+                    }
+                    if (this.ball.offsetTop>500||this.ball.offsetTop<=0) {
+                        this.speedY=-this.speedY;
+                    }
+            }
+
+        }
+        //以上为模版
+        let list=[];
+
+        init();
+        function init( ) {
+            animation();
+            for (let i = 0; i < 10; i++) {
+                let ball=new Ball(randomInt(10,20));    //调用上面模版做新的东西
+                ball.speedX=randomInt(2,8);  //把模版的speedX的值重新赋值
+                ball.speedY=randomInt(1,10); 
+                list.push(ball)
+            }
+            animation();
+        }
+     
+            function randomInt(min,max) {
+                return Math.floor(Math.random()*(max-min)+min)
+            }
+
+
+            function animation( ) {  
+                requestAnimationFrame(animation);//请求浏览器执行下一帧动画。
+                for (let i = 0; i < list.length; i++) {
+                    list[i].update();
+                    
+                }
+            }
+
+    </script>
+</body>
+</html>

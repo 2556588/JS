@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div{
+                width: 160px;
+                height: 170px;
+                margin:100px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div0">
+            <img src="images/jd1.png" id="imgs">
+        </div>
+    
+        <script>
+            var imgs=document.getElementById("imgs");
+            var div0=document.getElementById("div0");
+
+            div0.onmouseover=function(){            //onmouseover事件 当鼠标悬浮在对象时
+                imgs.src="./images/jd2.png"
+            }
+            div0.onmouseout=function(){             //onmouseout事件  当鼠标离开对象时
+                imgs.src="./images/jd1.png"
+            }
+           
+        </script>
+    </body>
+</html>

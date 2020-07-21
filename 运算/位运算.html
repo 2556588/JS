@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            //位非运算~  加一取反
+            var a=10; 
+            console.log(~a);
+
+            var obj="zxcvb"; //若indexof后面的括号里找得到就打印1，找不到打印-1
+            // console.log(obj.indexOf("h"))
+
+            if(~obj.indexOf("h")){  
+                console.log("找到了");
+            }else{
+                console.log("sorry,找不到");
+            }
+
+            //位与运算& s和b换成对应的二进制属对比都为1则为1，有一个不为1结果不为1
+            var s=5,b=6;                    
+            console.log(s&b);
+
+            //位或运算 |  s和b换成对应的二进制属对比有一个1结果就为1
+            console.log(s|b);
+
+            //异或运算  
+            var k=s^b;          //密码^加密串===加密密码
+            console.log(k^b) ;   //加密密码^加密串===密码
+            
+            //移位运算<<, >>
+            console.log(1<<2);  //2的n次幂
+            console.log((0x0000FF<<16).toString(16));
+
+            //三元表达式
+            obj=obj || {}
+            console.log(obj);
+        </script>
+    </body>
+</html>

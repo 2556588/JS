@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .tabsbox{
+            width: 700px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        .firstnav{
+            float: left;
+        }
+        .firstnav ul{
+            list-style: none;
+        }
+        .firstnav ul li{
+            display: inline-block;
+        }
+        .tabadd{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabsbox" id="tab">
+        <nav class="firstnav">
+            <ul>
+                <li class="liactive"><span class="confont icon-guanbi">测试一</span></li>
+                <li><span class="confont icon-guanbi">测试二</span></li>
+                <li><span class="confont icon-guanbi">测试三</span></li>
+            </ul>
+            <div class="tabadd">
+                <span>+</span>
+            </div>
+        </nav>
+        <div class="tabcon">
+            <section class="conactive">测试一</section>
+            <section>测试二</section>
+            <section>测试三</section>
+        </div>
+    </div>
+</body>
+</html>

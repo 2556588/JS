@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>set</title>
+</head>
+
+<body>
+    <script>
+        //Set 定义 （类数组）
+        // let a=new Set([12,15,6,5,66]);
+        // console.log(a);
+
+        //数组去重
+        // let arr=[10,233,10,34,34,543,32,10,223]
+        // arr=Array.from(new Set(arr));
+        // console.log(arr);
+
+
+
+        // let arr=new Set();
+        // arr.add(10);    //添加元素 ---不添加重复元素
+        // arr.add(20);
+        // arr.add(30);
+        // arr.add(10);
+        // arr.delete(20); //删除元素--删除元素的值不是按下标删除
+        // console.log( arr.has(10));  //判断当前元素是否为数组元素,返回布尔值
+        // console.log(arr);
+
+        // arr.clear()   //删除所有元素
+        // console.log(arr);
+
+
+        //Set没有下标，因此不能使用for循环遍历，
+        //Set也没有属性，for in 也不能遍历，只能用for of遍历和forEach遍历
+        // for(let elem of arr){
+        //     console.log(elem);
+
+        // }
+        //不能用length获取长度
+        // console.log(arr.length); //显示undefined
+
+        //用size获取类型数组长度
+        // console.log(arr.size);
+
+
+        // // forEach遍历
+        // arr.forEach(t=>{console.log(t);
+        // })
+
+        //    console.log(arr.entries());
+        //    for (let elem of arr.values()) {
+        //        console.log(elem);
+
+
+        //    }
+
+
+
+        function add(a, b) {
+            console.log(arguments.callee);
+            return a + b;
+        }
+        add(3, 4);
+    </script>
+</body>
+
+</html>

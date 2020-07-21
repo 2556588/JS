@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: aqua;
+        }
+        .bd {
+            margin-top: 10px;
+            width: 100%;
+            
+        }
+        .bd li{
+            width: 100%;
+            height: 270px;
+            display: none;  
+            /* 设置一开始为隐藏 */
+        }
+        .current{
+            background-color: pink;
+        }
+        .bd .show{
+            display: block; 
+            /* 显示首个 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="hd">
+            <button class="current">娱乐</button>
+            <button>新闻</button>
+            <button>体育</button>
+            <button>热点</button>
+        </div>
+        <div class="bd">
+            <li class="show">娱乐内容</li>
+            <li>新闻内容</li>
+            <li>体育内容</li>
+            <li>热点内容</li>
+        </div>
+    </div>
+    <script>
+        var btns=document.getElementsByTagName("button");
+        var lis=document.getElementsByTagName("li");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].index=i;
+            btns[i].onmouseover=function(){
+                // alert(this.index)    //当前的按钮下标
+                for (let i = 0; i < btns.length; i++) {
+                    btns[i].className='';
+                    lis[i].className='';
+                    
+                }
+                this.className='current'
+                lis[this.index].className='show '
+            }
+            
+        }
+    </script>
+</body>
+</html>

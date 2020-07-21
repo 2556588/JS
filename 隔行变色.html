@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+            margin-top: 10px;
+            display: block;
+        }
+        span{
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .current{
+            background-color: #ccc!important;
+        }
+    </style>
+</head>
+<body>
+    <li>股票行情<span>涨跌0.0058</span></li>
+    <li>股票行情<span>涨跌0.0058</span></li>
+    <li>股票行情<span>涨跌0.0058</span></li>
+    <li>股票行情<span>涨跌0.0058</span></li>
+    <script>
+        var lis=document.getElementsByTagName("li");
+        for (let i = 0; i < lis.length; i++) {
+            if (i%2==0) {
+                lis[i].style.backgroundColor='#eee';
+            }
+            lis[i].onmouseover=function(){
+                this.className='current'    //this指向函数调用者
+            }
+            lis[i].onmouseout=function(){
+                this.className=''
+               
+            }
+            
+        }
+    </script>
+</body>
+</html>

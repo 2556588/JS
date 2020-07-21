@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://www.baidu.com" id="form">
+        用户名：<input type="text" name="user" />
+    <hr />
+    <input type="checkbox" name="copyRight">
+    <hr />
+    <button>提交</button>
+    </form>
+    <script>
+        function query(el){
+            return document.querySelector(el)
+        }
+        query("#form").addEventListener("submit",function(e){
+            let user=query("[name=user]").value.trim();
+            let copyRight=query("[name=copyRight]").checked;
+            if(!user||copyRight===false){
+                e.preventDefault();
+                alert("请正确输入用户名或版权")
+            }
+        })
+    </script>
+</body>
+</html>

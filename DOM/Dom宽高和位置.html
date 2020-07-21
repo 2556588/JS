@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{padding:0;margin:0;}
+             /* div{
+                width:100px;
+                height: 100px;
+                border:2px solid #ccc;
+                padding: 5px;
+                margin:10px;
+                overflow:hsidden;
+                overflow:scroll;
+                position: absolute;
+                background-color: #ccc;
+            } */
+            /*p{
+                width:500px;
+                height: 500px;
+            } */
+            #div0{
+                width: 100px;
+                height: 100px;
+                background-color: #ccc;
+                position: relative;
+                top:20px;
+                left:20px;
+                  margin-top:25px;
+                margin-left:25px;
+            } 
+            #div1{
+                width:50px;
+                height: 50px;
+                position: absolute;
+                top:25px;
+                left:25px;
+                margin-top:25px;
+                margin-left:25px;
+                background-color: #f15336;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p></p>
+        </div>
+        <div id="div0">
+            <div id="div1"></div>
+        </div>
+        <script>
+            // var div=document.querySelector("div")
+            // console.log(div.clientWidth,div.clientHeight);  //边框以内的宽高值
+            // console.log(div.offsetWidth,div.offsetHeight);  //边框及以内的宽高值
+            // console.log(div.scrollWidth,div.scrollHeight);  //边框以内的内容值，scrollWidth只包含padding-left值，scrollHeight则包含上下的padding值
+            
+            // console.log(document.documentElement);  //html标签
+            // console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);  //当前页面的文档高度
+            
+
+            //div随机位置
+            // document.addEventListener("click",clickHander);
+            // function clickHander() {
+            //     div.style.left=Math.random()*(document.documentElement.clientWidth-div.offsetWidth)+"px";
+            //     div.style.top=Math.random()*(document.documentElement.clientHeight-div.offsetHeight)+"px";
+            // }
+
+            // //去除滚动条
+            // div.style.overflow="hidden";
+
+
+            // console.log(div.clientLeft,div.clientTop);      //左边线，上边线
+            // console.log(div.offsetLeft,div.offsetTop);      //若无定位，则为margin-left和margin-top 到页面左上角的距离
+            // console.log(div.scrollLeft,div.scrollTop);
+            
+            // var div1=document.getElementById("div1");
+            // console.log(div1.offsetLeft,div1.offsetTop);       //若父级和子级都用定位，则offset的left和top值为到父级的左上角的距离
+                                                            //若父级没有用定位,则子元素的offset值为文档到子元素的距离
+            
+            
+            //利用offset是div移动
+            var bool=false;
+            var speed=1;
+           var div0=document.getElementById("div0");
+           div0.addEventListener("click",clickHander);
+           setInterval(fn,100)
+           function clickHander(params) {
+               bool=!bool;
+           }
+           function fn( ) {
+               if (!bool) return;
+               div0.style.left=div0.offsetLeft+speed+"px"
+           }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="div0"></div>
+        <!-- <input type="button" value="closeTimerId" id="btn"> -->
+        <script>
+            // var str="abcde"
+            // console.log(str[1]===str.charAt(1));
+            // console.log(str.charCodeAt(1));         //转换为unicode编码
+        //    console.log(String.fromCharCode(89));                         ////将一个unicode转换为字符
+            
+
+
+            //字符串倒序
+            // function fn(str) {
+            //     var str1="";
+            //     for(var i=str.length-1;i>=0;i--){
+            //         str1+=str[i];
+            //     }
+            //     return str1;
+            // }
+            // console.log(fn("abcde"));
+            
+
+            //查找某个字符串出现的次数
+            // var str="anksamaamsa"
+            // var index=-1;
+            // var num=0
+            // while(str.indexOf("a",index+1)>-1){
+            //     index=str.indexOf("a",index+1);
+            //     num++;
+            // }
+            // console.log(num);
+
+            // var data=[
+            //         {id:1021,name:"餐饮0",num:1,price:"1032"},
+            //         {id:1023,name:"餐饮1",num:1,price:"100"},
+            //         {id:1022,name:"餐饮2",num:1,price:"103"},
+            //         {id:1025,name:"餐饮0",num:1,price:"142"},
+            //         {id:1028,name:"what are",num:1,price:"107"},
+            //         {id:1026,name:"what you",num:1,price:"187"}
+            //     ]
+
+            //模糊查找
+            // var arr=data.filter(function (p) {
+            //     return p.name.indexOf("0")>-1
+            // })
+            // console.log(arr);
+            
+            //选最后一个是"0"
+            // var arr=data.filter(function (s) {
+            //     return s.name.indexOf("0")===s.name.length-1
+            // })
+            // console.log(arr);
+            
+            //去除多的逗号
+            // function fn() {
+            //     var color="rgb(";
+            //     for(var i=0;i<3;i++){
+            //         color+=Math.floor(Math.random()*255)+",";
+            //     }
+            //     color=color.slice(0,-1);
+            //     color+=")";
+            //     console.log(color);
+                
+            // }
+            // fn();
+            
+            // console.log(str.substr(2,4));
+            // console.log(str.substring(3,-1));
+            
+            //转换成数组
+        //     var arr=str.split("");
+        //     console.log(arr);
+            
+        //     字符串倒序--
+        //     var str=str.split("").reverse().join("");
+        //     console.log(str);
+            
+        //    var url="http://www.144.com/index.html?ad=24&name=son&passwd=13243";
+        //    var index=url.indexOf("?");  //先查找
+        //    var str=url.slice(index+1);  //从后一位开始截取
+        //    console.log(str);
+
+           //设置分隔符为？在后添加下标为0则向前截取，1则向后截取
+        //    console.log(url.split("?")[0]);
+        //    console.log(url.split("?")[1]);
+           
+     
+      
+            //将str转换为obj
+            // function fn(url) {
+            //     var obj={};                             //定义空的obj
+            //     var str=url.split("?")[1];              //拆分？后面的数据
+            //     var arr=str.split("&");                 //拆分&
+            //     for(var i=0;i<arr.length;i++){          
+            //         var str1=arr[i];                    
+            //         var arr1=str1.split("=");
+            //         obj[arr1[0]]=arr1[1];
+            //     }
+            //     return obj;
+            // }
+
+            // function fn(url) {      //缩写
+            //     var obj={};           
+            //     var arr=url.split("?")[1].split("&");               
+            //     for(var i=0;i<arr.length;i++){                      
+            //         var arr1=arr[i].split("=");
+            //         obj[arr1[0]]=arr1[1];
+            //     }
+            //     return obj;
+            // }
+            // console.log(fn(url));
+            
+            
+            
+            //通过截取数据以number，或对多个数据以数组的形式返回
+        //    var url="http://www.144.com/index.html?ad=24&name=son&passwd=13243&syy=bk,nk";
+
+        //    function fn(url) {
+        //        url=url.split("?")[1];
+        //        if(!url)return;              //若没有则返回
+        //        var arr=url.split("&");
+        //        var obj={};
+        //        for(var i=0;i<arr.length;i++){
+        //            if(!arr[i])continue;     //判断arr[i]是否存在，不存在则跳出
+        //            var arr1=arr[i].split("=");  //截取数据
+        //         //    if(!arr1[1])continue;        //若arr1[1]为空值时跳出
+        //            var arr2=[];
+        //            if(!isNaN(Number(arr1[1]))){     //判断arr[1]是否为number类型若为number则赋值给自己
+        //                arr1[1]=Number(arr1[1]);
+                        
+                        
+        //            }else{                           
+        //                arr2=arr1[1].split(",");      //截取arr[1]的数据给数组arr2
+                       
+        //            }
+        //            if(arr2.length>1){               //判断数组的长度是否大于一若大于一则返回给obj[0]
+        //                obj[arr1[0]]=arr2;
+        //                continue;
+        //            }
+        //            obj[arr1[0]]=arr1[1];            
+        //        }
+        //        return obj
+        //    }
+        //    console.log( fn(url));
+           
+            
+
+            //     //倒计时
+            var time=location.search.split("time=")[1]      //获取地址栏的数据
+            // var now =new Date();
+            var target=new Date();
+            target.setMinutes(target.getMinutes()+Number(time));
+            // console.log(target);
+            // console.log(target-time);
+            var div=document.getElementById("div0")
+       
+            setInterval(fn,1000);
+
+            function fn(){
+                var now =new Date();
+                
+                var ms=target-now;
+                var hour=parseInt(ms/1000/3600);
+                var minute=parseInt((ms-hour*3600*1000)/60/1000);
+                var second=Math.round(((ms-hour*3600*1000-minute*60*1000)/1000))
+                div.innerHTML=hour+":"+minute+":"+second
+               
+            }
+            
+
+           //在设置的时间之前（3s内）点击可以取消定时器
+            // var btn = document.getElementById("btn");
+            //     var timerId = setTimeout(function () {
+            //         alert("23333");
+            //     }, 3000);
+            //     btn.onclick = function () {     
+            //         clearTimeout(timerId);
+            //     }
+           
+        </script>
+    </body>
+</html>

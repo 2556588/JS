@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>post数据请求</title>
+</head>
+<body>
+
+    
+</body>
+<script>
+    var obj={
+        a:10,b:20
+    }
+    var xhr=new XMLHttpRequest();
+    xhr.open("post","http://49.235.117.27:9092/json");
+    xhr.setRequestHeader("content-type","application/json; charset=utf-8");//post数据请求方式有带请求头
+    xhr.send(JSON.stringify(obj));  //post请求方式与get发送的数据不同，post请求也可以用get的发送数据方式，get则不可以用post的数据方式
+    xhr.onreadystatechange=function(){
+        if (xhr.readyState===4&&xhr.status===200) {
+            console.log(xhr.responseText);
+            console.log(xhr);
+            
+            
+        }
+    }
+
+   
+</script>
+</html>

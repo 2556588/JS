@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>event loop事件循环机制</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <button>按钮</button>
+        <script>
+            // var sum=0
+            // var btn=document.querySelector("button");
+            // btn.addEventListener("click",clickHander);
+            // function clickHander(params) {
+            //     sum++;
+            //     fn(sum)
+            // }
+            // function fn(sum) {
+            //     console.log(sum+"第一次");
+            //     fn1(sum)
+            // }
+            // function fn1(sum) {
+            //     console.log(sum+"第二次");
+            //     fn2(sum);
+            // }
+            // function fn2(sum) {
+            //     console.log(sum+"第三次");
+                
+            // }
+               
+                //先执行宏任务遇到同步立即执行(所有的宏任务和同步都执行完后，如果发现微任务则执行微任务)后执行异步
+                setTimeout(function () {
+                    new Promise(function (res,rej) {
+                        console.log("1");   //同步执行
+                        res();
+
+                    }).then(function ( ) {  //异步执行，
+                        console.log("2");   
+                        
+                    },function ( ) {
+                        
+                        
+                    })
+                    console.log(3); //同步执行
+                },0)
+                console.log("4");       //宏任务
+                
+                    
+                setTimeout(function (params) {
+                    console.log("1");       //异步
+                    
+                },0)
+                new Promise(function (res,rej) {
+                    console.log("2");   //同步
+                    res()
+                }).then(function () {   //微任务
+                    console.log("3");
+                    
+                })
+                console.log("4");   //宏任务
+                
+        </script>
+    </body>
+</html>

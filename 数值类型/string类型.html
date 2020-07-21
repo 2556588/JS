@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+            // 获取变量长度
+        // var str = "iahlaslcjalsjflashfl";
+        // alert(str.length)
+    //   字符串的拼接 +  字符串+数字也是拼接
+        var str = "I am ";
+        var str2 = "chinese";
+        alert(str+str2);
+    //    如果有数字和字符串 -  会进行计算（浏览器自动把字符串改为数字）
+    //     var str = "50";
+    //     var num = 20;
+    //     alert(str -num);
+
+
+    //字符串可以通过“变量[索引值]”获得这个位置的值，但不能设置这个位置的值
+    var obj="sbkb";
+    console.log(obj[1])
+    obj[0]="d";
+    console.log(obj[0]);
+    console.log(obj.length)  //字符串中的length值不可修改
+
+
+    //倒数字符串
+    function stringReverse(str){
+        str1=""
+        for(var i=str.length-1;i>=0;i--){
+            str1+=str[i];
+        }
+        return str1;
+    }
+    console.log(stringReverse("abcde"));
+    </script>
+</body>
+</html>

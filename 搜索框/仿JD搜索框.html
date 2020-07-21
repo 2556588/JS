@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button,input{
+            padding: 0px;
+            outline: none;
+            float: left;
+            border: 0;
+
+        }
+        div{
+            width: 258px;
+            height: 40px;
+            background-color: #ccc;
+            margin: 50px auto;
+        }
+        div input{
+            width: 210px;
+            height: 40px;
+            background: url("./images/left.jpg") no-repeat;
+            padding-left: 6px;
+            color: #ccc;
+        }
+        div button{
+            background: url("./images/right.jpg") no-repeat;
+            width: 42px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" value="请输入......" id="txt" style="color:#ccc"> 
+        <button></button>
+    </div>
+    <script>
+        var txt=document.getElementById("txt");
+        txt.onfocus=function(){
+            if (txt.value=='请输入......'&& this.style.color=='rgb(204, 204, 204)'|| this.style.color=='#ccc') {    //适应不同浏览器
+                txt.value='',
+                txt.style.color='#444'
+            }
+            
+        }
+        txt.onblur=function(){
+            if (this.value=='') {
+                this.value='请输入......';
+                this.style.color='#ccc'
+            }
+        }
+    </script>
+</body>
+</html>  

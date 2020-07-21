@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>keyboardEvent对象</title>
+        <style>
+        </style>
+    </head>
+    <body>
+    <script>
+        document.addEventListener("keydown",keyFunction)    //按下键
+        document.addEventListener("keyUp",keyFunction)  //释放键
+        function keyFunction(e) {
+            console.log(e);
+            /*
+            e.code  当前按下的键    key+键名
+            e.key   当前按下的键    键名
+            e.keyCode    键码值--唯一的
+            左上右下    37,38,39,40
+            
+            */
+        }
+    </script>
+    </body>
+</html>

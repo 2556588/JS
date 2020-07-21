@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            #rollImg{
+                width:520px;
+                height: 280px;
+                position: relative;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            .imgList img{
+                width:520px;
+                height: 280px;   
+            }
+            .imgList{
+                width:2080px;
+                height: 280px;
+                font-size:0;
+                position: absolute;
+                left:0;
+                top: 0;
+            }
+            #rollImg .imgList li{
+                float: left;
+            }
+            .circle{
+                list-style:none;
+                position: absolute;
+                bottom:3%;
+                left:50%;
+                transform: translate(-50%);
+            }
+            .circle li{
+                width:10px;
+                height: 10px;
+                border:1px solid #fff;
+                border-radius:5px;
+                float:left;
+                margin-right: 5px;
+            }
+            #leftBn,#rightBn{
+                position: absolute;
+                top:50%;
+                transform: translateY(-50%);
+                width: 25px;
+                height: 35px;
+                background-color: #555;
+                opacity: 0.3;
+                text-align: center;
+                line-height: 35px;
+                font-size: 20px;
+                display: none;
+            }
+            .aStyle{
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                color: #fff;
+            }
+            #leftBn{
+                left:0;
+                border-top-right-radius: 50%;
+                border-bottom-right-radius: 50%;
+                
+            }
+            #rightBn{
+                right:0;
+                border-top-left-radius: 50%;
+                border-bottom-left-radius: 50%;
+            
+            }
+            .current{
+                background-color: #fff;
+            }
+        </style>
+        <script src="./animation.js"></script>
+    </head>
+    <body>
+        <div id="rollImg">
+                <ul class="imgList">
+                    <li><img src="../../images/lunbotu/TB1tP_cjaL7gK0jSZFBXXXZZpXa-520-280.jpg_q90_.webp (1).jpg"></li>
+                    <li><img src="../../images/lunbotu/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg"></li>
+                    <li><img src="../../images/lunbotu/TB1wG9OiKT2gK0jSZFvXXXnFXXa-520-280.jpg_q90_.webp.jpg"></li>
+                </ul>   
+            <ol class="circle">
+              
+            </ol>
+            <div id="leftBn"  ><a href="javascript:;" class="aStyle"><</a></div>
+            <div id="rightBn" ><a href="javascript:;" class="aStyle">></a></div>
+        </div>
+
+        <script>
+            var leftBn=document.getElementById("leftBn");
+            var rightBn=document.getElementById("rightBn");
+            var rollImg=document.getElementById("rollImg");
+            rollImg.addEventListener("mouseenter",function (e) {
+                leftBn.style.display="block";
+                rightBn.style.display="block";
+                clearInterval(timer);   //清除定时器；
+                timer=null;
+            })
+            rollImg.addEventListener("mouseleave",function (e) {
+                leftBn.style.display="none";
+                rightBn.style.display="none";
+                timer=setInterval(() => {   //重新开启定时器 
+                    rightBn.click(); //手动调用点击事件
+                }, 2000);
+            
+            })
+            var ul=rollImg.querySelector("ul");
+            var ol=rollImg.querySelector("ol");
+            var rollImgWidth=rollImg.offsetWidth;
+            //动态生成小圆圈
+            for (let i = 0; i < ul.children.length; i++) {
+                var li=document.createElement("li");
+                li.setAttribute("data-index",i)
+                ol.appendChild(li);
+                //排他思想--想清楚所有的类名，再添加当前的类名
+                ol.children[i].onclick=function(){
+                    for (let i = 0; i < ol.children.length; i++) {
+                         ol.children[i].className=""
+                    }
+                    this.className="current"; 
+                    var index=this.getAttribute("data-index");
+                    //将下标给num
+                    num=index;
+                    //将下标给circle小圆圈
+                    circle=index;
+                    console.log(index);
+                    
+                    animation(ul,-index*rollImgWidth)
+                }
+            }
+            ol.children[0].className="current";
+            var first=ul.children[0].cloneNode(true);//复制图片添加到最后
+            ul.appendChild(first);
+            //左右按钮事件
+            var num=0;  
+            var circle=0;    //控制小圆圈
+
+            var flag=true;  //设置节流阀开关
+            leftBn.addEventListener("click",function(){
+                if(flag){
+                    flag=false;
+                    if(num==0){
+                        num=ul.children.length-1;
+                        ul.style.left=num*rollImgWidth+"px";
+                    }
+                    num--;
+                    animation(ul,-num*rollImgWidth,function () {
+                        flag=true; //完成时打开节流阀
+                    });
+                    circle--;
+                    if(circle<0){
+                        circle=ol.children.length-1;
+                    }
+                    //circle=circle<0?ol.children.length-1:circle
+                    circleChange();
+                }
+
+            })
+            rightBn.addEventListener("click",function(){
+                if(flag){
+                    flag=false;
+                    //无缝滚动 -先将第一张图片复制，添加到最后一张图片，然后判断
+                    if(num==ul.children.length-1){
+                       ul.style.left=0
+                        num=0
+                    }
+                    num++;
+                    animation(ul,-num*rollImgWidth,function ( ) {
+                        flag=true;  
+                    });
+                    circle++;
+                    if(circle==ol.children.length){ //判断 若为最后一张的克隆图片将circle重新赋值为0；
+                        circle=0
+                    }
+                    circleChange();
+                }
+
+            })
+            function circleChange() {
+                for (let i = 0; i < ol.children.length; i++) {
+                    ol.children[i].className="";
+                    
+                }
+                ol.children[circle].className="current"
+            }
+            var timer=setInterval(() => {
+                rightBn.click();  //手动调用点击事件
+            }, 2000);
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        			箭头函数
+定义： let 函数名=参数=>{代码块}	//参数可以有一个或两个（x,y）
+
+注：
+1.如果没有参数需要小括号
+2.如果有一个参数可以不用小括号
+3.如果有多个参数必须加小括号
+4.如果仅有一条语句，并返回内容，（ES5中return）可以不写return
+5.如果有多条语句，必须加｛｝将函数内容括起来，否则将会认为函数外语句，并且如果return 就需要增加return语句；
+6.箭头函数中this指向原代码块指向，不受其他执行影响
+        */
+
+        // let fn = (a, b) => a + b;
+        // console.log(fn(3, 6));
+        // let fn1 = (a, b) => { a *= a; b *= b; return a * b; }
+        // console.log(fn1(5, 8))
+
+        // document.addEventListener("click", e => {
+        //     console.log(this); //window
+
+        // })
+        // let obj = {
+        //     a: function () {
+        //         document.addEventListener("click", e => {
+        //             console.log(this);
+
+        //         })
+        //     }
+        // }
+        // obj.a();
+
+        //利用箭头函数排序
+        // let arr = [1, 23, 3, 45, 7, 9, 8]
+        // arr.sort((a, b) => a - b)
+        // console.log(arr);
+
+
+        //箭头函数没有自己的this关键字，若在箭头函数使用this，this指向的是箭头函数定义的位置；
+        // var age = 10;
+        var obj = {
+            age: 20,
+            say: () => {
+                console.log(this.age);
+                //obj没有作用域，相当于say()是在全局作用域定义的所以返回undefined
+            }
+        }
+        obj.say()
+    </script>
+</body>
+
+</html>

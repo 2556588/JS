@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./Utils.js"></script>
+</head>
+<body>
+    <script>
+        // 鼠标的位置是更新位置，不是跟随div的位置
+        let point={};
+        let pointList=[];
+        let divs=[];
+        let time=4;
+        init();
+        function init() {
+             for (let i = 0; i < 5; i++) {
+                let div=Utils.createDom("div",document.body,{
+                width:"50px",
+                height:"50px",
+                backgroundColor:"red",
+                position:"absolute"
+            });
+                 divs.push(div);
+             }
+            document.addEventListener("mousemove",mouseHander);
+            animation();
+        }
+        function mouseHander(e) {
+            point.x=e.x;
+            point.y=e.y;
+        }
+        function animation() {
+            requestAnimationFrame(animation);
+            // div.style.left=point.x+"px";
+            // div.style.top=point.y+"px";
+            for (let i = 0; i < pointList.length; i++) {
+                divs[i].style.left=pointList[i].x+"px";
+                divs[i].style.top=pointList[i].y+"px";
+                
+            }
+            time--;
+            if (time>0) return ;
+            time=4;
+            pointList.push({x:point.x,y:point.y});
+            if (pointList.length>5) pointList.shift();  // 将数组长度保持在5，删除最前面的元素
+            console.log(pointList);
+            
+            
+
+        }
+    </script>
+</body>
+</html>

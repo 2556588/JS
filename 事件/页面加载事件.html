@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面加载事件 window.onload</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        //等页面加载完再执行window.onload（不用考虑dom元素的加载顺序 ）
+        window.onload=function(){
+            var demo=document.getElementById("demo");
+            demo.style.backgroundColor='red'
+        }
+    </script>
+</head>
+<body>
+    <div id="demo"></div>
+    
+</body>
+</html> 

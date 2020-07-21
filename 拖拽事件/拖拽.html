@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>div的拖拽</title>
+        <style>
+            div{
+                width:50px;
+                height: 50px;
+                background-color: #ccc;
+                position: absolute;
+            }
+        </style>
+        <script src="./js/utils.js"></script>
+    </head>
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>
+            //num1: 仅限一个div移动
+            // var div=document.querySelector("div");
+           
+            //     div.onmousedown=function(evt){      //鼠标按下事件
+            //         var x=evt.offsetX;
+            //         var y=evt.offsetY;
+            //         document.onmousemove=function(e){   //鼠标移动事件
+            //             div.style.left=e.clientX-x+"px";
+            //             div.style.top=e.clientY-y+"px"
+            //         }
+            //     }
+            //     div.onmouseup=function(){           //鼠标抬起事件
+            //         document.onmousemove=null;       /取消鼠标移动事件
+            //     }
+            
+
+              
+
+
+              //num2:只针对div的移动
+            //   var div=document.querySelector("div");
+            //   div.addEventListener("mousedown",downfunction);
+            //   function downfunction(e) {
+            //       document.addEventListener("mousemove",moveFuntion)
+            //       document.x=e.offsetX;     //给dom添加属性
+            //       document.y=e.offsetY;     //给dom添加属性 
+            //       this.addEventListener("mouseup",upFunction);  //当前侦听的对象
+                  
+                  
+            //   }
+            //   function moveFuntion(e) {         //鼠标移动事件
+            //       div.style.left=e.clientX-this.x+"px"   
+            //       div.style.top=e.clientY-this.y+"px"
+                  
+                  
+            //   }
+            //   function upFunction(params) {     //鼠标抬起事件
+            //       document.removeEventListener("mousemove",moveFuntion) //删除侦听事件
+            //   }
+
+
+                //实现多个div移动
+            //  var divs=document.querySelectorAll("div");
+            // for (let i = 0; i < divs.length; i++) {
+            //    divs[i].addEventListener("mousedown",downFunction)
+                
+            // }
+            //  function downFunction(e) {
+            //      e.preventDefault();        //阻止系统默认事件
+            //      document.addEventListener("mousemove",moveFunction);
+            //     document.x=e.offsetX;
+            //     document.y=e.offsetY;
+            //     document.elem=this;     //此时的this表示函数外的侦听的div
+            //     this.addEventListener("mouseup",upFunction);
+
+            //  }
+            //  function moveFunction(e) {
+            //      this.elem.style.left=e.clientX-this.x+"px";     //这个this.elem和this表示document
+            //      this.elem.style.top=e.clientY-this.y+"px";      //这个this.elem和this表示document
+            //  }
+            //  function upFunction(e) {
+            //      document.removeEventListener("mousemove",moveFunction);     //删除侦听事件
+            //  }
+
+            
+
+            // var divs=document.querySelectorAll("div");
+            // for(var i=0;i<divs.length;i++){
+            //     drag(divs[i])
+            // }
+            // removeDrag(divs[0])     //使第几个div不能移动
+            // function drag(elem) {
+            //     elem.addEventListener("mousedown",mouseHander);
+            // }
+            // function removeDrag(elem) {
+            //     elem.removeEventListener("mousedown",mouseHander)
+            // }
+            // function mouseHander(e) {
+            //     switch (e.type) {           //e.type判断事件类型
+            //         case "mousedown":
+            //             e.preventDefault();
+            //             document.addEventListener("mousemove",mouseHander);
+            //             this.addEventListener("mouseup",mouseHander);
+            //             this.x=e.offsetX;
+            //             this.y=e.offsetY;
+            //             document.elem=this;
+            //             break;
+                
+            //         case "mousemove":
+            //             this.elem.style.left=e.clientX-this.elem.x+"px";       //此处this.elem为div
+            //             this.elem.style.top=e.clientY-this.elem.y+"px";
+            //             break;
+            //         case "mouseup":
+            //             document.removeEventListener("mousemove",mouseHander);
+            //             this.removeEventListener("mouseup",mouseHander);
+            //             break;
+            //     }
+            // }
+
+                var divs=document.querySelectorAll("div");
+                for (var  i = 0; i < divs.length; i++) {
+                utils.dragElem(divs[i])
+                    
+                }
+
+                var img=new Image();
+                img.src="../images/no_login.jpg"
+                document.body.appendChild(img);
+                utils.dragElem(img)
+           
+        </script>
+    </body>
+</html>

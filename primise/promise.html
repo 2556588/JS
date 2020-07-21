@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>链式加载</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        // Promise 是异步编程的一种解决方案，其实是一个构造函数,解决异步回调地狱       
+        // 先执行同步（）--->微任务异步（then）--->宏任务异步（setTimeout）
+        // promise的then以下是异步操作（promise上面是同步操作）；
+        // promise的成功resolve();和失败reject();都只调用一次，多于的调用没有返回值
+        // 注：所有的事件都不能返回 return；
+        /**
+         *  promise中的方法:
+         * 实例方法：
+         *      .then();    //获取异步正确结果
+         *      .catch();   //获取异常信息
+         *      .finally(); //成功或者失败都会执行
+         * 对象方法：
+         * Promise.all();   //并发处理多个异步任务，所有任务都执行完才能得到结果（返回多个结果）。---在括号内传[p1,p2,p3]
+         * Promise.race();  //并发处理多个异步任务，只要有一个任务完成就能得到结果（返回最快的任务的结果）。---在括号内传[p1,p2,p3]
+        */
+
+
+        //案例
+        const first = () => (new Promise((resolve, reject) => {
+            console.log(3);
+            let p = new Promise((resolve, reject) => {
+                console.log(7);
+                setTimeout(() => {
+                    console.log(5);
+                    resolve(6)
+
+                }, 0);
+                resolve(1)
+            });
+            resolve(2);
+            p.then((arg) => {
+                console.log(arg);
+
+            })
+        }));
+        first().then((arg) => {
+            console.log(arg);
+
+        })
+        console.log(4);
+
+
+
+
+
+
+
+        // var promise=new Promise(function (resolve,reject) {     //异步操作
+        //     var img=new Image();
+        //     img.src="../images/no_login.jpg";
+        //     img.onload=function(){
+        //         resolve(this)
+        //     }
+        //     img.onerror=function(){
+        //         reject("加载失败")
+        //     }   
+        // })
+        // promise.then(function(data){  //使用then链式调用方法
+        //     console.log(data);           //加载成功是调用resolve
+
+        // },function(error){               //加载失败是调用error
+        //     console.log(error);
+
+        // })
+
+
+        // function loadImg(src) {
+
+        //     return new Promise(function(resolve,reject){
+        //         var img=new Image();
+        //         img.onload=function(){
+        //             resolve(this);
+        //         }
+        //         img.error=function(){
+        //             reject("加载失败")
+        //         }
+        //          img.src=src;
+        //     });
+
+
+        // }
+        // var arr=[];
+        // loadImg("../images/yujiazai/01.gif").then(function(data){
+        //   arr.push(data);      //添加加载完成的函数
+        //   return loadImg("../images/yujiazai/02.gif") //再次执行promise      
+
+        // },function (error) {
+        //     console.log(error);
+
+        // }).then(function (data) {
+        //     arr.push(data);     //添加加载完成的函数
+        //     console.log(arr);
+
+        // },function (error) {
+        //     console.log(error);
+
+        // })
+
+
+        // function loadImg(src) {
+        //     return new Promise(function (resolve, reject) {
+        //         var img = new Image();
+
+        //         img.onload = function () {
+        //             resolve(this)
+        //         }
+        //         img.onerror = function () {
+        //             reject("加载失误")
+        //         }
+        //         img.src = src;
+        //     })
+
+        // }
+        // var arr = [];
+        // loadImg("../images/yujiazai/02.gif").then(function (data) {
+        //     arr.push(data);
+        //     return loadImg("../images/yujiazai/03.gif")
+
+        // }, function (error) {
+        //     console.log(error);
+
+        // }).then(function (data) {
+        //     arr.push(data);
+        //     console.log(arr);
+
+        // }, function (error) {
+        //     console.log(error);
+
+        // })
+    </script>
+</body>
+
+</html>

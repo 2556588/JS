@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn500">btn500</button>
+    <button class="btn800">btn800</button>
+    <div></div>
+</body>
+<script>
+    //obj目标对象，target目标位置
+    function animation(obj,target,callBack) {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(() => {
+            if(obj.offsetLeft==target){
+                clearInterval(obj.timer);
+                if(callBack){   //在定时器结束后在调用
+                    callBack();//调用回调函数
+                }
+            }
+            speed=(target-obj.offsetLeft)/10; 
+            speed=speed>0?Math.ceil(speed):Math.floor(speed);   
+            obj.style.left=obj.offsetLeft+speed+"px"
+        }, 15);
+    }
+    var div=document.querySelector("div");
+    // animation(div,500)
+    var btn500=document.querySelector(".btn500");
+    var btn800=document.querySelector(".btn800");
+    btn500.onclick=function(){
+        animation(div,500);
+    }
+    btn800.onclick=function(){
+        animation(div,800,function (e) {
+            div.style.backgroundColor="#f10215"
+        });
+    }
+</script>
+</html>

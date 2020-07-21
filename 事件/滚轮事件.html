@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+<body>
+    <script>
+        //滚轮事件---》鼠标上的滚轮和键盘上
+        // 火狐         DOMMouseCroll；
+        //detail:-3     滚轮向上-3，向下3
+
+        // ie和谷歌     mousewheel
+        // deltaX: -0
+        // deltaY: -100      //纵向向上为-100，向下为100；
+        // deltaZ: 0
+        // detail: 0
+        // wheelDelta: 120  
+        // wheelDeltaX: 0
+        // wheelDeltaY: 120        纵向向上120 向下-120
+        document.addEventListener("DOMMouseScroll",mouseHander);
+        document.addEventListener("mousewheel",mouseHander);
+        function mouseHander(e) {
+            console.log(e);
+            
+        }
+    </script>
+</body>
+</html>

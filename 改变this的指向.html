@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        //1.利用call()改变this指向
+        //call(this指向,参数1，参数2)
+        // var obj = {
+        //     name: "sad"
+        // }
+        // function Fn(username, age) {
+        //     this.username = username;
+        //     this.age = age;
+
+        // }
+        // function Sn(username, age) {
+        //     Fn.call(this, username, age)
+
+        // }
+        // var son = new Sn("刘德华", 18)
+
+        //2.apply(this指向，[参数]);参数必须为数组 
+        // var obj = {
+        //     name: "sad"
+        // }
+        // function fn() {
+        //     console.log(this);
+
+        // }
+        // fn.apply(obj)
+        // 3.bind(this指向，参数);产生新的函数(不需要立即执行的)
+        // var obj = {
+        //     name: "sad"
+        // }
+        // function fn() {
+        //     console.log(this);
+
+        // }
+        // var f = fn.bind(obj);
+        // f();
+
+        var btn = document.querySelector("button");
+        btn.onclick = function () {
+            this.disabled = true;
+            setTimeout(function () {
+                this.disabled = false;
+                console.log(this);
+
+            }.bind(this), 3000);
+        }
+    </script>
+</body>
+
+</html>

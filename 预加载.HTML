@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./js/utils.js"></script>
+    </head>
+    <body>
+        <script>
+
+            //图片不按照循序加载，先加载小的图片
+            // var arr=[];
+            // for(var i=1;i<9;i++){
+            //     var img=new Image();
+            //     img.src="../images/yujiazai/0"+i+".gif";
+            //     img.addEventListener("load",loadHander)
+            // }
+            // function loadHander(params) {
+            //     arr.push(this);
+            //     if(arr.length===8){
+            //         for(var i=0;i<arr.length;i++){
+            //             console.log(arr[i].src);
+                        
+            //         }
+            //     }
+            // }
+
+
+            //循序加载
+            var arr=[];
+            var img=new Image();
+            var num=1;
+            img.src="../images/yujiazai/0"+num+".gif";
+            img.addEventListener("load",loadHander);
+           
+            function loadHander(params) {
+                arr.push(this);
+               removeEventListener("load",loadHander);      //删除上一次监听事件防止通道拥堵
+                if(num>7){
+                   for(var i=0;i<arr.length;i++){
+                       console.log(arr[i].src);     //打印图片地址
+                       
+                   }
+                   
+                    return
+                }
+                num++;
+                var imgs=new Image();    //创建新图片，加载图片，重新进入事件函数中
+                imgs.addEventListener("load",loadHander);        
+                imgs.src="../images/yujiazai/0"+num+".gif";
+            }
+
+
+            
+            // var arr=[];
+            // for(var i=1;i<9;i++){
+            //     arr.push("../images/yujiazai/0"+i+".gif");
+            // }
+            // getImage(arr,callBackFun);
+            // function getImage(arr,callback) {
+            //     var img=new Image();
+            //     img.arr=arr;    //新建属性arr要加载的数组
+            //     img.callback=callback;      //回调函数
+            //     img.imgList=[];         //保存加载好的元素
+            //     img.num=0;
+            //     img.addEventListener("load",loadHander);
+            //     img.src=arr[img.num]        //图片要加载的数组
+            // }
+            // function loadHander( ) {
+            //     this.imgList.push(this.cloneNode(false));   //复制节点
+            //     this.num++;
+            //     if(this.num>arr.length-1){  //判断是否大于数组length；
+            //         callBackFun(this.imgList);    //执行回调传出当前的imglist
+            //         this.removeEventListener("load",loadHander); //删除前一个监听事件
+            //         return ;
+            //     }
+            //     this.src=this.arr[this.num];
+
+            // }
+            // function callBackFun(arr) {
+            //     for(var i=0;i<arr.length;i++){
+            //         console.log(arr[i].src);        //返回数组中的src
+                    
+            //     }
+            // }
+
+
+
+
+
+            //调用封装函数
+            //   var arr=[];
+            // for(var i=1;i<9;i++){
+            //     arr.push("../images/yujiazai/0"+i+".gif");
+            // }
+
+            // // console.log(arr);
+            
+            // utils.loadImg(arr,callBackFun);
+
+            //  function callBackFun(arr) {
+            //     for(var i=0;i<arr.length;i++){
+            //         console.log(arr[i].src);        //返回数组中的src
+                    
+            //     }
+            // }
+
+        </script>
+    </body>
+</html>

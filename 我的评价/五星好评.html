@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            margin-top: 50px;
+
+        }
+        label{
+            float: left;
+            margin-right: 10px;
+
+        }
+        .star{
+            display: block;
+            float: left;
+            width: 16px;
+            height: 16px;
+            background: url('images/commstar.png') no-repeat 0 0;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+        .face{  
+            display: none;
+            width: 16px;
+            height: 16px;
+            background: url('./images/face-red.png') 0 0;
+            margin-top: -16px;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label>五星评论</label>  
+            <span class="star"><apan class="face"></apan></span>
+            <span class="star"><apan class="face"></apan></span>
+            <span class="star"><apan class="face"></apan></span>
+            <span class="star"><apan class="face"></apan></span>
+            <span class="star"><apan class="face"></apan></span>
+            
+        
+    </div>
+    <script>
+      var div,spanList;
+      var bool=false;
+      init();
+      function init() {
+          div=document.querySelector("div");
+          spanList=Array.prototype.slice.call(document.querySelectorAll("div>span"));   //转换为数组也可用array.from
+          div.addEventListener("mouseover",mouseHandler);
+          div.addEventListener("mouseout",mouseHandler);
+          div.addEventListener("mouseleave",mouseLeaveHandler);
+          div.addEventListener("click",clkickHandler);
+          
+      }
+      function clkickHandler(e) {
+          bool=true;
+      }
+      function mouseLeaveHandler(e) {
+          if(bool){
+              return ;
+          }
+          setStarRed(0,false)
+      }
+      function mouseHandler(e) {
+          if (e.target.constructor!==HTMLSpanElement) {
+              return ;
+          }
+          var index=spanList.indexOf(e.target);
+          if (e.type==='mouseover') {
+            bool=false;
+            setStarRed(index,true);
+            e.target.firstElementChild.style.display="block";
+            e.target.firstElementChild.style.backgroundPositionX=-(4-index)*20+"px"
+          }else if(e.type==='mouseout'){
+              e.target.firstElementChild.style.display='none'
+          }
+      }
+
+      function setStarRed(index,bool) {
+          
+            for (let i = 0; i <spanList.length; i++) {
+                if (i<=index && bool) {
+                    spanList[i].style.backgroundPositionY="-16px";
+                    continue;
+                }
+                spanList[i].style.backgroundPositionY="0px";
+
+                
+            }
+      }
+    </script>
+</body>
+</html>

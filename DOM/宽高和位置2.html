@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+             #div0{
+                width: 100px;
+                height: 100px;
+                background-color: #ccc;
+                position: relative;
+                top:20px;
+                left:20px;
+                  /* margin-top:25px;
+                margin-left:25px; */
+            } 
+            #div1{
+                width:50px;
+                height: 50px;
+                position: absolute;
+                top:25px;
+                left:25px;
+                /* margin-top:25px;
+                margin-left:25px; */
+                background-color: #f15336;
+            }
+        </style>
+    </head>
+    <body>
+            <div id="div0">
+                    <div id="div1"></div>
+                </div>
+        <script>
+            // getBoundingClientRect()
+
+            //这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。
+            // 分别表示元素各边与页面上边和左边的距离
+            var div1=document.querySelector("#div1")
+            var range=div1.getBoundingClientRect();             //获取元素的位置
+            console.log(range);
+            
+        //    left= x元素到最左边的距离
+        //    top= y元素到最上面的距离
+        //     right 最右边边线到最左边的距离
+        //     bottom 最下面边线到最上面的距离
+        //     width，height:元素的宽高值含border，padding
+
+      
+            
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .codes{
+            width: 110px;
+            height: 130px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .closes{
+            width: 12px;
+            height: 12px;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 0;
+            left: -14px;
+            font-size: 13px;
+            text-align: center;
+            color: #ccc;
+            line-height: 12px;
+            display: block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="code" class="codes">
+        <img src="./images/taobao.jpg" alt="">
+        <span id="close" class="closes">x</span>
+    </div>
+    <script>
+        window.onload=function(){
+            var code=document.getElementById("code");
+            var close=document.getElementById("close");
+            // console.log(close.parentNode.id);    //获取父级节点的id
+            close.onclick=function(){
+                // code.style.display='none' 
+                this.parentNode.style.display='none'    //或者直接关闭父节点
+            }
+        }
+    </script>
+</body>
+</html>
